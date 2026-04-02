@@ -23,13 +23,21 @@ export function SectionHeading({
         className
       )}
     >
-      <span className="section-kicker">{eyebrow}</span>
-      <h2 className="text-3xl font-semibold leading-tight text-white md:text-4xl">
-        {title}
-      </h2>
-      <p className="text-base leading-7 text-slate-300 md:text-lg">
-        {description}
-      </p>
+      <div className="flex w-full items-center gap-3">
+        <span className="section-kicker">{eyebrow}</span>
+        <span className="hud-line" />
+      </div>
+      <div
+        className={cn(
+          "space-y-4 border-l border-white/10 pl-4",
+          align === "center" ? "border-l-0 pl-0" : ""
+        )}
+      >
+        <h2 className="text-3xl font-semibold leading-tight text-white md:text-4xl">
+          {title}
+        </h2>
+        <p className="text-base leading-7 text-slate-300 md:text-lg">{description}</p>
+      </div>
     </div>
   );
 }

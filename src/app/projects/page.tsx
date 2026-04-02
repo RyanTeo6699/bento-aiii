@@ -5,7 +5,7 @@ import { Reveal } from "@/components/motion/reveal";
 import { PageHero } from "@/components/page-hero";
 import { ProjectCard } from "@/components/project-card";
 import { SectionHeading } from "@/components/section-heading";
-import { projects } from "@/lib/site-data";
+import { companyProfile, projects } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -14,16 +14,16 @@ export const metadata: Metadata = {
 
 const stageSummary = [
   {
-    label: "Live and expansion",
-    value: `${projects.filter((project) => project.stage === "Live" || project.stage === "Expansion").length} active tracks`
+    label: "Prototype",
+    value: `${projects.filter((project) => project.status === "Prototype").length} tracks`
   },
   {
-    label: "Pilot and build",
-    value: `${projects.filter((project) => project.stage === "Pilot" || project.stage === "Build").length} structured pilots`
+    label: "Internal",
+    value: `${projects.filter((project) => project.status === "Internal").length} tracks`
   },
   {
-    label: "Platform and discovery",
-    value: `${projects.filter((project) => project.stage === "Active Development" || project.stage === "Discovery").length} internal directions`
+    label: "Concept",
+    value: `${projects.filter((project) => project.status === "Concept").length} tracks`
   }
 ];
 
@@ -32,12 +32,12 @@ export default function ProjectsPage() {
     <>
       <PageHero
         eyebrow="Projects"
-        title="Projects across knowledge, operations, QA, and internal tooling."
-        description="Each project card is structured as a product or system direction with a clear stage, short summary, technology signal, and detail page."
+        title="Current tracks across external work, internal builds, and concept studies."
+        description="This page shows project directions and system tracks, not inflated public case studies. Some work remains internal, early-stage, or private."
         metrics={[
-          { label: "Projects", value: `${projects.length} total concepts and systems` },
-          { label: "Featured", value: `${projects.filter((project) => project.featured).length} highlighted tracks` },
-          { label: "Coverage", value: "Product, system, and workflow layers" }
+          { label: "Tracks", value: `${projects.length} published directions` },
+          { label: "Status model", value: "Prototype / Internal / Concept" },
+          { label: "Disclosure", value: "Public detail stays intentionally limited" }
         ]}
       />
 
@@ -47,8 +47,15 @@ export default function ProjectsPage() {
             <SectionHeading
               eyebrow="Portfolio view"
               title="A compact view of current Bento AIII project directions."
-              description="The list spans live work, platform development, and concept-stage systems that illustrate the kind of problems Bento AIII is built to solve."
+              description="The list spans applied tracks, internal capability work, and concept studies that illustrate the problems Bento AIII is set up to handle."
             />
+          </Reveal>
+
+          <Reveal delay={0.05} className="mt-8 surface pixel-corner p-6">
+            <p className="section-kicker text-[0.58rem]">Read this page as intended</p>
+            <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-300">
+              {companyProfile.disclosure}
+            </p>
           </Reveal>
 
           <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -80,25 +87,25 @@ export default function ProjectsPage() {
         <div className="shell">
           <Reveal>
             <SectionHeading
-              eyebrow="How projects ship"
-              title="Bento AIII usually works across three layers."
-              description="The project structure stays consistent even when the product category changes."
+              eyebrow="How to read the tracks"
+              title="The page mixes external, internal, and concept work on purpose."
+              description="That split makes the portfolio more honest and easier to evaluate."
             />
           </Reveal>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {[
               {
-                title: "Product surface",
-                copy: "Design the interface, information hierarchy, and operator flow around the actual job to be done."
+                title: "External tracks",
+                copy: "Applied directions for customer-facing or partner-facing work where the workflow and outcomes matter more than a flashy demo."
               },
               {
-                title: "System layer",
-                copy: "Build the retrieval, orchestration, evaluation, and integration logic that supports the feature."
+                title: "Internal builds",
+                copy: "Reusable operating layers and tooling Bento AIII uses to make future product work more structured and maintainable."
               },
               {
-                title: "Operational rollout",
-                copy: "Add review paths, ownership, and staged release strategy so the system can survive production use."
+                title: "Concept studies",
+                copy: "Exploratory directions that are intentionally marked as concept-only until scope and operating fit are better proven."
               }
             ].map((item, index) => (
               <Reveal
@@ -116,7 +123,7 @@ export default function ProjectsPage() {
 
       <FinalCta
         eyebrow="Contact"
-        title="If one of these project patterns matches your workflow, start there."
+        title="If one of these tracks matches your workflow, start there."
         description="Bento AIII can take a concept, a rough internal tool, or a broken workflow and shape it into a more reliable product direction."
         primaryLabel="Discuss a project"
         primaryHref="/contact"

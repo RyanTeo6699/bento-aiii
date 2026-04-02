@@ -1,33 +1,33 @@
-import type { TeamMember } from "@/lib/site-data";
+import type { CoreRole } from "@/lib/site-data";
 
 type TeamCardProps = {
-  member: TeamMember;
+  role: CoreRole;
 };
 
-export function TeamCard({ member }: TeamCardProps) {
+export function TeamCard({ role }: TeamCardProps) {
   return (
     <article className="surface pixel-corner flex h-full flex-col p-6">
       <div className="space-y-3">
-        <p className="text-xs uppercase tracking-[0.2em] text-accent/80">
-          {member.role}
-        </p>
-        <h3 className="text-2xl font-semibold text-white">{member.name}</h3>
-        <p className="text-sm leading-7 text-slate-300">{member.specialty}</p>
-        <p className="text-sm leading-7 text-slate-400">{member.bio}</p>
+        <p className="section-kicker text-[0.58rem]">{role.label}</p>
+        <h3 className="text-2xl font-semibold text-white">{role.title}</h3>
+        <p className="text-sm leading-7 text-slate-300">{role.summary}</p>
       </div>
 
-      <div className="mt-auto flex flex-wrap gap-2 pt-8">
-        {member.links.map((link) => (
-          <a
-            key={link.label}
-            href={link.href}
-            target="_blank"
-            rel="noreferrer"
-            className="button-secondary !px-4 !py-2"
-          >
-            {link.label}
-          </a>
+      <div className="mt-6 border-t border-white/10 pt-5">
+        <p className="neo-microcopy">Primary focus</p>
+        <p className="mt-2 text-sm leading-7 text-slate-400">{role.focus}</p>
+      </div>
+
+      <div className="mt-6 flex flex-wrap gap-2">
+        {role.responsibilities.map((item) => (
+          <span key={item} className="signal-chip">
+            {item}
+          </span>
         ))}
+      </div>
+
+      <div className="mt-auto pt-8">
+        <p className="text-sm leading-7 text-slate-500">{role.note}</p>
       </div>
     </article>
   );

@@ -19,9 +19,9 @@ export default function AboutPage() {
         title="Bento AIII is built for practical AI delivery."
         description={companyProfile.positioning}
         metrics={[
-          { label: "Company", value: "AI applications and LLM systems" },
-          { label: "Mission", value: "Useful products with production discipline" },
-          { label: "Mode", value: "Design, engineer, and ship with teams" }
+          { label: "Company model", value: "Small AI product and systems studio" },
+          { label: "Public material", value: "Only what the company can reasonably stand behind" },
+          { label: "Working style", value: "Scoped, product-led, system-aware delivery" }
         ]}
       />
 
@@ -34,35 +34,37 @@ export default function AboutPage() {
               {companyProfile.description}
             </p>
             <p className="mt-4 text-base leading-8 text-slate-400">
-              We focus on AI products that have to survive contact with real data, mixed
-              stakeholders, and production constraints. The work usually spans interface
-              design, system architecture, prompt and retrieval behavior, and rollout logic.
+              The work focuses on AI products that have to survive contact with real data,
+              mixed stakeholders, and ordinary business constraints. That usually means
+              interface design, system architecture, prompt and retrieval behavior, and
+              rollout logic all need to be shaped together.
             </p>
           </Reveal>
 
           <Reveal delay={0.08} className="surface pixel-corner p-8">
-            <span className="section-kicker">Mission</span>
-            <h2 className="mt-4 text-3xl font-semibold text-white">Build for clarity and use.</h2>
+            <span className="section-kicker">Public information policy</span>
+            <h2 className="mt-4 text-3xl font-semibold text-white">
+              The site stays narrower than the actual work.
+            </h2>
             <p className="mt-5 text-base leading-8 text-slate-300">
-              {companyProfile.mission}
+              {companyProfile.disclosure}
             </p>
             <div className="mt-8 space-y-4">
               <div className="border-t border-white/10 pt-4">
                 <p className="text-sm uppercase tracking-[0.18em] text-slate-500">
-                  Vision
+                  Why this matters
                 </p>
                 <p className="mt-2 text-sm leading-7 text-slate-400">
-                  Practical AI should feel like good software: legible, structured, and
-                  genuinely useful to the people doing the work.
+                  It is better to publish less than to make the company look larger, louder,
+                  or more deployed than it actually is today.
                 </p>
               </div>
               <div className="border-t border-white/10 pt-4">
                 <p className="text-sm uppercase tracking-[0.18em] text-slate-500">
-                  Business direction
+                  Mission
                 </p>
                 <p className="mt-2 text-sm leading-7 text-slate-400">
-                  Build application products, internal systems, and workflow tooling that turn
-                  language models into operating capability.
+                  {companyProfile.mission}
                 </p>
               </div>
             </div>
@@ -160,8 +162,8 @@ export default function AboutPage() {
           <Reveal>
             <SectionHeading
               eyebrow="Roadmap"
-              title="A placeholder growth path for the next phase of the company."
-              description="This roadmap is intentionally directional. It can be replaced later with live milestones, launches, and partnership updates."
+              title="Current roadmap markers."
+              description="These markers are directional and operational. They are not meant to read like a fundraising deck or expansion fantasy."
             />
           </Reveal>
 

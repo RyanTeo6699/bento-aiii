@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { FinalCta } from "@/components/final-cta";
 import { Reveal } from "@/components/motion/reveal";
 import { ProjectCard } from "@/components/project-card";
+import { StatusBadge } from "@/components/status-badge";
 import { projects } from "@/lib/site-data";
 
 type ProjectDetailPageProps = {
@@ -59,10 +60,8 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
 
           <Reveal className="mt-8 max-w-4xl space-y-6">
             <div className="flex flex-wrap items-center gap-3">
-              <span className="signal-chip">{project.stage}</span>
-              <span className="text-xs uppercase tracking-[0.18em] text-slate-500">
-                {project.sector}
-              </span>
+              <StatusBadge status={project.status} />
+              <span className="neo-microcopy">{project.track}</span>
             </div>
 
             <h1 className="text-4xl font-semibold leading-tight text-white md:text-6xl">
@@ -77,7 +76,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400"
+                  className="rounded-[0.85rem] border border-white/10 px-3 py-1 text-xs text-slate-400"
                 >
                   {tag}
                 </span>
@@ -94,11 +93,23 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
             <p className="mt-4 text-lg leading-8 text-slate-200">{project.outcome}</p>
 
             <div className="mt-8 border-t border-white/10 pt-6">
-              <p className="text-sm uppercase tracking-[0.18em] text-slate-500">
-                Current focus
+              <p className="neo-microcopy">Stage</p>
+              <p className="mt-3 text-sm leading-7 text-slate-300">
+                {project.detail.stage}
               </p>
+            </div>
+
+            <div className="mt-8 border-t border-white/10 pt-6">
+              <p className="neo-microcopy">Current focus</p>
               <p className="mt-3 text-sm leading-7 text-slate-400">
                 {project.detail.currentFocus}
+              </p>
+            </div>
+
+            <div className="mt-8 border-t border-white/10 pt-6">
+              <p className="neo-microcopy">Disclosure</p>
+              <p className="mt-3 text-sm leading-7 text-slate-500">
+                {project.disclosure}
               </p>
             </div>
           </Reveal>
@@ -122,7 +133,10 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
               <span className="section-kicker">Architecture</span>
               <div className="mt-5 space-y-4">
                 {project.detail.architecture.map((item) => (
-                  <div key={item} className="border-t border-white/10 pt-4 first:border-t-0 first:pt-0">
+                  <div
+                    key={item}
+                    className="border-t border-white/10 pt-4 first:border-t-0 first:pt-0"
+                  >
                     <p className="text-sm leading-7 text-slate-400">{item}</p>
                   </div>
                 ))}

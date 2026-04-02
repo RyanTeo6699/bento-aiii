@@ -21,7 +21,10 @@ export function PageHero({
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(46,232,255,0.16),transparent_32%),radial-gradient(circle_at_top_right,rgba(139,96,255,0.12),transparent_22%)]" />
       <div className="shell relative pb-16 pt-10">
         <Reveal className="max-w-4xl space-y-5">
-          <span className="section-kicker">{eyebrow}</span>
+          <div className="flex items-center gap-3">
+            <span className="section-kicker">{eyebrow}</span>
+            <span className="hud-line max-w-xs" />
+          </div>
           <h1 className="max-w-4xl text-4xl font-semibold leading-tight text-white md:text-6xl">
             {title}
           </h1>
@@ -33,11 +36,8 @@ export function PageHero({
         {metrics ? (
           <Reveal delay={0.08} className="mt-12 grid gap-4 md:grid-cols-3">
             {metrics.map((item) => (
-              <div
-                key={item.label}
-                className="surface pixel-corner p-5"
-              >
-                <p className="text-xs uppercase tracking-[0.2em] text-slate-500">
+              <div key={item.label} className="surface pixel-corner p-5">
+                <p className="neo-microcopy">
                   {item.label}
                 </p>
                 <p className="mt-3 text-lg font-semibold text-white">

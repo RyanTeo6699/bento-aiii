@@ -5,7 +5,7 @@ import { Reveal } from "@/components/motion/reveal";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
 import { TeamCard } from "@/components/team-card";
-import { teamMembers } from "@/lib/site-data";
+import { coreRoles } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Team",
@@ -17,12 +17,12 @@ export default function TeamPage() {
     <>
       <PageHero
         eyebrow="Team"
-        title="A team designed around product clarity and systems execution."
-        description="Bento AIII combines product engineering, AI systems, design, and operations thinking in a compact delivery model."
+        title="A role-based team page is more credible than invented bios."
+        description="Bento AIII is intentionally small. This page shows the public-facing roles that shape delivery instead of padded personal profiles."
         metrics={[
-          { label: "Composition", value: "Product, design, engineering, ML ops" },
-          { label: "Strength", value: "Cross-functional AI product delivery" },
-          { label: "Working style", value: "Tight loops, clear ownership, real shipping" }
+          { label: "Studio model", value: "Compact, cross-functional delivery" },
+          { label: "Public team policy", value: "Roles first, biographies only when verifiable" },
+          { label: "Working style", value: "Product, systems, design, rollout" }
         ]}
       />
 
@@ -30,16 +30,25 @@ export default function TeamPage() {
         <div className="shell">
           <Reveal>
             <SectionHeading
-              eyebrow="Core team"
-              title="People shaping Bento AIII systems and product work."
-              description="Each team member is presented as a clear profile card with role, strengths, short bio, and external links."
+              eyebrow="Core roles"
+              title="The company publishes roles rather than fabricated personal profiles."
+              description="That keeps the page tighter, more accurate, and more in line with the current scale of the studio."
             />
           </Reveal>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {teamMembers.map((member, index) => (
-              <Reveal key={member.name} delay={0.05 * index}>
-                <TeamCard member={member} />
+          <div className="mt-8 surface pixel-corner p-6">
+            <p className="section-kicker text-[0.58rem]">Why it is structured this way</p>
+            <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-300">
+              Bento AIII does not currently publish headshots, speculative job titles, or
+              empty profile links. The site focuses on who covers what, which is the more
+              useful information for a small delivery company.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {coreRoles.map((role, index) => (
+              <Reveal key={role.id} delay={0.05 * index}>
+                <TeamCard role={role} />
               </Reveal>
             ))}
           </div>
@@ -87,14 +96,14 @@ export default function TeamPage() {
       <section className="py-24">
         <div className="shell grid gap-6 lg:grid-cols-2">
           <Reveal className="surface pixel-corner p-8">
-            <span className="section-kicker">Who we work with</span>
+            <span className="section-kicker">Who this setup fits</span>
             <p className="mt-4 text-2xl font-semibold text-white">
               Teams building AI products for actual business motion.
             </p>
             <p className="mt-4 text-sm leading-7 text-slate-400">
               The best fit is usually a company that already knows where the friction is:
               knowledge bottlenecks, repetitive decision paths, fragmented internal tools, or
-              a product idea that needs structure.
+              a product direction that needs sharper structure.
             </p>
           </Reveal>
 
@@ -105,8 +114,8 @@ export default function TeamPage() {
             </p>
             <p className="mt-4 text-sm leading-7 text-slate-400">
               Bento AIII works well with founders, product leads, operations teams, and
-              internal platform groups that want a build partner with both product judgment
-              and technical depth.
+              internal platform groups that want a build partner with product judgment and
+              technical depth in the same loop.
             </p>
           </Reveal>
         </div>
@@ -114,9 +123,9 @@ export default function TeamPage() {
 
       <FinalCta
         eyebrow="Connect"
-        title="Need a team that can bridge design, engineering, and AI systems?"
+        title="Need a team that can bridge product, engineering, and AI systems?"
         description="Bring Bento AIII into the conversation when the project needs more than a prototype and less than a disconnected vendor chain."
-        primaryLabel="Contact the team"
+        primaryLabel="Contact Bento AIII"
         primaryHref="/contact"
         secondaryLabel="Browse project work"
         secondaryHref="/projects"

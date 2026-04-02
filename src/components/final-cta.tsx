@@ -24,7 +24,10 @@ export function FinalCta({
       <div className="shell">
         <div className="surface pixel-corner px-6 py-10 md:px-10 md:py-12">
           <div className="max-w-3xl space-y-5">
-            <span className="section-kicker">{eyebrow}</span>
+            <div className="flex items-center gap-3">
+              <span className="section-kicker">{eyebrow}</span>
+              <span className="hud-line max-w-xs" />
+            </div>
             <h2 className="text-3xl font-semibold leading-tight text-white md:text-5xl">
               {title}
             </h2>

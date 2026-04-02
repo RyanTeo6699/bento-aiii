@@ -1,22 +1,10 @@
 import type { Metadata } from "next";
-import { Manrope, Silkscreen } from "next/font/google";
 import type { ReactNode } from "react";
 
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
 import "./globals.css";
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-manrope"
-});
-
-const silkscreen = Silkscreen({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-silkscreen"
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bentoaiii.com"),
@@ -43,7 +31,7 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${manrope.variable} ${silkscreen.variable}`}>
+    <html lang="en">
       <body>
         <SiteHeader />
         <main>{children}</main>

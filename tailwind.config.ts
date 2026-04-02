@@ -12,8 +12,26 @@ const config: Config = {
         violet: "rgb(var(--violet) / <alpha-value>)"
       },
       fontFamily: {
-        sans: ["var(--font-manrope)", "sans-serif"],
-        pixel: ["var(--font-silkscreen)", "monospace"]
+        sans: [
+          "\"Avenir Next\"",
+          "\"Segoe UI\"",
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "sans-serif"
+        ],
+        pixel: [
+          "\"SFMono-Regular\"",
+          "\"IBM Plex Mono\"",
+          "\"Roboto Mono\"",
+          "ui-monospace",
+          "Menlo",
+          "Monaco",
+          "Consolas",
+          "monospace"
+        ]
       },
       boxShadow: {
         glow: "0 0 0 1px rgba(255,255,255,0.05), 0 0 40px rgba(46, 232, 255, 0.12)",

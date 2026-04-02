@@ -9,33 +9,36 @@ export type Capability = {
   bullets: string[];
 };
 
+export type ProjectStatus = "Live" | "Prototype" | "Internal" | "Concept";
+
 export type Project = {
   slug: string;
   name: string;
   summary: string;
   description: string;
   tags: string[];
-  stage: string;
-  sector: string;
+  status: ProjectStatus;
+  track: string;
   featured: boolean;
   outcome: string;
+  disclosure: string;
   detail: {
     problem: string;
     system: string;
     architecture: string[];
     currentFocus: string;
+    stage: string;
   };
 };
 
-export type TeamMember = {
-  name: string;
-  role: string;
-  specialty: string;
-  bio: string;
-  links: Array<{
-    label: string;
-    href: string;
-  }>;
+export type CoreRole = {
+  id: string;
+  title: string;
+  label: string;
+  summary: string;
+  focus: string;
+  responsibilities: string[];
+  note: string;
 };
 
 export const companyProfile = {
@@ -43,9 +46,11 @@ export const companyProfile = {
   positioning:
     "A technology company focused on AI applications and large language model systems, building practical products, workflows, and digital experiences.",
   description:
-    "Bento AIII works where model capability meets real business operations. We design and build AI products that help teams search, decide, automate, and ship with more clarity.",
+    "Bento AIII is a small AI product and systems studio. The work usually sits between interface design, operator workflow, retrieval behavior, and delivery detail.",
   mission:
-    "Turn language model capability into reliable software, operator workflows, and product systems that hold up in production."
+    "Build AI software that is readable, reviewable, and useful inside real business workflows.",
+  disclosure:
+    "This site shows current capability tracks and core delivery roles. Public case studies are intentionally limited while work is still internal, early-stage, or private."
 };
 
 export const navItems: NavItem[] = [
@@ -58,16 +63,16 @@ export const navItems: NavItem[] = [
 
 export const heroSignals = [
   {
-    label: "Focus",
-    value: "AI applications, LLM systems, workflow tooling"
+    label: "Build focus",
+    value: "AI applications, LLM systems, internal workflow software"
   },
   {
-    label: "Approach",
-    value: "Product thinking, systems design, practical delivery"
+    label: "System concerns",
+    value: "Retrieval, prompting, evaluation, review, interface clarity"
   },
   {
-    label: "Output",
-    value: "Interfaces, pipelines, assistants, internal platforms"
+    label: "Working mode",
+    value: "Small-team delivery with practical scope and visible tradeoffs"
   }
 ];
 
@@ -75,254 +80,235 @@ export const capabilityPillars: Capability[] = [
   {
     title: "AI Product Engineering",
     description:
-      "We frame the product, design the interaction model, and ship the interface around the model rather than treating AI as a feature bolt-on.",
+      "Bento AIII frames the workflow, defines the interface, and ships the software layer around the model instead of treating AI as a bolt-on feature.",
     bullets: ["Product scoping", "Operator surfaces", "Frontend delivery"]
   },
   {
     title: "LLM Systems",
     description:
-      "We build the retrieval, prompt, evaluation, and orchestration layer that makes large language models usable in live workflows.",
+      "The system work covers retrieval, prompt behavior, orchestration, and evaluation so language model features can hold up under real use.",
     bullets: ["RAG systems", "Agent workflows", "Guardrails and evals"]
   },
   {
     title: "Workflow Automation",
     description:
-      "We translate repetitive business motion into reviewable AI-assisted workflows with human checkpoints where they matter.",
+      "Repetitive business motion gets translated into reviewable AI-assisted workflows with clear human checkpoints where judgment still matters.",
     bullets: ["Approval flows", "Task routing", "Operational tooling"]
   },
   {
     title: "Delivery for Real Teams",
     description:
-      "Bento AIII is built for actual business conditions: legacy systems, mixed stakeholders, uneven inputs, and the need for trust.",
+      "The delivery model assumes mixed systems, imperfect inputs, and the need to explain decisions to operators and stakeholders.",
     bullets: ["Incremental rollout", "Auditability", "Maintainable handoff"]
   }
 ];
 
 export const projects: Project[] = [
   {
-    slug: "atlas-desk",
-    name: "Atlas Desk",
+    slug: "support-knowledge-console",
+    name: "Support Knowledge Console",
     summary:
-      "An AI operations workspace that routes requests, context, and decisions in one surface.",
+      "A retrieval-first workspace for support and operations lookup.",
     description:
-      "Built for service teams that need faster handling without losing traceability or review quality.",
-    tags: ["Next.js", "Python", "RAG", "OpenAI"],
-    stage: "Live",
-    sector: "Operations",
+      "A current applied track for teams that need grounded answers against internal documentation, policy notes, and change logs.",
+    tags: ["Retrieval", "Next.js", "LLM"],
+    status: "Prototype",
+    track: "External Track",
     featured: true,
     outcome:
-      "Consolidated intake, retrieval, and review into a single operator flow with clear decision history.",
+      "Established a believable delivery shape for documentation-heavy teams without overstating deployment maturity.",
+    disclosure:
+      "Representative applied track. Public references are intentionally omitted while work is still early or private.",
     detail: {
       problem:
-        "Support and operations teams were jumping between ticketing, documentation, and chat to resolve repetitive work with inconsistent context.",
+        "Documentation-heavy teams lose time moving between wikis, PDFs, and ticket history when answers need source grounding.",
       system:
-        "Bento AIII designed a shared workspace with retrieval, task memory, policy-aware prompt chains, and approval checkpoints for higher-risk actions.",
+        "The system combines ingestion, retrieval, answer generation, and reviewer visibility inside a single operator surface.",
       architecture: [
-        "Operator dashboard for triage, drafting, and review history",
-        "Retrieval layer connected to policy notes, case memory, and internal documentation",
-        "Action pipeline that routes follow-up work into existing systems"
+        "Ingestion and chunking flow for internal documentation and policy material",
+        "Retrieval-backed answer composer with visible source context",
+        "Operator interface for review, correction, and feedback capture"
       ],
       currentFocus:
-        "Expanding reporting depth and adding evaluation coverage for escalation quality."
+        "Tighten source ranking, answer formatting, and citation visibility before broader rollout.",
+      stage:
+        "Prototype scoped around limited-source collections and reviewer feedback."
     }
   },
   {
-    slug: "lexicon-flow",
-    name: "Lexicon Flow",
+    slug: "internal-copilot-workflow",
+    name: "Internal Copilot Workflow",
     summary:
-      "A multilingual knowledge assistant for internal documentation and fast policy lookup.",
+      "An internal assistant pattern for request intake, drafting, and review queues.",
     description:
-      "Designed for distributed teams that need retrieval quality across languages, teams, and document formats.",
-    tags: ["TypeScript", "Search", "Embeddings", "Knowledge Base"],
-    stage: "Expansion",
-    sector: "Knowledge",
+      "An internal build focused on structuring repetitive request work before it hits human reviewers.",
+    tags: ["Workflow", "Prompting", "Internal Tools"],
+    status: "Internal",
+    track: "Internal Build",
     featured: true,
     outcome:
-      "Improved answer consistency and reduced search friction for globally distributed support teams.",
+      "Defined a usable internal pattern for triage and draft generation without claiming a public product launch.",
+    disclosure:
+      "Internal operating build, shown here as a capability direction rather than a client case study.",
     detail: {
       problem:
-        "Documentation was scattered across wikis, manuals, and operating notes, making internal lookup slow and unreliable.",
+        "Teams receive recurring requests with thin context, inconsistent formatting, and too much manual preparation work.",
       system:
-        "The project combined structured retrieval, source ranking, and answer grounding so users could find policy-backed responses with clear citations.",
+        "Bento AIII maps intake, context assembly, drafting, and review into a staged internal workflow.",
       architecture: [
-        "Unified ingestion flow for docs, PDFs, and structured records",
-        "Answer layer with grounded response generation and confidence cues",
-        "Feedback loop for editors to tune weak responses and source quality"
+        "Request intake layer with structured fields and task typing",
+        "Draft generation block with editable prompt and source inputs",
+        "Review queue with status, owner, and approval checkpoints"
       ],
       currentFocus:
-        "Adding domain-specific search views for legal, operations, and customer success teams."
+        "Reduce manual triage time while keeping reviewer control visible in the interface.",
+      stage:
+        "Internal build used to refine workflow shape before any public release."
     }
   },
   {
-    slug: "signal-qa",
-    name: "Signal QA",
+    slug: "review-operations-layer",
+    name: "Review Operations Layer",
     summary:
-      "A review pipeline that scores conversations, flags risk, and surfaces coaching signals.",
+      "A review layer for conversation, draft, and policy-sensitive outputs.",
     description:
-      "Built for teams that want quality assurance at scale without reviewing every interaction by hand.",
-    tags: ["LLM Eval", "Analytics", "Transcripts", "Node.js"],
-    stage: "Pilot",
-    sector: "Quality",
+      "A practical track for teams that need a structured way to inspect AI-assisted output before it becomes operational.",
+    tags: ["Evaluation", "Transcripts", "Node.js"],
+    status: "Prototype",
+    track: "External Track",
     featured: true,
     outcome:
-      "Created a repeatable QA loop with faster sample review and clearer coaching priorities.",
+      "Showed how quality review could be made faster and more consistent without pretending full automation.",
+    disclosure:
+      "Representative quality-assurance direction. Public deployment details are intentionally withheld.",
     detail: {
       problem:
-        "Managers lacked a consistent way to review large volumes of support conversations and identify coaching opportunities.",
+        "Policy-sensitive outputs often need a repeatable review layer, but fully manual checking does not scale well.",
       system:
-        "Bento AIII built a pipeline that ingests transcripts, applies evaluation criteria, and groups output into actionable quality themes.",
+        "The system groups outputs into reviewable units, applies explicit criteria, and surfaces exceptions that need human attention.",
       architecture: [
-        "Transcript processing and segmentation for review-ready units",
-        "Criteria engine for policy, tone, and resolution quality",
-        "Reporting layer for managers to inspect trends and representative examples"
+        "Input normalization for drafts, conversations, and generated summaries",
+        "Criteria engine for policy fit, tone, and escalation triggers",
+        "Reviewer dashboard for exception queues and sample inspection"
       ],
       currentFocus:
-        "Testing rubric calibration against human review samples before full rollout."
+        "Tighten rubric calibration and reviewer workflows before wider adoption.",
+      stage:
+        "Prototype held at a reviewable scope, not marketed as autonomous QA."
     }
   },
   {
-    slug: "forge-console",
-    name: "Forge Console",
+    slug: "ai-delivery-foundation",
+    name: "AI Delivery Foundation",
     summary:
-      "A workflow orchestrator for back-office approvals and document-driven decisions.",
+      "A shared internal layer for interface patterns, prompt primitives, and operating rules.",
     description:
-      "Made for internal teams that need AI assistance while keeping sign-off, routing, and accountability intact.",
-    tags: ["Workflow", "React", "APIs", "Human Review"],
-    stage: "Build",
-    sector: "Back Office",
+      "An internal capability block intended to make future Bento AIII builds more consistent and easier to maintain.",
+    tags: ["Design System", "Prompt Ops", "Internal Platform"],
+    status: "Internal",
+    track: "Capability Layer",
     featured: false,
     outcome:
-      "Reduced repetitive manual preparation while preserving reviewer control at each decision point.",
+      "Shortened the distance between concept, interface scaffold, and usable system behavior for internal builds.",
+    disclosure:
+      "Internal foundation work. It supports delivery quality rather than serving as a public-facing product.",
     detail: {
       problem:
-        "Approval-heavy teams were spending too much time summarizing documents, preparing handoff notes, and routing packages manually.",
+        "Repeated AI builds were recreating the same chat, search, review, and prompt-control patterns from scratch.",
       system:
-        "The platform structures inbound data, drafts summaries, and guides reviewers through a staged approval flow.",
+        "Bento AIII keeps a shared layer for UI structure, prompt behavior, and system conventions that can be reused across engagements.",
       architecture: [
-        "Submission workspace with document parsing and draft generation",
-        "Review queue with assignment, status tracking, and approval history",
-        "Outbound connectors for follow-up actions and archive storage"
+        "Reusable UI blocks for review, context display, and action history",
+        "Prompt and evaluation primitives aligned to delivery workflows",
+        "Internal documentation for repeatable engineering decisions"
       ],
       currentFocus:
-        "Stabilizing integrations and expanding role-based views for multi-team usage."
+        "Consolidate shared primitives so new projects start from a tighter operational baseline.",
+      stage:
+        "Internal capability layer under active use and continuous cleanup."
     }
   },
   {
-    slug: "bento-studio",
-    name: "Bento Studio",
+    slug: "decision-briefing-study",
+    name: "Decision Briefing Study",
     summary:
-      "A reusable component and prompt system for teams building multiple AI products.",
+      "A concept track for turning fragmented updates into concise operating briefs.",
     description:
-      "A shared layer for interface patterns, prompt primitives, and launch-ready AI product modules.",
-    tags: ["Design System", "Prompt Ops", "Next.js", "Docs"],
-    stage: "Active Development",
-    sector: "Internal Platform",
+      "Kept intentionally exploratory while the expected inputs, review path, and reporting tolerance are still being tested.",
+    tags: ["Summarization", "Reporting", "Concept"],
+    status: "Concept",
+    track: "Concept Study",
     featured: false,
     outcome:
-      "Shortened the path from prototype to shipped interface by standardizing common AI product patterns.",
+      "Created a realistic concept boundary for a briefing system without pretending it is already a product line.",
+    disclosure:
+      "Concept-only direction. It is listed to show problem space coverage, not to imply a finished deployment.",
     detail: {
       problem:
-        "Teams were rebuilding the same chat, retrieval, feedback, and review patterns from scratch for each new AI initiative.",
+        "Leadership reporting often breaks down when updates live across notes, dashboards, and uneven status writeups.",
       system:
-        "Bento Studio provides a shared design and engineering layer for common UI, prompt, and evaluation concerns.",
+        "The concept organizes incoming updates by workstream, risk, and decision point before drafting a compact brief for review.",
       architecture: [
-        "Composable UI patterns for chat, search, review, and traceability",
-        "Prompt templates aligned to product and operations use cases",
-        "Reference documentation for teams shipping new AI features"
+        "Ingestion model for status notes, metrics, and milestone updates",
+        "Drafting layer focused on variance, blockers, and next decisions",
+        "Human review gate before anything becomes an official brief"
       ],
       currentFocus:
-        "Growing the pattern library into a full internal platform for product teams."
-    }
-  },
-  {
-    slug: "meridian-brief",
-    name: "Meridian Brief",
-    summary:
-      "An executive summary engine for turning fragmented project updates into decision-ready briefs.",
-    description:
-      "Intended for leadership teams that need signal extraction from scattered project, delivery, and risk updates.",
-    tags: ["Summarization", "Dashboards", "Integrations", "LLM"],
-    stage: "Discovery",
-    sector: "Leadership",
-    featured: false,
-    outcome:
-      "Created a structured direction for executive reporting without adding another manual reporting layer.",
-    detail: {
-      problem:
-        "Leadership updates were trapped in meeting notes, slide decks, and inconsistent status documents, making synthesis slow.",
-      system:
-        "The concept organizes updates by workstream, risk, and milestone before generating concise decision briefs.",
-      architecture: [
-        "Ingestion model for project notes, metrics, and status summaries",
-        "Prompted synthesis with emphasis on variance, blockers, and next decisions",
-        "Review layer for PMO and leadership teams before distribution"
-      ],
-      currentFocus:
-        "Validating data freshness expectations and preferred review workflow with stakeholders."
+        "Validate what a trustworthy briefing workflow would need before any build commitment.",
+      stage:
+        "Concept study only. No production or commercial rollout is implied."
     }
   }
 ];
 
-export const teamMembers: TeamMember[] = [
+export const coreRoles: CoreRole[] = [
   {
-    name: "Ryan Chen",
-    role: "Founder, Product Engineering",
-    specialty: "AI application architecture, delivery systems, product direction",
-    bio:
-      "Turns ambiguous AI opportunity space into scoped products, clear interfaces, and shippable engineering plans.",
-    links: [
-      { label: "GitHub", href: "https://github.com/" },
-      { label: "LinkedIn", href: "https://www.linkedin.com/" },
-      { label: "Portfolio", href: "https://example.com/" }
-    ]
+    id: "leadership-product",
+    title: "Leadership + Product",
+    label: "Core role",
+    summary:
+      "Owns scoping, workflow framing, and product direction so the build stays tied to an actual operating problem.",
+    focus:
+      "Turns business context into a clear delivery boundary, interface direction, and implementation sequence.",
+    responsibilities: ["Scope", "Product shape", "Delivery decisions"],
+    note:
+      "This role keeps Bento AIII from drifting into model-first demos with weak workflow fit."
   },
   {
-    name: "Mina Park",
-    role: "AI Systems Lead",
-    specialty: "Retrieval systems, evaluation loops, model behavior design",
-    bio:
-      "Owns the system layer behind retrieval quality, prompt orchestration, and model reliability in production.",
-    links: [
-      { label: "GitHub", href: "https://github.com/" },
-      { label: "LinkedIn", href: "https://www.linkedin.com/" },
-      { label: "Portfolio", href: "https://example.com/" }
-    ]
+    id: "ai-systems",
+    title: "AI Systems",
+    label: "Core role",
+    summary:
+      "Handles retrieval, prompt behavior, evaluation loops, and the runtime logic around model-assisted features.",
+    focus:
+      "Keeps the model layer usable, inspectable, and aligned with the real boundaries of the workflow.",
+    responsibilities: ["Retrieval", "Prompting", "Evaluation"],
+    note:
+      "The emphasis is on stable system behavior, not just getting a plausible output once."
   },
   {
-    name: "Julian Costa",
-    role: "Full-Stack Engineer",
-    specialty: "TypeScript platforms, service integrations, frontend systems",
-    bio:
-      "Builds the product surfaces and application layer that connect model capability to operational tools.",
-    links: [
-      { label: "GitHub", href: "https://github.com/" },
-      { label: "LinkedIn", href: "https://www.linkedin.com/" },
-      { label: "Portfolio", href: "https://example.com/" }
-    ]
+    id: "design-frontend",
+    title: "Design + Frontend",
+    label: "Core role",
+    summary:
+      "Shapes the interface, component language, and implementation fidelity so the product is clear under real use.",
+    focus:
+      "Brings product hierarchy, readable states, and reliable frontend execution into the same loop.",
+    responsibilities: ["Interface systems", "Frontend build", "Design consistency"],
+    note:
+      "The goal is a surface operators can understand quickly, not a decorative AI dashboard."
   },
   {
-    name: "Avery Lin",
-    role: "Design Systems and Product UX",
-    specialty: "Interaction design, information hierarchy, design systems",
-    bio:
-      "Shapes clear, trustworthy AI interfaces with a focus on operator speed, readability, and brand consistency.",
-    links: [
-      { label: "GitHub", href: "https://github.com/" },
-      { label: "LinkedIn", href: "https://www.linkedin.com/" },
-      { label: "Portfolio", href: "https://example.com/" }
-    ]
-  },
-  {
-    name: "Noor Rahman",
-    role: "ML Operations",
-    specialty: "Data preparation, runtime monitoring, deployment quality",
-    bio:
-      "Connects experiments to production by handling operational quality, rollout discipline, and system feedback loops.",
-    links: [
-      { label: "GitHub", href: "https://github.com/" },
-      { label: "LinkedIn", href: "https://www.linkedin.com/" },
-      { label: "Portfolio", href: "https://example.com/" }
-    ]
+    id: "delivery-integration",
+    title: "Delivery + Integration",
+    label: "Core role",
+    summary:
+      "Connects product decisions to internal systems, review paths, and deployment realities.",
+    focus:
+      "Makes sure the shipped system has a workable handoff, clear ownership, and operational fit after launch.",
+    responsibilities: ["Integrations", "Review controls", "Operational rollout"],
+    note:
+      "This role treats delivery quality as part of the product, not something added after the demo works."
   }
 ];
 
@@ -352,53 +338,52 @@ export const values = [
 export const roadmap = [
   {
     phase: "Phase 01",
-    title: "Productized Delivery Stack",
+    title: "Tighten Shared Build Blocks",
     description:
-      "Expand Bento Studio into a repeatable layer for AI application launch, review, and operations."
+      "Keep consolidating the interface, prompt, and review primitives reused across Bento AIII delivery work."
   },
   {
     phase: "Phase 02",
-    title: "Industry Workflow Modules",
+    title: "Publish Only Verifiable Case Material",
     description:
-      "Package proven workflow patterns for service operations, knowledge systems, and back-office review."
+      "Turn internal notes into public case studies only when the scope, results, and permissions are concrete enough to stand behind."
   },
   {
     phase: "Phase 03",
-    title: "Evaluation and Governance Layer",
+    title: "Expand Evaluation Coverage",
     description:
-      "Standardize measurement, approval, and operating controls for enterprise AI systems."
+      "Increase the depth of review and evaluation patterns used across operator-facing AI systems."
   },
   {
     phase: "Phase 04",
-    title: "Platform Partnerships",
+    title: "Refine Intake and Delivery Ops",
     description:
-      "Integrate with teams that need dedicated AI product capability without building the whole stack alone."
+      "Improve scoping, reporting, and handoff so the company can stay small without becoming ad hoc."
   }
 ];
+
+export type ContactChannel = {
+  label: string;
+  value: string;
+  note: string;
+  href?: string;
+};
 
 export const contactChannels = [
   {
-    label: "General",
+    label: "General email",
     value: "hello@bentoaiii.com",
     href: "mailto:hello@bentoaiii.com",
-    note: "General inquiries, introductions, and project conversations"
+    note: "General inquiries, project introductions, and first-contact conversations"
   },
   {
-    label: "Partnerships",
-    value: "partners@bentoaiii.com",
-    href: "mailto:partners@bentoaiii.com",
-    note: "Business partnerships and delivery collaboration"
+    label: "Project intake",
+    value: "Use the form below",
+    note: "Best for structured briefs, workflow notes, or a scoped description of the problem"
   },
   {
-    label: "Location",
-    value: "Edmonton and remote",
-    href: "https://maps.google.com/?q=Edmonton",
-    note: "Distributed delivery across product, engineering, and systems work"
+    label: "Base",
+    value: "Edmonton, Alberta / remote",
+    note: "Distributed delivery across product, engineering, and AI systems work"
   }
-];
-
-export const socialLinks = [
-  { label: "GitHub", href: "https://github.com/" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/" },
-  { label: "X", href: "https://x.com/" }
-];
+] satisfies ContactChannel[];
