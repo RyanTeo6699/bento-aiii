@@ -183,14 +183,12 @@ export function getProjectPresentationCopy(locale: Locale) {
 }
 
 export function getProjects(locale: Locale): CommercialProjectView[] {
-  return getBaseProjects(locale).flatMap((project): CommercialProjectView[] => {
-    if (!isCommercialSlug(project.slug)) {
-      return [];
-    }
-
+  return getBaseProjects(locale)
+    .filter(isCommercialProject)
+    .map((project) => {
       const commercial = commercialDefinitions[project.slug];
 
-      return [{
+      return {
         ...project,
         commercial: {
           idealUsers: pick(commercial.idealUsers, locale),
@@ -198,7 +196,7 @@ export function getProjects(locale: Locale): CommercialProjectView[] {
           deliveryScope: pick(commercial.deliveryScope, locale),
           valueCase: pick(commercial.valueCase, locale)
         }
-      }];
+      };
     });
 }
 
