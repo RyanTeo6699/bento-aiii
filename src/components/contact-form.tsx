@@ -205,7 +205,7 @@ export function ContactForm({ locale, copy }: ContactFormProps) {
       {status.state !== "idle" ? (
         <div
           aria-live="polite"
-          className={`mb-6 rounded-[1rem] border px-4 py-3 text-sm ${
+          className={`mb-6 break-words rounded-[1rem] border px-4 py-3 text-sm ${
             status.state === "success"
               ? "border-emerald-400/30 bg-emerald-400/10 text-emerald-100"
               : status.state === "error"
@@ -222,7 +222,10 @@ export function ContactForm({ locale, copy }: ContactFormProps) {
           {status.state === "success" ? (
             <p className="mt-2 text-xs leading-6 text-emerald-100/80">
               {copy.statuses.successFollowUpPrefix}{" "}
-              <a href="mailto:hello@bentoaiii.com" className="underline underline-offset-4">
+              <a
+                href="mailto:hello@bentoaiii.com"
+                className="break-all underline underline-offset-4"
+              >
                 {copy.statuses.successFollowUpLink}
               </a>
               .

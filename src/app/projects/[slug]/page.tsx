@@ -8,6 +8,7 @@ import { ProjectCard } from "@/components/project-card";
 import { StatusBadge } from "@/components/status-badge";
 import { getCurrentLocale } from "@/lib/get-locale";
 import { getDictionary } from "@/lib/i18n";
+import { createPageMetadata } from "@/lib/metadata";
 import { getProjectSlugs, getProjects } from "@/lib/site-data";
 
 type ProjectDetailPageProps = {
@@ -23,18 +24,25 @@ export function generateStaticParams() {
 }
 
 export function generateMetadata({ params }: ProjectDetailPageProps): Metadata {
-  const project = getProjects("en").find((entry) => entry.slug === params.slug);
+  const locale = getCurrentLocale();
+  const dictionary = getDictionary(locale);
+  const project = getProjects(locale).find((entry) => entry.slug === params.slug);
 
   if (!project) {
-    return {
-      title: "Project not found"
-    };
+    return createPageMetadata({
+      locale,
+      title: dictionary.notFound.title,
+      description: dictionary.notFound.description,
+      path: `/projects/${params.slug}`
+    });
   }
 
-  return {
+  return createPageMetadata({
+    locale,
     title: project.name,
-    description: project.description
-  };
+    description: project.summary,
+    path: `/projects/${params.slug}`
+  });
 }
 
 export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {

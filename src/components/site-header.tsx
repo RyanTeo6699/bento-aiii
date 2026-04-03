@@ -47,11 +47,11 @@ export function SiteHeader({ locale, navItems, copy }: SiteHeaderProps) {
 
   function renderLocaleSwitch(className?: string) {
     return (
-      <div className={cn("flex items-center gap-2", className)}>
+      <div className={cn("flex min-w-0 items-center gap-2", className)}>
         <span className="shrink-0 font-pixel text-[0.62rem] uppercase tracking-[0.18em] text-slate-500">
           {copy.languageLabel}
         </span>
-        <div className="flex flex-wrap items-center rounded-[0.95rem] border border-white/10 bg-white/[0.03] p-1">
+        <div className="flex max-w-full flex-wrap items-center rounded-[0.95rem] border border-white/10 bg-white/[0.03] p-1">
           {localeOptions.map((option) => {
             const active = option.value === locale;
 
@@ -61,7 +61,7 @@ export function SiteHeader({ locale, navItems, copy }: SiteHeaderProps) {
                 type="button"
                 onClick={() => handleLocaleChange(option.value)}
                 className={cn(
-                  "rounded-[0.7rem] px-2.5 py-2 text-xs font-medium transition",
+                  "rounded-[0.7rem] px-2 py-1.5 text-xs font-medium transition sm:px-2.5 sm:py-2",
                   active
                     ? "bg-white/[0.08] text-white"
                     : "text-slate-400 hover:bg-white/[0.05] hover:text-white"
@@ -127,7 +127,7 @@ export function SiteHeader({ locale, navItems, copy }: SiteHeaderProps) {
 
             <div className="hidden items-center gap-3 xl:flex">
               {renderLocaleSwitch()}
-              <Link href="/contact" className="button-primary">
+              <Link href="/contact" className="button-primary whitespace-nowrap">
                 {copy.cta}
               </Link>
             </div>
@@ -179,7 +179,9 @@ export function SiteHeader({ locale, navItems, copy }: SiteHeaderProps) {
                     );
                   })}
 
-                  <div className="pt-3">{renderLocaleSwitch("flex-col items-start")}</div>
+                  <div className="pt-3">
+                    {renderLocaleSwitch("w-full flex-col items-start gap-3")}
+                  </div>
 
                   <Link href="/contact" className="button-primary mt-2 w-full">
                     {copy.cta}

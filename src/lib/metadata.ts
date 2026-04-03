@@ -4,8 +4,8 @@ import type { Locale } from "@/lib/i18n";
 
 const htmlLangMap: Record<Locale, string> = {
   en: "en",
-  "zh-Hant": "zh-Hant",
-  ja: "ja"
+  "zh-Hant": "zh-TW",
+  ja: "ja-JP"
 };
 
 const openGraphLocaleMap: Record<Locale, string> = {

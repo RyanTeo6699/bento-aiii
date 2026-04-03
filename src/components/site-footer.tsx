@@ -55,7 +55,10 @@ export function SiteFooter({
               <div className="max-w-md space-y-3">
                 <h2 className="text-2xl font-semibold text-white">{copy.title}</h2>
                 <p className="text-sm leading-7 text-slate-400">{companyDescription}</p>
-                <Link href="/contact" className="button-secondary inline-flex max-w-full text-center">
+                <Link
+                  href="/contact"
+                  className="button-secondary inline-flex w-full max-w-full justify-center text-center sm:w-auto"
+                >
                   {copy.cta}
                 </Link>
               </div>

@@ -1,4 +1,4 @@
-import type { TeamMember } from "@/lib/site-data";
+import type { TeamMember } from "@/lib/team-data";
 
 type TeamCardProps = {
   member: TeamMember;

@@ -10,11 +10,11 @@ import { TeamCard } from "@/components/team-card";
 import { getCurrentLocale } from "@/lib/get-locale";
 import { getDictionary } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/metadata";
+import { getTeamMembers } from "@/lib/team-data";
 import {
   getCapabilityPillars,
   getCompanyProfile,
-  getProjects,
-  getTeamMembers
+  getProjects
 } from "@/lib/site-data";
 
 export function generateMetadata(): Metadata {

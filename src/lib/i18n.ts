@@ -674,7 +674,7 @@ const dictionaries: Record<Locale, typeof en> = {
         description: "這些原則影響產品判斷、技術選擇與項目執行方式。"
       },
       roadmap: {
-        eyebrow: "Roadmap",
+        eyebrow: "發展路線",
         title: "目前的發展標記。",
         description:
           "這些標記是方向性的營運節點，不是募資簡報或擴張幻想。"
@@ -709,7 +709,7 @@ const dictionaries: Record<Locale, typeof en> = {
       readAsIntended: {
         kicker: "閱讀方式"
       },
-      stageUnit: "項方向",
+      stageUnit: "個方向",
       howToRead: {
         eyebrow: "如何理解這些方向",
         title: "這一頁刻意同時呈現外部、內部與概念工作。",
@@ -931,7 +931,7 @@ const dictionaries: Record<Locale, typeof en> = {
       { href: "/contact", label: "お問い合わせ" }
     ],
     header: {
-      brandTagline: "システム / プロダクト / ワークフローソフトウェア",
+      brandTagline: "システム / プロダクト / ワークフロー",
       cta: "相談を始める",
       mobileToggleLabel: "ナビゲーションを切り替える",
       languageLabel: "言語"
@@ -1095,7 +1095,7 @@ const dictionaries: Record<Locale, typeof en> = {
         title: "会社は、価値の高い少数の構築トラックに集中しています。",
         description:
           "Bento AIII は意図的に焦点を絞っています。モデルの周辺にあるプロダクト、モデルを支えるシステム、そして結果を使える形にするワークフローです。",
-        trackPrefix: "Track"
+        trackPrefix: "方向"
       },
       technicalCapability: {
         eyebrow: "技術能力",
@@ -1188,7 +1188,7 @@ const dictionaries: Record<Locale, typeof en> = {
     team: {
       hero: {
         eyebrow: "チーム",
-        title: "プロダクトシステム、エンジニアリング、AI、マーケット到達を担う小さなチーム。",
+        title: "プロダクトシステム、エンジニアリング、AI、マーケティングを担う小さなチーム。",
         description:
           "Bento AIII では、現在会社の方向を形づくっている人を、プロダクト、技術、デリバリー、マーケティングの実務に沿って公開しています。",
         metrics: [
@@ -1273,17 +1273,17 @@ const dictionaries: Record<Locale, typeof en> = {
         kicker: "送信の流れ",
         steps: [
           {
-            label: "01 Intake",
+            label: "01 受付",
             body:
               "短い概要、現状のワークフロー、あるいは今デリバリーを止めている制約を送ってください。"
           },
           {
-            label: "02 Review",
+            label: "02 確認",
             body:
               "Bento AIII が適合性を確認し、その課題をプロダクト、システム、ワークフローのどこで扱うべきかを見ます。"
           },
           {
-            label: "03 Follow-up",
+            label: "03 次の連絡",
             body:
               "適合する場合、次は汎用的な営業フローではなく、スコープのある会話に進みます。"
           }
