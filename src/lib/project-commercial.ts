@@ -140,12 +140,16 @@ const commercialDefinitions = {
   Record<keyof CommercialDefinition, LocalizedText>
 >;
 
-// Use a widened lookup type here so project.slug can safely index the map
-// without forcing the rest of the object to lose its literal validation.
-const commercialDefinitionsBySlug: Record<
-  string,
-  Record<keyof CommercialDefinition, LocalizedText>
-> = commercialDefinitions;
+type CommercialSlug = keyof typeof commercialDefinitions;
+type CommercialSourceProject = Project & { slug: CommercialSlug };
+
+function isCommercialSlug(slug: string): slug is CommercialSlug {
+  return slug in commercialDefinitions;
+}
+
+function isCommercialProject(project: Project): project is CommercialSourceProject {
+  return isCommercialSlug(project.slug);
+}
 
 const projectPresentationCopy = {
   en: {
@@ -179,19 +183,21 @@ export function getProjectPresentationCopy(locale: Locale) {
 }
 
 export function getProjects(locale: Locale): CommercialProjectView[] {
-  return getBaseProjects(locale).map((project) => {
-    const commercial = commercialDefinitionsBySlug[project.slug];
+  return getBaseProjects(locale)
+    .filter(isCommercialProject)
+    .map((project) => {
+      const commercial = commercialDefinitions[project.slug];
 
-    return {
-      ...project,
-      commercial: {
-        idealUsers: pick(commercial.idealUsers, locale),
-        operationalProblem: pick(commercial.operationalProblem, locale),
-        deliveryScope: pick(commercial.deliveryScope, locale),
-        valueCase: pick(commercial.valueCase, locale)
-      }
-    };
-  });
+      return {
+        ...project,
+        commercial: {
+          idealUsers: pick(commercial.idealUsers, locale),
+          operationalProblem: pick(commercial.operationalProblem, locale),
+          deliveryScope: pick(commercial.deliveryScope, locale),
+          valueCase: pick(commercial.valueCase, locale)
+        }
+      };
+    });
 }
 
 export function getProjectBySlug(locale: Locale, slug: string) {
@@ -199,5 +205,5 @@ export function getProjectBySlug(locale: Locale, slug: string) {
 }
 
 export function getProjectSlugs() {
-  return getBaseProjectSlugs();
+  return getBaseProjectSlugs().filter(isCommercialSlug);
 }
