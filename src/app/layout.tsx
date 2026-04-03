@@ -5,28 +5,32 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { getCurrentLocale } from "@/lib/get-locale";
 import { getDictionary } from "@/lib/i18n";
+import { getHtmlLang, getOpenGraphLocale } from "@/lib/metadata";
 import { getCompanyProfile, getContactChannels } from "@/lib/site-data";
 
 import "./globals.css";
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://bentoaiii.com"),
-  title: {
-    default: "Bento AIII",
-    template: "%s | Bento AIII"
-  },
-  description:
-    "Bento AIII is a technology company focused on AI applications and large language model systems, building practical products, workflows, and digital experiences.",
-  openGraph: {
-    title: "Bento AIII",
-    description:
-      "AI applications, large language model systems, and practical product delivery.",
-    url: "https://bentoaiii.com",
-    siteName: "Bento AIII",
-    locale: "en_US",
-    type: "website"
-  }
-};
+export function generateMetadata(): Metadata {
+  const locale = getCurrentLocale();
+  const companyProfile = getCompanyProfile(locale);
+
+  return {
+    metadataBase: new URL("https://bentoaiii.com"),
+    title: {
+      default: "Bento AIII",
+      template: "%s | Bento AIII"
+    },
+    description: companyProfile.positioning,
+    openGraph: {
+      title: "Bento AIII",
+      description: companyProfile.positioning,
+      url: "https://bentoaiii.com",
+      siteName: "Bento AIII",
+      locale: getOpenGraphLocale(locale),
+      type: "website"
+    }
+  };
+}
 
 export default function RootLayout({
   children
@@ -40,7 +44,7 @@ export default function RootLayout({
   const emailChannel = contactChannels.find((item) => item.href?.startsWith("mailto:"));
 
   return (
-    <html lang={locale}>
+    <html lang={getHtmlLang(locale)}>
       <body>
         <SiteHeader locale={locale} navItems={dictionary.nav} copy={dictionary.header} />
         <main>{children}</main>

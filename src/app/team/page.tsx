@@ -7,12 +7,20 @@ import { SectionHeading } from "@/components/section-heading";
 import { TeamCard } from "@/components/team-card";
 import { getCurrentLocale } from "@/lib/get-locale";
 import { getDictionary } from "@/lib/i18n";
+import { createPageMetadata } from "@/lib/metadata";
 import { getTeamMembers } from "@/lib/site-data";
 
-export const metadata: Metadata = {
-  title: "Team",
-  description: "The Bento AIII team across product, design, engineering, and AI systems."
-};
+export function generateMetadata(): Metadata {
+  const locale = getCurrentLocale();
+  const dictionary = getDictionary(locale);
+
+  return createPageMetadata({
+    locale,
+    title: dictionary.nav.find((item) => item.href === "/team")?.label ?? "Team",
+    description: dictionary.team.hero.description,
+    path: "/team"
+  });
+}
 
 export default function TeamPage() {
   const locale = getCurrentLocale();

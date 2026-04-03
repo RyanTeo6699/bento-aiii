@@ -31,8 +31,8 @@ export function SiteFooter({
     <footer className="border-t border-white/10 py-12">
       <div className="shell">
         <div className="surface px-6 py-8 md:px-8 md:py-10">
-          <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
-            <div className="space-y-5">
+          <div className="grid gap-10 xl:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)_minmax(0,0.8fr)]">
+            <div className="min-w-0 space-y-5">
               <div className="flex items-center gap-3">
                 <span className="brand-mark">
                   <span className="brand-grid">
@@ -55,13 +55,13 @@ export function SiteFooter({
               <div className="max-w-md space-y-3">
                 <h2 className="text-2xl font-semibold text-white">{copy.title}</h2>
                 <p className="text-sm leading-7 text-slate-400">{companyDescription}</p>
-                <Link href="/contact" className="button-secondary">
+                <Link href="/contact" className="button-secondary inline-flex max-w-full text-center">
                   {copy.cta}
                 </Link>
               </div>
             </div>
 
-            <div>
+            <div className="min-w-0">
               <h3 className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
                 {copy.navTitle}
               </h3>
@@ -70,7 +70,7 @@ export function SiteFooter({
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="block text-sm text-slate-300 hover:text-white"
+                    className="block break-words text-sm text-slate-300 hover:text-white"
                   >
                     {item.label}
                   </Link>
@@ -78,12 +78,12 @@ export function SiteFooter({
               </div>
             </div>
 
-            <div>
+            <div className="min-w-0">
               <h3 className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
                 {copy.contactTitle}
               </h3>
-              <div className="space-y-3 text-sm leading-7 text-slate-300">
-                <a href={emailHref} className="block hover:text-white">
+              <div className="space-y-3 break-words text-sm leading-7 text-slate-300">
+                <a href={emailHref} className="block break-all hover:text-white">
                   {emailValue}
                 </a>
                 <p className="text-slate-400">{copy.location}</p>

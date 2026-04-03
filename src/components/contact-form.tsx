@@ -328,11 +328,11 @@ export function ContactForm({ locale, copy }: ContactFormProps) {
         </label>
       </div>
 
-      <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <p className="text-sm text-slate-500">{copy.hints.preferredInput}</p>
         <button
           type="submit"
-          className="button-primary"
+          className="button-primary w-full sm:w-auto"
           disabled={status.state === "loading"}
         >
           {status.state === "loading" ? copy.buttons.loading : copy.buttons.idle}

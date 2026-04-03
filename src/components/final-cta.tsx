@@ -37,11 +37,14 @@ export function FinalCta({
           </div>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <Link href={primaryHref} className="button-primary">
+            <Link href={primaryHref} className="button-primary w-full justify-center text-center sm:w-auto">
               {primaryLabel}
             </Link>
             {secondaryLabel && secondaryHref ? (
-              <Link href={secondaryHref} className="button-secondary">
+              <Link
+                href={secondaryHref}
+                className="button-secondary w-full justify-center text-center sm:w-auto"
+              >
                 {secondaryLabel}
               </Link>
             ) : null}

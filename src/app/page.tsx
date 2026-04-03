@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 
 import { FinalCta } from "@/components/final-cta";
 import { HeroScene } from "@/components/hero-scene";
@@ -8,12 +9,24 @@ import { SectionHeading } from "@/components/section-heading";
 import { TeamCard } from "@/components/team-card";
 import { getCurrentLocale } from "@/lib/get-locale";
 import { getDictionary } from "@/lib/i18n";
+import { createPageMetadata } from "@/lib/metadata";
 import {
   getCapabilityPillars,
   getCompanyProfile,
   getProjects,
   getTeamMembers
 } from "@/lib/site-data";
+
+export function generateMetadata(): Metadata {
+  const locale = getCurrentLocale();
+  const companyProfile = getCompanyProfile(locale);
+
+  return createPageMetadata({
+    locale,
+    description: companyProfile.positioning,
+    path: "/"
+  });
+}
 
 export default function HomePage() {
   const locale = getCurrentLocale();

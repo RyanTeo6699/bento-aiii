@@ -7,12 +7,20 @@ import { ProjectCard } from "@/components/project-card";
 import { SectionHeading } from "@/components/section-heading";
 import { getCurrentLocale } from "@/lib/get-locale";
 import { getDictionary } from "@/lib/i18n";
+import { createPageMetadata } from "@/lib/metadata";
 import { getCompanyProfile, getProjects } from "@/lib/site-data";
 
-export const metadata: Metadata = {
-  title: "Projects",
-  description: "Project index for Bento AIII AI applications, systems, and workflow tooling."
-};
+export function generateMetadata(): Metadata {
+  const locale = getCurrentLocale();
+  const dictionary = getDictionary(locale);
+
+  return createPageMetadata({
+    locale,
+    title: dictionary.nav.find((item) => item.href === "/projects")?.label ?? "Projects",
+    description: dictionary.projects.hero.description,
+    path: "/projects"
+  });
+}
 
 export default function ProjectsPage() {
   const locale = getCurrentLocale();

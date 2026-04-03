@@ -6,6 +6,7 @@ import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
 import { getCurrentLocale } from "@/lib/get-locale";
 import { getDictionary } from "@/lib/i18n";
+import { createPageMetadata } from "@/lib/metadata";
 import {
   getCapabilityPillars,
   getCompanyProfile,
@@ -13,10 +14,18 @@ import {
   getValues
 } from "@/lib/site-data";
 
-export const metadata: Metadata = {
-  title: "About",
-  description: "Company profile, mission, capabilities, and roadmap for Bento AIII."
-};
+export function generateMetadata(): Metadata {
+  const locale = getCurrentLocale();
+  const dictionary = getDictionary(locale);
+  const companyProfile = getCompanyProfile(locale);
+
+  return createPageMetadata({
+    locale,
+    title: dictionary.nav.find((item) => item.href === "/about")?.label ?? "About",
+    description: companyProfile.positioning,
+    path: "/about"
+  });
+}
 
 export default function AboutPage() {
   const locale = getCurrentLocale();

@@ -48,10 +48,10 @@ export function SiteHeader({ locale, navItems, copy }: SiteHeaderProps) {
   function renderLocaleSwitch(className?: string) {
     return (
       <div className={cn("flex items-center gap-2", className)}>
-        <span className="font-pixel text-[0.62rem] uppercase tracking-[0.18em] text-slate-500">
+        <span className="shrink-0 font-pixel text-[0.62rem] uppercase tracking-[0.18em] text-slate-500">
           {copy.languageLabel}
         </span>
-        <div className="flex items-center rounded-[0.95rem] border border-white/10 bg-white/[0.03] p-1">
+        <div className="flex flex-wrap items-center rounded-[0.95rem] border border-white/10 bg-white/[0.03] p-1">
           {localeOptions.map((option) => {
             const active = option.value === locale;
 
@@ -61,7 +61,7 @@ export function SiteHeader({ locale, navItems, copy }: SiteHeaderProps) {
                 type="button"
                 onClick={() => handleLocaleChange(option.value)}
                 className={cn(
-                  "rounded-[0.7rem] px-3 py-2 text-xs font-medium transition",
+                  "rounded-[0.7rem] px-2.5 py-2 text-xs font-medium transition",
                   active
                     ? "bg-white/[0.08] text-white"
                     : "text-slate-400 hover:bg-white/[0.05] hover:text-white"
@@ -101,7 +101,7 @@ export function SiteHeader({ locale, navItems, copy }: SiteHeaderProps) {
               </div>
             </Link>
 
-            <nav className="hidden items-center gap-1 lg:flex">
+            <nav className="hidden items-center gap-1 xl:flex">
               {navItems.map((item) => {
                 const active =
                   item.href === "/"
@@ -113,7 +113,7 @@ export function SiteHeader({ locale, navItems, copy }: SiteHeaderProps) {
                     key={item.href}
                     href={item.href}
                     className={cn(
-                      "rounded-[0.9rem] px-4 py-2 text-sm transition",
+                      "rounded-[0.9rem] px-3 py-2 text-sm transition",
                       active
                         ? "bg-white/[0.08] text-white"
                         : "text-slate-300 hover:bg-white/[0.05] hover:text-white"
@@ -125,7 +125,7 @@ export function SiteHeader({ locale, navItems, copy }: SiteHeaderProps) {
               })}
             </nav>
 
-            <div className="hidden items-center gap-3 lg:flex">
+            <div className="hidden items-center gap-3 xl:flex">
               {renderLocaleSwitch()}
               <Link href="/contact" className="button-primary">
                 {copy.cta}
@@ -135,7 +135,7 @@ export function SiteHeader({ locale, navItems, copy }: SiteHeaderProps) {
             <button
               type="button"
               onClick={() => setOpen((value) => !value)}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-[0.9rem] border border-white/10 bg-white/[0.03] text-white lg:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-[0.9rem] border border-white/10 bg-white/[0.03] text-white xl:hidden"
               aria-expanded={open}
               aria-label={copy.mobileToggleLabel}
             >
@@ -154,7 +154,7 @@ export function SiteHeader({ locale, navItems, copy }: SiteHeaderProps) {
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.24, ease: "easeOut" }}
-                className="overflow-hidden lg:hidden"
+                className="overflow-hidden xl:hidden"
               >
                 <div className="mt-4 space-y-2 border-t border-white/10 pt-4">
                   {navItems.map((item) => {
