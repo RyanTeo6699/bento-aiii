@@ -8,12 +8,7 @@ import { getSharedCtas } from "@/lib/cta";
 import { getCurrentLocale } from "@/lib/get-locale";
 import { getDictionary } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/metadata";
-import {
-  getCapabilityPillars,
-  getCompanyProfile,
-  getRoadmap,
-  getValues
-} from "@/lib/site-data";
+import { getCapabilityPillars, getCompanyProfile, getRoadmap, getValues } from "@/lib/site-data";
 
 export function generateMetadata(): Metadata {
   const locale = getCurrentLocale();
@@ -48,41 +43,37 @@ export default function AboutPage() {
 
       <section className="py-24">
         <div className="shell grid gap-6 lg:grid-cols-2">
-          <Reveal className="surface pixel-corner p-8">
-            <span className="section-kicker">{dictionary.about.brief.kicker}</span>
-            <h2 className="mt-4 text-3xl font-semibold text-white">
+          <Reveal className="surface p-8">
+            <span className="section-kicker sticker-rotate-1">{dictionary.about.brief.kicker}</span>
+            <h2 className="mt-5 text-4xl font-black leading-[0.96] tracking-[-0.05em] text-[rgb(var(--ink))]">
               {dictionary.about.brief.title}
             </h2>
-            <p className="mt-5 text-base leading-8 text-slate-300">
+            <p className="mt-5 text-base leading-8 text-[rgb(var(--ink))]">
               {companyProfile.description}
             </p>
-            <p className="mt-4 text-base leading-8 text-slate-400">
+            <p className="mt-4 text-base leading-8 text-[rgb(var(--ink-soft))]">
               {dictionary.about.brief.body}
             </p>
           </Reveal>
 
-          <Reveal delay={0.08} className="surface pixel-corner p-8">
-            <span className="section-kicker">{dictionary.about.publicInfo.kicker}</span>
-            <h2 className="mt-4 text-3xl font-semibold text-white">
+          <Reveal delay={0.08} className="surface p-8">
+            <span className="section-kicker sticker-rotate-3">{dictionary.about.publicInfo.kicker}</span>
+            <h2 className="mt-5 text-4xl font-black leading-[0.96] tracking-[-0.05em] text-[rgb(var(--ink))]">
               {dictionary.about.publicInfo.title}
             </h2>
-            <p className="mt-5 text-base leading-8 text-slate-300">
+            <p className="mt-5 text-base leading-8 text-[rgb(var(--ink))]">
               {companyProfile.disclosure}
             </p>
             <div className="mt-8 space-y-4">
-              <div className="border-t border-white/10 pt-4">
-                <p className="text-sm uppercase tracking-[0.18em] text-slate-500">
-                  {dictionary.about.publicInfo.whyLabel}
-                </p>
-                <p className="mt-2 text-sm leading-7 text-slate-400">
+              <div className="border-t-[3px] border-dashed border-[rgb(var(--outline))] pt-4">
+                <p className="neo-microcopy">{dictionary.about.publicInfo.whyLabel}</p>
+                <p className="mt-2 text-sm leading-7 text-[rgb(var(--ink-soft))]">
                   {dictionary.about.publicInfo.whyText}
                 </p>
               </div>
-              <div className="border-t border-white/10 pt-4">
-                <p className="text-sm uppercase tracking-[0.18em] text-slate-500">
-                  {dictionary.about.publicInfo.missionLabel}
-                </p>
-                <p className="mt-2 text-sm leading-7 text-slate-400">
+              <div className="border-t-[3px] border-dashed border-[rgb(var(--outline))] pt-4">
+                <p className="neo-microcopy">{dictionary.about.publicInfo.missionLabel}</p>
+                <p className="mt-2 text-sm leading-7 text-[rgb(var(--ink-soft))]">
                   {companyProfile.mission}
                 </p>
               </div>
@@ -91,7 +82,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-y border-white/10 py-24">
+      <section className="py-24">
         <div className="shell">
           <Reveal>
             <SectionHeading
@@ -103,16 +94,16 @@ export default function AboutPage() {
 
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {capabilityPillars.slice(0, 3).map((pillar, index) => (
-              <Reveal
-                key={pillar.title}
-                delay={0.06 * index}
-                className="surface pixel-corner p-6"
-              >
-                <p className="text-xs uppercase tracking-[0.2em] text-accent">
-                  {dictionary.about.businessDirections.trackPrefix} 0{index + 1}
-                </p>
-                <h3 className="mt-4 text-2xl font-semibold text-white">{pillar.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-slate-400">{pillar.description}</p>
+              <Reveal key={pillar.title} delay={0.06 * index}>
+                <div className={`pack-card p-6 ${index === 1 ? "sticker-rotate-1" : ""}`}>
+                  <p className="sticker-badge bg-[rgb(var(--tertiary-container))] text-[rgb(var(--ink))]">
+                    {dictionary.about.businessDirections.trackPrefix} 0{index + 1}
+                  </p>
+                  <h3 className="mt-5 text-3xl font-black leading-[0.98] tracking-[-0.05em] text-[rgb(var(--ink))]">
+                    {pillar.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-7 text-[rgb(var(--ink-soft))]">{pillar.description}</p>
+                </div>
               </Reveal>
             ))}
           </div>
@@ -131,19 +122,19 @@ export default function AboutPage() {
 
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
             {capabilityPillars.map((pillar, index) => (
-              <Reveal
-                key={pillar.title}
-                delay={0.05 * index}
-                className="surface pixel-corner p-6"
-              >
-                <h3 className="text-2xl font-semibold text-white">{pillar.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-slate-300">{pillar.description}</p>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {pillar.bullets.map((item) => (
-                    <span key={item} className="signal-chip">
-                      {item}
-                    </span>
-                  ))}
+              <Reveal key={pillar.title} delay={0.05 * index}>
+                <div className="surface p-6">
+                  <h3 className="text-3xl font-black leading-[0.98] tracking-[-0.05em] text-[rgb(var(--ink))]">
+                    {pillar.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-7 text-[rgb(var(--ink-soft))]">{pillar.description}</p>
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {pillar.bullets.map((item) => (
+                      <span key={item} className="project-chip">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </Reveal>
             ))}
@@ -151,7 +142,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-y border-white/10 py-24">
+      <section className="py-24">
         <div className="shell">
           <Reveal>
             <SectionHeading
@@ -163,13 +154,13 @@ export default function AboutPage() {
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {values.map((value, index) => (
-              <Reveal
-                key={value.title}
-                delay={0.05 * index}
-                className="surface pixel-corner p-6"
-              >
-                <h3 className="text-xl font-semibold text-white">{value.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-slate-400">{value.description}</p>
+              <Reveal key={value.title} delay={0.05 * index}>
+                <div className={`surface p-6 ${index % 2 === 0 ? "sticker-rotate-3" : ""}`}>
+                  <h3 className="text-2xl font-black leading-[0.98] tracking-[-0.04em] text-[rgb(var(--ink))]">
+                    {value.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-7 text-[rgb(var(--ink-soft))]">{value.description}</p>
+                </div>
               </Reveal>
             ))}
           </div>
@@ -188,17 +179,17 @@ export default function AboutPage() {
 
           <div className="mt-12 space-y-5">
             {roadmap.map((item, index) => (
-              <Reveal
-                key={item.phase}
-                delay={0.05 * index}
-                className="surface pixel-corner grid gap-5 p-6 md:grid-cols-[180px_minmax(0,1fr)] md:items-start"
-              >
-                <div>
-                  <p className="section-kicker text-[0.58rem]">{item.phase}</p>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-semibold text-white">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-400">{item.description}</p>
+              <Reveal key={item.phase} delay={0.05 * index}>
+                <div className="surface grid gap-5 p-6 md:grid-cols-[180px_minmax(0,1fr)] md:items-start">
+                  <div>
+                    <p className="section-kicker text-[0.68rem]">{item.phase}</p>
+                  </div>
+                  <div>
+                    <h3 className="text-3xl font-black leading-[0.98] tracking-[-0.05em] text-[rgb(var(--ink))]">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-7 text-[rgb(var(--ink-soft))]">{item.description}</p>
+                  </div>
                 </div>
               </Reveal>
             ))}

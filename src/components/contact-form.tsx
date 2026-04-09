@@ -205,38 +205,36 @@ export function ContactForm({ locale, copy }: ContactFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="surface pixel-corner p-6 md:p-8">
-      <div className="mb-8 space-y-3">
-        <span className="section-kicker">{copy.kicker}</span>
-        <h2 className="text-3xl font-semibold text-white">{copy.title}</h2>
-        <p className="text-sm leading-7 text-slate-400">{copy.description}</p>
+    <form onSubmit={handleSubmit} className="surface p-6 md:p-8">
+      <div className="mb-8 space-y-4">
+        <span className="section-kicker sticker-rotate-1">{copy.kicker}</span>
+        <h2 className="text-4xl font-black leading-[0.96] tracking-[-0.05em] text-[rgb(var(--ink))]">
+          {copy.title}
+        </h2>
+        <p className="text-sm leading-7 text-[rgb(var(--ink-soft))]">{copy.description}</p>
       </div>
 
       {status.state !== "idle" ? (
         <div
           aria-live="polite"
-          className={`mb-6 break-words rounded-[1rem] border px-4 py-3 text-sm ${
+          className={`mb-6 break-words rounded-[1.4rem] border-[3px] px-4 py-3 text-sm shadow-[4px_4px_0_0_rgb(var(--shadow))] ${
             status.state === "success"
-              ? "border-emerald-400/30 bg-emerald-400/10 text-emerald-100"
+              ? "border-[rgb(var(--ink))] bg-[rgb(196,243,212)] text-[rgb(var(--ink))]"
               : status.state === "notice"
-                ? "border-amber-300/30 bg-amber-300/10 text-amber-100"
+                ? "border-[rgb(var(--ink))] bg-[rgb(var(--tertiary-container))] text-[rgb(var(--ink))]"
               : status.state === "error"
-                ? "border-rose-400/30 bg-rose-400/10 text-rose-100"
-                : "border-[rgba(46,232,255,0.3)] bg-[rgba(46,232,255,0.1)] text-white"
+                ? "border-[rgb(var(--ink))] bg-[rgb(var(--primary-container))] text-[rgb(var(--ink))]"
+                : "border-[rgb(var(--ink))] bg-[rgb(var(--secondary-container))] text-[rgb(var(--ink))]"
           }`}
         >
           <p>{status.state === "loading" ? copy.statuses.submitting : status.message}</p>
           {"reference" in status && status.reference ? (
-            <p className="mt-2 font-pixel text-[0.68rem] uppercase tracking-[0.16em]">
+            <p className="mt-2 font-[var(--font-label)] text-[0.7rem] font-extrabold uppercase tracking-[0.16em]">
               {copy.statuses.reference}: {status.reference}
             </p>
           ) : null}
           {status.state === "success" || status.state === "notice" ? (
-            <p
-              className={`mt-2 text-xs leading-6 ${
-                status.state === "success" ? "text-emerald-100/80" : "text-amber-100/80"
-              }`}
-            >
+            <p className="mt-2 text-xs leading-6 text-[rgb(var(--ink-soft))]">
               {copy.statuses.successFollowUpPrefix}{" "}
               <a
                 href="mailto:hello@bentoaiii.com"
@@ -251,8 +249,8 @@ export function ContactForm({ locale, copy }: ContactFormProps) {
       ) : null}
 
       <div className="grid gap-5 md:grid-cols-2">
-        <label className="space-y-2 text-sm text-slate-300">
-          <span>{copy.labels.name}</span>
+        <label className="space-y-2 text-sm text-[rgb(var(--ink))]">
+          <span className="label-caps">{copy.labels.name}</span>
           <input
             className="form-input"
             type="text"
@@ -267,8 +265,8 @@ export function ContactForm({ locale, copy }: ContactFormProps) {
           {fieldErrors.name ? <p className="field-error">{fieldErrors.name}</p> : null}
         </label>
 
-        <label className="space-y-2 text-sm text-slate-300">
-          <span>{copy.labels.company}</span>
+        <label className="space-y-2 text-sm text-[rgb(var(--ink))]">
+          <span className="label-caps">{copy.labels.company}</span>
           <input
             className="form-input"
             type="text"
@@ -281,8 +279,8 @@ export function ContactForm({ locale, copy }: ContactFormProps) {
           {fieldErrors.company ? <p className="field-error">{fieldErrors.company}</p> : null}
         </label>
 
-        <label className="space-y-2 text-sm text-slate-300">
-          <span>{copy.labels.email}</span>
+        <label className="space-y-2 text-sm text-[rgb(var(--ink))]">
+          <span className="label-caps">{copy.labels.email}</span>
           <input
             className="form-input"
             type="email"
@@ -295,8 +293,8 @@ export function ContactForm({ locale, copy }: ContactFormProps) {
           {fieldErrors.email ? <p className="field-error">{fieldErrors.email}</p> : null}
         </label>
 
-        <label className="space-y-2 text-sm text-slate-300">
-          <span>{copy.labels.projectType}</span>
+        <label className="space-y-2 text-sm text-[rgb(var(--ink))]">
+          <span className="label-caps">{copy.labels.projectType}</span>
           <select
             className="form-input"
             name="projectType"
@@ -319,8 +317,8 @@ export function ContactForm({ locale, copy }: ContactFormProps) {
           ) : null}
         </label>
 
-        <label className="space-y-2 text-sm text-slate-300 md:col-span-2">
-          <span>{copy.labels.message}</span>
+        <label className="space-y-2 text-sm text-[rgb(var(--ink))] md:col-span-2">
+          <span className="label-caps">{copy.labels.message}</span>
           <textarea
             className="form-textarea"
             name="message"
@@ -335,9 +333,11 @@ export function ContactForm({ locale, copy }: ContactFormProps) {
             {fieldErrors.message ? (
               <p className="field-error">{fieldErrors.message}</p>
             ) : (
-              <p className="text-xs leading-5 text-slate-500">{copy.hints.message}</p>
+              <p className="text-xs leading-5 text-[rgb(var(--ink-muted))]">
+                {copy.hints.message}
+              </p>
             )}
-            <p className="text-xs leading-5 text-slate-500">{copy.hints.range}</p>
+            <p className="text-xs leading-5 text-[rgb(var(--ink-muted))]">{copy.hints.range}</p>
           </div>
         </label>
 
@@ -348,7 +348,7 @@ export function ContactForm({ locale, copy }: ContactFormProps) {
       </div>
 
       <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-        <p className="text-sm text-slate-500">{copy.hints.preferredInput}</p>
+        <p className="text-sm text-[rgb(var(--ink-muted))]">{copy.hints.preferredInput}</p>
         <button
           type="submit"
           className="button-primary w-full sm:w-auto"

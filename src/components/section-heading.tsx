@@ -18,26 +18,28 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        "flex max-w-3xl flex-col gap-4",
+        "flex max-w-4xl flex-col gap-5",
         align === "center" ? "mx-auto items-center text-center" : "items-start",
         className
       )}
     >
-      <div className="flex w-full items-center gap-3">
-        <span className="section-kicker">{eyebrow}</span>
-        <span className="hud-line" />
-      </div>
-      <div
+      <span
         className={cn(
-          "space-y-4 border-l border-white/10 pl-4",
-          align === "center" ? "border-l-0 pl-0" : ""
+          "section-kicker",
+          align === "center" ? "sticker-rotate-1" : "sticker-rotate-3"
         )}
       >
-        <h2 className="text-3xl font-semibold leading-tight text-white md:text-4xl">
+        {eyebrow}
+      </span>
+      <div className={cn("space-y-4", align === "center" && "items-center")}>
+        <h2 className="max-w-4xl text-4xl font-black leading-[0.96] tracking-[-0.05em] text-[rgb(var(--ink))] md:text-5xl">
           {title}
         </h2>
-        <p className="text-base leading-7 text-slate-300 md:text-lg">{description}</p>
+        <p className="max-w-3xl text-base leading-8 text-[rgb(var(--ink-soft))] md:text-lg">
+          {description}
+        </p>
       </div>
+      <span className="hud-line max-w-xl" />
     </div>
   );
 }

@@ -48,38 +48,38 @@ export default function ContactPage() {
 
             <div className="grid gap-6">
               {contactChannels.map((channel, index) => (
-                <Reveal
-                  key={channel.label}
-                  delay={0.06 * index}
-                  className="surface pixel-corner p-6"
-                >
-                  <p className="neo-microcopy">{channel.label}</p>
-                  {channel.href ? (
-                    <a
-                      href={channel.href}
-                      className="mt-3 block text-2xl font-semibold text-white hover:text-accent"
-                    >
-                      {channel.value}
-                    </a>
-                  ) : (
-                    <p className="mt-3 text-2xl font-semibold text-white">{channel.value}</p>
-                  )}
-                  <p className="mt-3 text-sm leading-7 text-slate-400">{channel.note}</p>
+                <Reveal key={channel.label} delay={0.06 * index}>
+                  <div className={`surface p-6 ${index === 1 ? "sticker-rotate-1" : ""}`}>
+                    <p className="neo-microcopy">{channel.label}</p>
+                    {channel.href ? (
+                      <a
+                        href={channel.href}
+                        className="mt-4 block text-3xl font-black leading-[0.98] tracking-[-0.05em] text-[rgb(var(--ink))] hover:text-[rgb(var(--primary))]"
+                      >
+                        {channel.value}
+                      </a>
+                    ) : (
+                      <p className="mt-4 text-3xl font-black leading-[0.98] tracking-[-0.05em] text-[rgb(var(--ink))]">
+                        {channel.value}
+                      </p>
+                    )}
+                    <p className="mt-3 text-sm leading-7 text-[rgb(var(--ink-soft))]">{channel.note}</p>
+                  </div>
                 </Reveal>
               ))}
 
-              <Reveal delay={0.18} className="surface pixel-corner p-6">
-                <p className="section-kicker text-[0.58rem]">
+              <Reveal delay={0.18} className="surface p-6">
+                <p className="section-kicker sticker-rotate-3 text-[0.68rem]">
                   {dictionary.contact.submissionPath.kicker}
                 </p>
                 <div className="mt-5 space-y-4">
                   {dictionary.contact.submissionPath.steps.map((step) => (
                     <div
                       key={step.label}
-                      className="border-t border-white/10 pt-4 first:border-t-0 first:pt-0"
+                      className="border-t-[3px] border-dashed border-[rgb(var(--outline))] pt-4 first:border-t-0 first:pt-0"
                     >
                       <p className="neo-microcopy">{step.label}</p>
-                      <p className="mt-2 text-sm leading-7 text-slate-400">
+                      <p className="mt-2 text-sm leading-7 text-[rgb(var(--ink-soft))]">
                         {step.body}
                       </p>
                     </div>

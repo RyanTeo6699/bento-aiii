@@ -9,10 +9,7 @@ import { getSharedCtas } from "@/lib/cta";
 import { getCurrentLocale } from "@/lib/get-locale";
 import { getDictionary } from "@/lib/i18n";
 import { createPageMetadata } from "@/lib/metadata";
-import {
-  getProjectPresentationCopy,
-  getProjects as getCommercialProjects
-} from "@/lib/project-commercial";
+import { getProjectPresentationCopy, getProjects as getCommercialProjects } from "@/lib/project-commercial";
 
 export function generateMetadata(): Metadata {
   const locale = getCurrentLocale();
@@ -60,14 +57,14 @@ export default function ProjectsPage() {
 
       <section className="py-24">
         <div className="shell">
-          <Reveal className="surface pixel-corner p-6">
-            <p className="section-kicker text-[0.58rem]">{projectCopy.noteKicker}</p>
-            <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-300">
+          <Reveal className="surface p-6 md:p-7">
+            <p className="section-kicker sticker-rotate-1 text-[0.68rem]">{projectCopy.noteKicker}</p>
+            <p className="mt-5 max-w-3xl text-sm leading-7 text-[rgb(var(--ink-soft))]">
               {projectCopy.noteBody}
             </p>
           </Reveal>
 
-          <div className="mt-14">
+          <div className="mt-16">
             <Reveal>
               <SectionHeading
                 eyebrow={projectCopy.featuredEyebrow}
@@ -76,24 +73,34 @@ export default function ProjectsPage() {
               />
             </Reveal>
 
-            <div className="mt-12 grid gap-6 xl:grid-cols-3">
+            <div className="deck-grid mt-12 xl:grid-cols-3">
               {featuredProjects.map((project, index) => (
                 <Reveal key={project.slug} delay={0.05 * index}>
-                  <ProjectCard
-                    locale={locale}
-                    project={project}
-                    variant="featured"
-                    copy={{
-                      viewDetail: projectCopy.viewProject,
-                      learnMore: projectCopy.learnMore,
-                      idealUsers: projectCopy.idealUsers,
-                      deliveryScope: projectCopy.deliveryScope,
-                      keyOutcome: projectCopy.keyOutcome,
-                      valueCase: projectCopy.valueCase,
-                      platformLabel: projectCopy.platformLabel,
-                      statusLabels: dictionary.common.statusLabels
-                    }}
-                  />
+                  <div
+                    className={
+                      index === 1
+                        ? "card-stack md:translate-y-6"
+                        : index === 2
+                          ? "card-stack md:-translate-y-2"
+                          : "card-stack"
+                    }
+                  >
+                    <ProjectCard
+                      locale={locale}
+                      project={project}
+                      variant="featured"
+                      copy={{
+                        viewDetail: projectCopy.viewProject,
+                        learnMore: projectCopy.learnMore,
+                        idealUsers: projectCopy.idealUsers,
+                        deliveryScope: projectCopy.deliveryScope,
+                        keyOutcome: projectCopy.keyOutcome,
+                        valueCase: projectCopy.valueCase,
+                        platformLabel: projectCopy.platformLabel,
+                        statusLabels: dictionary.common.statusLabels
+                      }}
+                    />
+                  </div>
                 </Reveal>
               ))}
             </div>
@@ -101,7 +108,7 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      <section className="border-t border-white/10 py-24">
+      <section className="py-24">
         <div className="shell">
           <Reveal>
             <SectionHeading

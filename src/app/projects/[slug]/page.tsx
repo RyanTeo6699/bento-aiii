@@ -68,96 +68,111 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-white/10 pt-32">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(46,232,255,0.16),transparent_24%),radial-gradient(circle_at_86%_18%,rgba(139,96,255,0.12),transparent_20%)]" />
-        <div className="shell relative pb-16 pt-8">
-          <Link
-            href={buildLocalizedPath(locale, "/projects")}
-            className="section-kicker inline-flex items-center gap-2 text-accent hover:opacity-100"
-          >
-            {dictionary.common.backToProjects}
-          </Link>
+      <section className="pt-32 md:pt-36">
+        <div className="shell">
+          <div className="boxed-section px-6 py-8 md:px-10 md:py-10">
+            <Link
+              href={buildLocalizedPath(locale, "/projects")}
+              className="button-secondary inline-flex w-fit"
+            >
+              {dictionary.common.backToProjects}
+            </Link>
 
-          <Reveal className="mt-8 max-w-4xl space-y-6">
-            <div className="flex flex-wrap items-center gap-3">
-              <StatusBadge status={project.status} label={project.statusLabel} />
-              <span className="neo-microcopy">{project.platform}</span>
-            </div>
+            <Reveal className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
+              <div className="space-y-6">
+                <div className="flex flex-wrap items-center gap-3">
+                  <StatusBadge status={project.status} label={project.statusLabel} />
+                  <span className="project-chip bg-[rgb(var(--surface-container-high))]">
+                    {project.platform}
+                  </span>
+                </div>
 
-            <h1 className="text-4xl font-semibold leading-tight text-white md:text-6xl">
-              {project.name}
-            </h1>
-            <p className="text-lg leading-8 text-slate-200">{project.positioning}</p>
-            <p className="max-w-3xl text-base leading-8 text-slate-400">
-              {project.description}
-            </p>
+                <h1 className="headline-page max-w-4xl">{project.name}</h1>
+                <p className="max-w-3xl text-lg leading-8 text-[rgb(var(--ink))]">
+                  {project.positioning}
+                </p>
+                <p className="max-w-3xl text-base leading-8 text-[rgb(var(--ink-soft))]">
+                  {project.description}
+                </p>
 
-            <div className="flex flex-wrap gap-2">
-              {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-[0.85rem] border border-white/10 px-3 py-1 text-xs text-slate-400"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </Reveal>
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag, index) => (
+                    <span
+                      key={tag}
+                      className={`project-chip ${
+                        index === 0
+                          ? "bg-[rgb(var(--secondary-container))]"
+                          : index === 1
+                            ? "bg-[rgb(var(--tertiary-container))]"
+                            : ""
+                      }`}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="surface p-6">
+                <p className="neo-microcopy">{projectCopy.valueCase}</p>
+                <p className="mt-3 text-sm leading-7 text-[rgb(var(--ink-soft))]">
+                  {project.commercial.valueCase}
+                </p>
+
+                <div className="mt-6 border-t-[3px] border-dashed border-[rgb(var(--outline))] pt-5">
+                  <p className="neo-microcopy">{projectCopy.deliveryScope}</p>
+                  <p className="mt-3 text-sm leading-7 text-[rgb(var(--ink-muted))]">
+                    {project.commercial.deliveryScope}
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
       <section className="py-24">
-        <div className="shell grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-          <Reveal className="surface pixel-corner p-8">
-            <span className="section-kicker">{projectCopy.whatItDoes}</span>
+        <div className="shell grid gap-6 lg:grid-cols-[1.12fr_0.88fr]">
+          <Reveal className="surface p-8">
+            <span className="section-kicker sticker-rotate-1">{projectCopy.whatItDoes}</span>
             <div className="mt-5 space-y-4">
               {project.detail.whatItDoes.map((paragraph) => (
-                <p key={paragraph} className="text-base leading-8 text-slate-300">
+                <p key={paragraph} className="text-base leading-8 text-[rgb(var(--ink-soft))]">
                   {paragraph}
                 </p>
               ))}
             </div>
           </Reveal>
 
-          <Reveal delay={0.06} className="surface pixel-corner p-8">
-            <span className="section-kicker">{projectCopy.whyItMatters}</span>
-            <p className="mt-5 text-base leading-8 text-slate-300">
+          <Reveal delay={0.06} className="surface p-8">
+            <span className="section-kicker sticker-rotate-3">{projectCopy.whyItMatters}</span>
+            <p className="mt-5 text-base leading-8 text-[rgb(var(--ink-soft))]">
               {project.detail.whyItMatters}
             </p>
 
-            <div className="mt-8 border-t border-white/10 pt-6">
+            <div className="mt-8 border-t-[3px] border-dashed border-[rgb(var(--outline))] pt-6">
               <p className="neo-microcopy">{projectCopy.platformLabel}</p>
-              <p className="mt-3 text-sm leading-7 text-slate-300">{project.platform}</p>
-            </div>
-
-            <div className="mt-8 border-t border-white/10 pt-6">
-              <p className="neo-microcopy">{projectCopy.valueCase}</p>
-              <p className="mt-3 text-sm leading-7 text-slate-400">
-                {project.commercial.valueCase}
-              </p>
+              <p className="mt-3 text-sm leading-7 text-[rgb(var(--ink))]">{project.platform}</p>
             </div>
           </Reveal>
         </div>
       </section>
 
-      <section className="border-y border-white/10 py-24">
+      <section className="py-24">
         <div className="shell">
           <Reveal className="max-w-3xl">
-            <span className="section-kicker">{projectCopy.systemHighlights}</span>
-            <h2 className="mt-4 text-3xl font-semibold text-white md:text-4xl">
-              {project.name}
-            </h2>
+            <SectionHeaderStub label={projectCopy.systemHighlights} title={project.name} />
           </Reveal>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
             {project.detail.highlights.map((item, index) => (
-              <Reveal
-                key={item.title}
-                delay={0.05 * index}
-                className="surface pixel-corner p-6"
-              >
-                <h3 className="text-2xl font-semibold text-white">{item.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-slate-400">{item.body}</p>
+              <Reveal key={item.title} delay={0.05 * index}>
+                <div className={`pack-card p-6 ${index % 2 === 0 ? "sticker-rotate-1" : ""}`}>
+                  <h3 className="text-3xl font-black leading-[0.98] tracking-[-0.05em] text-[rgb(var(--ink))]">
+                    {item.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-7 text-[rgb(var(--ink-soft))]">{item.body}</p>
+                </div>
               </Reveal>
             ))}
           </div>
@@ -167,60 +182,57 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
       <section className="py-24">
         <div className="shell">
           <Reveal className="max-w-3xl">
-            <span className="section-kicker">{projectCopy.howItWorks}</span>
-            <h2 className="mt-4 text-3xl font-semibold text-white md:text-4xl">
-              {project.positioning}
-            </h2>
+            <SectionHeaderStub label={projectCopy.howItWorks} title={project.positioning} />
           </Reveal>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-2 xl:grid-cols-4">
             {project.detail.flowSteps.map((step, index) => (
-              <Reveal
-                key={step.title}
-                delay={0.05 * index}
-                className="surface pixel-corner p-6"
-              >
-                <p className="font-pixel text-[0.68rem] uppercase tracking-[0.18em] text-accent">
-                  0{index + 1}
-                </p>
-                <h3 className="mt-4 text-2xl font-semibold text-white">{step.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-slate-400">{step.body}</p>
+              <Reveal key={step.title} delay={0.05 * index}>
+                <div className="surface p-6">
+                  <p className="sticker-badge bg-[rgb(var(--tertiary-container))] text-[rgb(var(--ink))]">
+                    0{index + 1}
+                  </p>
+                  <h3 className="mt-5 text-3xl font-black leading-[0.98] tracking-[-0.05em] text-[rgb(var(--ink))]">
+                    {step.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-7 text-[rgb(var(--ink-soft))]">{step.body}</p>
+                </div>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-y border-white/10 py-24">
+      <section className="py-24">
         <div className="shell grid gap-6 lg:grid-cols-2">
-          <Reveal className="surface pixel-corner p-8">
-            <span className="section-kicker">{projectCopy.systemLayer}</span>
-            <p className="mt-5 text-base leading-8 text-slate-300">
+          <Reveal className="surface p-8">
+            <span className="section-kicker sticker-rotate-1">{projectCopy.systemLayer}</span>
+            <p className="mt-5 text-base leading-8 text-[rgb(var(--ink-soft))]">
               {project.detail.systemLayer}
             </p>
 
-            <div className="mt-8 border-t border-white/10 pt-6">
+            <div className="mt-8 border-t-[3px] border-dashed border-[rgb(var(--outline))] pt-6">
               <p className="neo-microcopy">{projectCopy.deliveryScope}</p>
-              <p className="mt-3 text-sm leading-7 text-slate-400">
+              <p className="mt-3 text-sm leading-7 text-[rgb(var(--ink-muted))]">
                 {project.commercial.deliveryScope}
               </p>
             </div>
           </Reveal>
 
-          <Reveal delay={0.08} className="surface pixel-corner p-8">
-            <span className="section-kicker">{projectCopy.statusNext}</span>
-            <p className="mt-5 text-base leading-8 text-slate-300">{project.detail.stage}</p>
+          <Reveal delay={0.08} className="surface p-8">
+            <span className="section-kicker sticker-rotate-3">{projectCopy.statusNext}</span>
+            <p className="mt-5 text-base leading-8 text-[rgb(var(--ink-soft))]">{project.detail.stage}</p>
 
-            <div className="mt-8 border-t border-white/10 pt-6">
+            <div className="mt-8 border-t-[3px] border-dashed border-[rgb(var(--outline))] pt-6">
               <p className="neo-microcopy">{dictionary.common.nextStep}</p>
-              <p className="mt-3 text-sm leading-7 text-slate-300">
+              <p className="mt-3 text-sm leading-7 text-[rgb(var(--ink-soft))]">
                 {project.detail.nextStep}
               </p>
             </div>
 
-            <div className="mt-8 border-t border-white/10 pt-6">
+            <div className="mt-8 border-t-[3px] border-dashed border-[rgb(var(--outline))] pt-6">
               <p className="neo-microcopy">{dictionary.common.disclosure}</p>
-              <p className="mt-3 text-sm leading-7 text-slate-500">{project.disclosure}</p>
+              <p className="mt-3 text-sm leading-7 text-[rgb(var(--ink-muted))]">{project.disclosure}</p>
             </div>
           </Reveal>
         </div>
@@ -229,10 +241,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
       <section className="py-24">
         <div className="shell">
           <Reveal className="max-w-3xl">
-            <span className="section-kicker">{dictionary.common.relatedWork}</span>
-            <h2 className="mt-4 text-3xl font-semibold text-white">
-              {projectCopy.relatedTitle}
-            </h2>
+            <SectionHeaderStub label={dictionary.common.relatedWork} title={projectCopy.relatedTitle} />
           </Reveal>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
@@ -269,6 +278,17 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
         secondaryLabel={sharedCtas.viewProjects}
         secondaryHref="/projects"
       />
+    </>
+  );
+}
+
+function SectionHeaderStub({ label, title }: { label: string; title: string }) {
+  return (
+    <>
+      <span className="section-kicker sticker-rotate-1">{label}</span>
+      <h2 className="mt-5 max-w-4xl text-4xl font-black leading-[0.96] tracking-[-0.05em] text-[rgb(var(--ink))] md:text-5xl">
+        {title}
+      </h2>
     </>
   );
 }

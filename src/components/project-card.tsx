@@ -22,6 +22,22 @@ type ProjectCardProps = {
   variant?: "default" | "featured" | "emerging";
 };
 
+function getRotationClass(slug: string, variant: ProjectCardProps["variant"]) {
+  if (variant !== "featured") {
+    return "";
+  }
+
+  if (slug === "shiok") {
+    return "sticker-rotate-1";
+  }
+
+  if (slug === "you-wife-list") {
+    return "sticker-rotate-3";
+  }
+
+  return "sticker-rotate-2";
+}
+
 export function ProjectCard({
   locale,
   project,
@@ -29,12 +45,15 @@ export function ProjectCard({
   variant = "default"
 }: ProjectCardProps) {
   const actionLabel = variant === "emerging" ? copy.learnMore ?? copy.viewDetail : copy.viewDetail;
+  const isFeatured = variant === "featured";
+  const isEmerging = variant === "emerging";
 
   return (
     <article
       className={cn(
-        "surface pixel-corner flex h-full flex-col",
-        variant === "featured" ? "p-8" : variant === "emerging" ? "p-5" : "p-6"
+        "pack-card paper-texture flex h-full flex-col",
+        getRotationClass(project.slug, variant),
+        isFeatured ? "p-8 md:p-9" : isEmerging ? "p-5 md:p-6" : "p-6"
       )}
     >
       <div className="flex flex-wrap items-start justify-between gap-3">
@@ -42,62 +61,55 @@ export function ProjectCard({
           status={project.status}
           label={project.statusLabel ?? copy.statusLabels[project.status]}
         />
-        <span className="neo-microcopy text-right">{project.platform}</span>
+        <span className="project-chip bg-[rgb(var(--surface-container-high))]">
+          {project.platform}
+        </span>
       </div>
 
-      <div className={cn("space-y-3", variant === "emerging" ? "mt-5" : "mt-6")}>
+      <div className={cn("space-y-3", isEmerging ? "mt-5" : "mt-6")}>
+        <p className="label-caps">{copy.platformLabel ?? project.platform}</p>
         <h3
           className={cn(
-            "font-semibold text-white",
-            variant === "featured" ? "text-3xl leading-tight" : "text-2xl"
+            "font-black leading-[0.96] tracking-[-0.05em] text-[rgb(var(--ink))]",
+            isFeatured ? "text-[2.15rem]" : "text-3xl"
           )}
         >
           {project.name}
         </h3>
-        <p className="text-sm leading-7 text-slate-200">{project.positioning}</p>
-        <p className="text-sm leading-7 text-slate-400">{project.summary}</p>
+        <p className="text-base leading-7 text-[rgb(var(--ink))]">{project.positioning}</p>
+        <p className="text-sm leading-7 text-[rgb(var(--ink-soft))]">{project.summary}</p>
       </div>
 
       <div className="mt-6 flex flex-wrap gap-2">
         {project.tags.map((tag) => (
-          <span
-            key={tag}
-            className="rounded-[0.85rem] border border-white/10 px-3 py-1 text-xs text-slate-400"
-          >
+          <span key={tag} className="project-chip">
             {tag}
           </span>
         ))}
       </div>
 
-      {variant === "emerging" ? (
-        <div className="mt-6 border-t border-white/10 pt-5">
-          <p className="text-sm leading-7 text-slate-500">{project.disclosure}</p>
+      {isEmerging ? (
+        <div className="mt-6 rounded-[1.35rem] border-[3px] border-[rgb(var(--ink))] bg-white/80 p-4 shadow-[4px_4px_0_0_rgb(var(--shadow))]">
+          <p className="text-sm leading-7 text-[rgb(var(--ink-muted))]">{project.disclosure}</p>
         </div>
       ) : (
-        <div className="mt-6 space-y-4 border-t border-white/10 pt-5">
-          {copy.platformLabel ? (
-            <div>
-              <p className="neo-microcopy">{copy.platformLabel}</p>
-              <p className="mt-2 text-sm leading-7 text-slate-300">{project.platform}</p>
-            </div>
-          ) : null}
-
-          <div className={cn(copy.platformLabel && "border-t border-white/10 pt-4")}>
+        <div className="mt-6 space-y-4 border-t-[3px] border-dashed border-[rgb(var(--outline))] pt-5">
+          <div>
             <p className="neo-microcopy">{copy.valueCase}</p>
-            <p className="mt-2 text-sm leading-7 text-slate-300">
+            <p className="mt-2 text-sm leading-7 text-[rgb(var(--ink-soft))]">
               {project.commercial.valueCase}
             </p>
           </div>
 
-          <div className="border-t border-white/10 pt-4">
+          <div className="border-t-[3px] border-dashed border-[rgb(var(--outline))] pt-4">
             <p className="neo-microcopy">{copy.keyOutcome}</p>
-            <p className="mt-2 text-sm leading-7 text-slate-400">{project.outcome}</p>
+            <p className="mt-2 text-sm leading-7 text-[rgb(var(--ink-muted))]">{project.outcome}</p>
           </div>
 
-          {variant === "featured" ? (
-            <div className="border-t border-white/10 pt-4">
+          {isFeatured ? (
+            <div className="border-t-[3px] border-dashed border-[rgb(var(--outline))] pt-4">
               <p className="neo-microcopy">{copy.deliveryScope}</p>
-              <p className="mt-2 text-sm leading-7 text-slate-400">
+              <p className="mt-2 text-sm leading-7 text-[rgb(var(--ink-muted))]">
                 {project.commercial.deliveryScope}
               </p>
             </div>
@@ -108,7 +120,7 @@ export function ProjectCard({
       <div className="mt-auto pt-8">
         <Link
           href={buildLocalizedPath(locale, `/projects/${project.slug}`)}
-          className="button-secondary"
+          className={isFeatured ? "button-primary" : "button-secondary"}
         >
           {actionLabel}
         </Link>

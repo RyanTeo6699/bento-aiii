@@ -2,11 +2,7 @@
 
 import { usePathname, useRouter } from "next/navigation";
 
-import {
-  localeCookieName,
-  localeOptions,
-  type Locale
-} from "@/lib/i18n";
+import { localeCookieName, localeOptions, type Locale } from "@/lib/i18n";
 import { replaceLocaleInPathname } from "@/lib/locale-routing";
 import { cn } from "@/lib/utils";
 
@@ -50,16 +46,14 @@ export function LanguageSwitcher({
   return (
     <div
       className={cn(
-        "flex min-w-0 items-center gap-2",
-        stacked && "w-full flex-col items-start gap-3",
+        "flex min-w-0 items-center gap-3",
+        stacked && "w-full flex-col items-start gap-4",
         className
       )}
     >
-      <span className="shrink-0 font-pixel text-[0.62rem] uppercase tracking-[0.18em] text-slate-500">
-        {label}
-      </span>
-      <div className="flex max-w-full flex-wrap items-center rounded-[0.95rem] border border-white/10 bg-white/[0.03] p-1">
-        {localeOptions.map((option) => {
+      <span className="label-caps shrink-0">{label}</span>
+      <div className="flex max-w-full flex-wrap items-center rounded-full border-[3px] border-[rgb(var(--ink))] bg-white p-1.5 shadow-[4px_4px_0_0_rgb(var(--shadow))]">
+        {localeOptions.map((option, index) => {
           const active = option.value === locale;
 
           return (
@@ -68,10 +62,11 @@ export function LanguageSwitcher({
               type="button"
               onClick={() => handleLocaleChange(option.value)}
               className={cn(
-                "rounded-[0.7rem] px-2 py-1.5 text-xs font-medium transition sm:px-2.5 sm:py-2",
+                "rounded-full px-3 py-2 font-[var(--font-label)] text-[0.74rem] font-extrabold uppercase tracking-[0.12em] transition sm:px-3.5",
                 active
-                  ? "bg-white/[0.08] text-white"
-                  : "text-slate-400 hover:bg-white/[0.05] hover:text-white"
+                  ? "border-[2px] border-[rgb(var(--ink))] bg-[rgb(var(--secondary-container))] text-[rgb(var(--ink))] shadow-[3px_3px_0_0_rgb(var(--shadow))]"
+                  : "text-[rgb(var(--ink-muted))] hover:-translate-y-0.5 hover:rotate-[-1deg] hover:bg-[rgb(var(--surface-container-low))] hover:text-[rgb(var(--ink))]",
+                !active && index === 1 && "hover:rotate-[1deg]"
               )}
               aria-pressed={active}
             >

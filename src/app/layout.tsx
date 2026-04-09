@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Be_Vietnam_Pro, Epilogue, Plus_Jakarta_Sans } from "next/font/google";
 import type { ReactNode } from "react";
 
 import { SiteFooter } from "@/components/site-footer";
@@ -10,6 +11,27 @@ import { getHtmlLang, getSiteMetadataBase } from "@/lib/metadata";
 import { getCompanyProfile, getContactChannels } from "@/lib/site-data";
 
 import "./globals.css";
+
+const headlineFont = Epilogue({
+  subsets: ["latin"],
+  weight: ["700", "800", "900"],
+  variable: "--font-headline",
+  display: "swap"
+});
+
+const bodyFont = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-body",
+  display: "swap"
+});
+
+const labelFont = Be_Vietnam_Pro({
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
+  variable: "--font-label",
+  display: "swap"
+});
 
 export function generateMetadata(): Metadata {
   const locale = getCurrentLocale();
@@ -39,7 +61,7 @@ export default function RootLayout({
 
   return (
     <html lang={getHtmlLang(locale)}>
-      <body>
+      <body className={`${headlineFont.variable} ${bodyFont.variable} ${labelFont.variable}`}>
         <SiteHeader
           locale={locale}
           navItems={dictionary.nav}
