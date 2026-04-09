@@ -17,9 +17,9 @@ export function PageHero({
   metrics
 }: PageHeroProps) {
   return (
-    <section className="pt-32 md:pt-36">
+    <section className="site-hero-section">
       <div className="shell">
-        <div className="boxed-section px-6 py-10 md:px-10 md:py-12">
+        <div className="boxed-section site-hero-frame">
           <Reveal className="max-w-5xl space-y-6">
             <span className="section-kicker sticker-rotate-1">{eyebrow}</span>
             <h1 className="headline-page max-w-5xl">{title}</h1>
@@ -29,7 +29,7 @@ export function PageHero({
           </Reveal>
 
           {metrics ? (
-            <Reveal delay={0.08} className="mt-10 grid gap-4 md:grid-cols-3">
+            <Reveal delay={0.08} className="mt-8 grid gap-4 md:mt-10 md:grid-cols-3">
               {metrics.map((item, index) => (
                 <div
                   key={item.label}

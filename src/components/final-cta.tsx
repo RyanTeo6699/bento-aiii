@@ -25,9 +25,9 @@ export function FinalCta({
   secondaryHref
 }: FinalCtaProps) {
   return (
-    <section className="py-24">
+    <section className="site-section">
       <div className="shell">
-        <div className="boxed-section px-6 py-10 md:px-10 md:py-12">
+        <div className="boxed-section site-hero-frame">
           <div className="max-w-4xl space-y-6">
             <span className="section-kicker sticker-rotate-3">{eyebrow}</span>
             <h2 className="headline-page max-w-4xl">{title}</h2>

@@ -46,14 +46,14 @@ export function LanguageSwitcher({
   return (
     <div
       className={cn(
-        "inline-flex shrink-0 items-center gap-3 whitespace-nowrap",
-        stacked && "w-full max-w-[25rem] flex-col items-start gap-3 whitespace-normal",
+        "inline-flex max-w-full shrink-0 items-center gap-2.5 whitespace-nowrap",
+        stacked && "w-full max-w-[20rem] flex-col items-start gap-3 whitespace-normal",
         className
       )}
     >
       <span
         className={cn(
-          "label-caps shrink-0 whitespace-nowrap leading-none text-[0.66rem] text-[rgb(var(--ink-muted))]",
+          "label-caps shrink-0 whitespace-nowrap leading-none text-[0.62rem] text-[rgb(var(--ink-muted))]",
           stacked && "pl-1 text-[0.68rem]"
         )}
       >
@@ -61,8 +61,8 @@ export function LanguageSwitcher({
       </span>
       <div
         className={cn(
-          "grid h-16 w-[18.75rem] max-w-full shrink-0 grid-cols-3 items-center gap-1.5 overflow-hidden rounded-full border-[3px] border-[rgb(var(--ink))] bg-white p-1.5 shadow-[4px_4px_0_0_rgb(var(--shadow))]",
-          stacked && "w-full max-w-[19rem]"
+          "grid h-14 w-[14.75rem] max-w-full shrink-0 grid-cols-3 items-center gap-1 overflow-hidden rounded-full border-[3px] border-[rgb(var(--ink))] bg-white p-1 shadow-[4px_4px_0_0_rgb(var(--shadow))] lg:w-[15.5rem]",
+          stacked && "w-full max-w-[16rem]"
         )}
       >
         {localeOptions.map((option, index) => {
@@ -74,7 +74,7 @@ export function LanguageSwitcher({
               type="button"
               onClick={() => handleLocaleChange(option.value)}
               className={cn(
-                "inline-flex h-12 min-w-0 items-center justify-center whitespace-nowrap rounded-full px-3 font-[var(--font-label)] text-[0.9rem] font-black leading-none tracking-[0.06em] transition",
+                "inline-flex h-10 min-w-0 items-center justify-center whitespace-nowrap rounded-full px-2.5 font-[var(--font-label)] text-[0.82rem] font-black leading-none tracking-[0.04em] transition",
                 active
                   ? "border-[2px] border-[rgb(var(--ink))] bg-[rgb(var(--secondary-container))] text-[rgb(var(--ink))] shadow-[3px_3px_0_0_rgb(var(--shadow))]"
                   : "text-[rgb(var(--ink-muted))] hover:-translate-y-0.5 hover:rotate-[-1deg] hover:bg-[rgb(var(--surface-container-low))] hover:text-[rgb(var(--ink))]",

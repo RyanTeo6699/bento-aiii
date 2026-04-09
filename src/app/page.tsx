@@ -52,13 +52,13 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="pt-32 md:pt-36">
+      <section className="site-hero-section">
         <div className="shell">
-          <div className="boxed-section px-6 py-8 md:px-10 md:py-10">
-            <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(430px,0.92fr)] lg:items-center">
-              <div className="max-w-3xl">
-                <Reveal className="space-y-6">
-                  <div className="hero-marquee">
+          <div className="boxed-section site-hero-frame">
+            <div className="site-hero-grid">
+              <div className="hero-copy-stack max-w-[36rem]">
+                <Reveal className="space-y-5">
+                  <div className="hero-marquee max-w-[34rem]">
                     {heroBadgeCopy[locale].map((item, index) => (
                       <span
                         key={item}
@@ -77,9 +77,9 @@ export default function HomePage() {
                     ))}
                   </div>
 
-                  <div className="space-y-4">
+                  <div className="space-y-3">
                     <p className="label-caps">{dictionary.home.hero.location}</p>
-                    <h1 className="headline-display">
+                    <h1 className="headline-display max-w-[10.5ch]">
                       {dictionary.home.hero.title}
                       <span className="mt-4 block text-[0.5em] not-italic font-black tracking-[-0.05em] text-[rgb(var(--secondary))]">
                         {dictionary.home.hero.subtitle}
@@ -87,16 +87,16 @@ export default function HomePage() {
                     </h1>
                   </div>
 
-                  <p className="max-w-2xl text-2xl leading-tight text-[rgb(var(--ink))] md:text-[2rem]">
+                  <p className="max-w-[24ch] text-xl leading-tight text-[rgb(var(--ink))] md:text-[1.7rem]">
                     {dictionary.home.hero.lead}
                   </p>
 
-                  <p className="max-w-2xl text-base leading-8 text-[rgb(var(--ink-soft))]">
+                  <p className="max-w-[34rem] text-base leading-8 text-[rgb(var(--ink-soft))]">
                     {companyProfile.description} {dictionary.home.hero.body}
                   </p>
                 </Reveal>
 
-                <Reveal delay={0.1} className="mt-8 flex flex-wrap gap-4">
+                <Reveal delay={0.1} className="flex flex-wrap gap-4 pt-1">
                   <Link href={buildLocalizedPath(locale, "/contact")} className="button-primary">
                     {sharedCtas.startConversation}
                   </Link>
@@ -104,23 +104,9 @@ export default function HomePage() {
                     {sharedCtas.viewProjects}
                   </Link>
                 </Reveal>
-
-                <Reveal delay={0.16} className="mt-10 grid gap-4 md:grid-cols-3">
-                  {dictionary.home.hero.signals.map((signal, index) => (
-                    <div
-                      key={signal.label}
-                      className={`surface p-5 ${index === 1 ? "sticker-rotate-1" : index === 2 ? "sticker-rotate-3" : ""}`}
-                    >
-                      <p className="neo-microcopy">{signal.label}</p>
-                      <p className="mt-3 text-sm leading-7 text-[rgb(var(--ink-soft))]">
-                        {signal.value}
-                      </p>
-                    </div>
-                  ))}
-                </Reveal>
               </div>
 
-              <Reveal delay={0.12} className="lg:pl-4">
+              <Reveal delay={0.12} className="h-full lg:pl-2">
                 <HeroScene copy={dictionary.home.heroScene} />
               </Reveal>
             </div>
@@ -128,7 +114,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="site-section">
         <div className="shell grid gap-12 lg:grid-cols-[0.94fr_1.06fr] lg:items-start">
           <Reveal>
             <SectionHeading
@@ -166,7 +152,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="site-section">
         <div className="shell">
           <Reveal>
             <SectionHeading
@@ -203,7 +189,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="site-section">
         <div className="shell">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <Reveal>
@@ -245,7 +231,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="site-section">
         <div className="shell">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <Reveal>

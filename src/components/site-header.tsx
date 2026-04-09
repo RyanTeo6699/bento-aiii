@@ -39,12 +39,12 @@ export function SiteHeader({ locale, navItems, copy }: SiteHeaderProps) {
           </div>
 
           <div className="px-4 py-4 md:px-5">
-            <div className="flex items-center justify-between gap-5">
+            <div className="flex items-center justify-between gap-4 xl:grid xl:grid-cols-[minmax(0,15rem)_minmax(0,1fr)_auto] xl:items-center xl:gap-4 2xl:grid-cols-[minmax(0,17rem)_minmax(0,1fr)_auto]">
               <Link
                 href={buildLocalizedPath(locale, "/")}
-                className="flex min-w-0 items-center gap-3"
+                className="flex min-w-0 max-w-[14rem] items-center gap-3 sm:max-w-[16rem] xl:max-w-none xl:pr-2"
               >
-                <span className="brand-mark shrink-0 sticker-rotate-1">
+                <span className="brand-mark h-12 w-12 shrink-0 sticker-rotate-1 md:h-[3.05rem] md:w-[3.05rem]">
                   <span className="brand-grid">
                     <span className="bg-[rgb(var(--primary-container))]" />
                     <span className="bg-[rgb(var(--secondary-container))]" />
@@ -53,16 +53,16 @@ export function SiteHeader({ locale, navItems, copy }: SiteHeaderProps) {
                   </span>
                 </span>
                 <div className="min-w-0">
-                  <span className="block truncate font-[var(--font-headline)] text-2xl font-black uppercase tracking-[-0.04em] text-[rgb(var(--ink))]">
+                  <span className="block truncate font-[var(--font-headline)] text-[1.35rem] font-black uppercase tracking-[-0.05em] text-[rgb(var(--ink))] sm:text-[1.55rem] xl:text-[1.65rem] 2xl:text-[1.8rem]">
                     Bento AIII
                   </span>
-                  <span className="block truncate font-[var(--font-label)] text-[0.68rem] font-extrabold uppercase tracking-[0.18em] text-[rgb(var(--ink-muted))]">
+                  <span className="hidden truncate font-[var(--font-label)] text-[0.62rem] font-extrabold uppercase tracking-[0.18em] text-[rgb(var(--ink-muted))] 2xl:block">
                     {copy.brandTagline}
                   </span>
                 </div>
               </Link>
 
-              <nav className="hidden items-center gap-2 xl:flex">
+              <nav className="hidden min-w-0 items-center justify-center gap-1.5 px-2 xl:flex">
                 {navItems.map((item, index) => {
                   const active =
                     item.href === "/"
@@ -74,7 +74,7 @@ export function SiteHeader({ locale, navItems, copy }: SiteHeaderProps) {
                       key={item.href}
                       href={buildLocalizedPath(locale, item.href)}
                       className={cn(
-                        "rounded-full border-[3px] border-transparent px-4 py-2 font-[var(--font-label)] text-[0.8rem] font-extrabold uppercase tracking-[0.12em] text-[rgb(var(--ink))] transition",
+                        "whitespace-nowrap rounded-full border-[3px] border-transparent px-3 py-2 font-[var(--font-label)] text-[0.74rem] font-extrabold uppercase tracking-[0.1em] text-[rgb(var(--ink))] transition 2xl:px-3.5",
                         active
                           ? "border-[rgb(var(--ink))] bg-white shadow-[4px_4px_0_0_rgb(var(--shadow))]"
                           : "hover:-translate-y-0.5 hover:border-[rgb(var(--ink))] hover:bg-[rgb(var(--surface-container-low))] hover:shadow-[4px_4px_0_0_rgb(var(--shadow))]",
@@ -87,7 +87,7 @@ export function SiteHeader({ locale, navItems, copy }: SiteHeaderProps) {
                 })}
               </nav>
 
-              <div className="hidden shrink-0 items-center gap-4 xl:flex">
+              <div className="hidden shrink-0 items-center justify-end gap-3 xl:flex">
                 <LanguageSwitcher
                   locale={locale}
                   label={copy.languageLabel}
@@ -95,7 +95,7 @@ export function SiteHeader({ locale, navItems, copy }: SiteHeaderProps) {
                 />
                 <Link
                   href={buildLocalizedPath(locale, "/contact")}
-                  className="button-primary shrink-0 whitespace-nowrap"
+                  className="button-primary h-14 shrink-0 whitespace-nowrap px-5 py-0 text-[0.78rem]"
                 >
                   {copy.cta}
                 </Link>
