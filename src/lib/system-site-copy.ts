@@ -106,6 +106,14 @@ function pick<T>(value: Record<Locale, T>, locale: Locale): T {
   return value[locale];
 }
 
+function cloneList<T>(value: readonly T[]): T[] {
+  return [...value];
+}
+
+function cloneObjects<T extends object>(value: readonly T[]): T[] {
+  return value.map((item) => ({ ...item }));
+}
+
 const modules = {
   en: [
     {
@@ -1032,15 +1040,15 @@ export function getSystemSiteCopy(locale: Locale): SystemSiteCopy {
         title: pick(content.home.hero.title, locale),
         lead: pick(content.home.hero.lead, locale),
         summary: pick(content.home.hero.summary, locale),
-        differentiation: pick(content.home.hero.differentiation, locale),
+        differentiation: cloneList(pick(content.home.hero.differentiation, locale)),
         primaryLabel: pick(content.home.hero.primaryLabel, locale),
         secondaryLabel: pick(content.home.hero.secondaryLabel, locale),
         railTitle: pick(content.home.hero.railTitle, locale),
-        railModules: pick(content.home.hero.railModules, locale),
+        railModules: cloneList(pick(content.home.hero.railModules, locale)),
         telemetryTitle: pick(content.home.hero.telemetryTitle, locale),
-        telemetryItems: pick(content.home.hero.telemetryItems, locale),
+        telemetryItems: cloneObjects(pick(content.home.hero.telemetryItems, locale)),
         telemetryTraceTitle: pick(content.home.hero.telemetryTraceTitle, locale),
-        telemetryTrace: pick(content.home.hero.telemetryTrace, locale),
+        telemetryTrace: cloneList(pick(content.home.hero.telemetryTrace, locale)),
         terminalContext: pick(content.home.hero.terminalContext, locale),
         terminalStatus: pick(content.home.hero.terminalStatus, locale),
         terminalNote: pick(content.home.hero.terminalNote, locale)
@@ -1049,37 +1057,40 @@ export function getSystemSiteCopy(locale: Locale): SystemSiteCopy {
         eyebrow: pick(content.home.coreStatement.eyebrow, locale),
         title: pick(content.home.coreStatement.title, locale),
         description: pick(content.home.coreStatement.description, locale),
-        items: pick(content.home.coreStatement.items, locale)
+        items: cloneObjects(pick(content.home.coreStatement.items, locale))
       },
       problemField: {
         eyebrow: pick(content.home.problemField.eyebrow, locale),
         title: pick(content.home.problemField.title, locale),
         description: pick(content.home.problemField.description, locale),
-        items: pick(content.home.problemField.items, locale)
+        items: cloneObjects(pick(content.home.problemField.items, locale))
       },
       modules: {
         eyebrow: pick(content.home.modules.eyebrow, locale),
         title: pick(content.home.modules.title, locale),
         description: pick(content.home.modules.description, locale),
-        items: modules[locale]
+        items: modules[locale].map((item) => ({
+          ...item,
+          bullets: [...item.bullets]
+        }))
       },
       executionLoop: {
         eyebrow: pick(content.home.executionLoop.eyebrow, locale),
         title: pick(content.home.executionLoop.title, locale),
         description: pick(content.home.executionLoop.description, locale),
-        steps: pick(content.home.executionLoop.steps, locale)
+        steps: cloneObjects(pick(content.home.executionLoop.steps, locale))
       },
       whyItMatters: {
         eyebrow: pick(content.home.whyItMatters.eyebrow, locale),
         title: pick(content.home.whyItMatters.title, locale),
         description: pick(content.home.whyItMatters.description, locale),
-        contrasts: pick(content.home.whyItMatters.contrasts, locale)
+        contrasts: cloneObjects(pick(content.home.whyItMatters.contrasts, locale))
       },
       domainAdaptation: {
         eyebrow: pick(content.home.domainAdaptation.eyebrow, locale),
         title: pick(content.home.domainAdaptation.title, locale),
         description: pick(content.home.domainAdaptation.description, locale),
-        items: pick(content.home.domainAdaptation.items, locale)
+        items: cloneObjects(pick(content.home.domainAdaptation.items, locale))
       },
       deploymentVectors: {
         eyebrow: pick(content.home.deploymentVectors.eyebrow, locale),
