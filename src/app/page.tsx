@@ -38,6 +38,8 @@ export default function HomePage() {
   const projectPresentationCopy = getProjectPresentationCopy(locale);
   const systemCopy = getSystemSiteCopy(locale);
   const featuredProjects = getCommercialProjects(locale).filter((project) => project.featured);
+  const aboutLabel = dictionary.nav.find((item) => item.href === "/about")?.label ?? "About";
+  const teamLabel = dictionary.nav.find((item) => item.href === "/team")?.label ?? "Team";
 
   return (
     <>
@@ -69,15 +71,15 @@ export default function HomePage() {
               </Reveal>
 
               <div className="min-w-0 space-y-5">
-                <Reveal className="surface p-6 md:p-8">
+                <Reveal className="surface p-6 md:p-7">
                   <span className="section-kicker">{systemCopy.home.hero.eyebrow}</span>
 
-                  <div className="mt-6 max-w-4xl space-y-5">
-                    <h1 className="headline-display max-w-[13ch]">{systemCopy.home.hero.title}</h1>
-                    <p className="max-w-4xl text-xl leading-8 text-[rgb(var(--ink))] md:text-[1.72rem]">
+                  <div className="mt-5 max-w-3xl space-y-4">
+                    <h1 className="headline-display max-w-[11.5ch]">{systemCopy.home.hero.title}</h1>
+                    <p className="max-w-3xl text-lg leading-8 text-[rgb(var(--ink))] md:text-[1.42rem] md:leading-8">
                       {systemCopy.home.hero.lead}
                     </p>
-                    <p className="max-w-4xl text-base leading-8 text-[rgb(var(--ink-soft))]">
+                    <p className="max-w-3xl text-[0.98rem] leading-7 text-[rgb(var(--ink-soft))] md:text-[1.02rem] md:leading-8">
                       {systemCopy.home.hero.summary}
                     </p>
                   </div>
@@ -88,17 +90,37 @@ export default function HomePage() {
                         key={item}
                         className={`terminal-panel p-4 ${index === 1 ? "border-[rgb(var(--secondary))]" : "border-[rgb(var(--primary))]"}`}
                       >
-                        <p className="text-sm leading-7 text-[rgb(var(--ink-soft))]">{item}</p>
+                        <p className="text-[0.84rem] leading-6 text-[rgb(var(--ink-soft))] md:text-[0.88rem]">
+                          {item}
+                        </p>
                       </div>
                     ))}
                   </div>
 
-                  <div className="mt-6 flex flex-wrap gap-4">
-                    <Link href={buildLocalizedPath(locale, "/contact")} className="button-primary">
+                  <div className="mt-7 flex flex-wrap gap-3">
+                    <Link
+                      href={buildLocalizedPath(locale, "/contact")}
+                      className="home-action-primary"
+                    >
                       {systemCopy.home.hero.primaryLabel}
                     </Link>
-                    <Link href={buildLocalizedPath(locale, "/projects")} className="button-secondary">
+                    <Link
+                      href={buildLocalizedPath(locale, "/projects")}
+                      className="home-action-secondary"
+                    >
                       {systemCopy.home.hero.secondaryLabel}
+                    </Link>
+                  </div>
+
+                  <div className="mt-4 flex flex-wrap gap-2.5">
+                    <Link href={buildLocalizedPath(locale, "/about")} className="home-chip-action">
+                      {aboutLabel}
+                    </Link>
+                    <Link href={buildLocalizedPath(locale, "/team")} className="home-chip-action">
+                      {teamLabel}
+                    </Link>
+                    <Link href={buildLocalizedPath(locale, "/projects")} className="home-chip-action">
+                      {sharedCtas.viewProjects}
                     </Link>
                   </div>
                 </Reveal>
@@ -155,6 +177,15 @@ export default function HomePage() {
                         <li key={line}>{line}</li>
                       ))}
                     </ul>
+
+                    <div className="mt-4 flex flex-wrap gap-2 border-t border-[rgb(var(--outline))] pt-4">
+                      <Link href={buildLocalizedPath(locale, "/about")} className="home-utility-action">
+                        {aboutLabel}
+                      </Link>
+                      <Link href={buildLocalizedPath(locale, "/projects")} className="home-utility-action">
+                        {sharedCtas.viewProjects}
+                      </Link>
+                    </div>
                   </div>
                 </aside>
               </Reveal>
@@ -176,6 +207,7 @@ export default function HomePage() {
               eyebrow={systemCopy.home.coreStatement.eyebrow}
               title={systemCopy.home.coreStatement.title}
               description={systemCopy.home.coreStatement.description}
+              compact
             />
           </Reveal>
 
@@ -199,6 +231,7 @@ export default function HomePage() {
               eyebrow={systemCopy.home.problemField.eyebrow}
               title={systemCopy.home.problemField.title}
               description={systemCopy.home.problemField.description}
+              compact
             />
           </Reveal>
 
@@ -207,7 +240,7 @@ export default function HomePage() {
               <Reveal key={item.label} delay={0.05 * index}>
                 <div className="pack-card p-6">
                   <p className="sticker-badge">{item.label}</p>
-                  <h3 className="mt-5 text-2xl font-bold leading-[1.02] tracking-[-0.05em] text-[rgb(var(--ink))]">
+                  <h3 className="mt-4 text-[1.35rem] font-bold leading-[1.04] tracking-[-0.045em] text-[rgb(var(--ink))] md:text-[1.55rem]">
                     {item.title}
                   </h3>
                   <p className="mt-4 text-sm leading-7 text-[rgb(var(--ink-soft))]">{item.body}</p>
@@ -225,6 +258,7 @@ export default function HomePage() {
               eyebrow={systemCopy.home.modules.eyebrow}
               title={systemCopy.home.modules.title}
               description={systemCopy.home.modules.description}
+              compact
             />
           </Reveal>
 
@@ -236,11 +270,11 @@ export default function HomePage() {
                     <p className="section-kicker">{module.title}</p>
                     <span className="project-chip">RUNTIME</span>
                   </div>
-                  <p className="mt-5 text-base leading-8 text-[rgb(var(--ink-soft))]">
+                  <p className="mt-4 text-[0.95rem] leading-7 text-[rgb(var(--ink-soft))]">
                     {module.summary}
                   </p>
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {module.bullets.map((item) => (
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {module.bullets.slice(0, 2).map((item) => (
                       <span key={item} className="project-chip">
                         {item}
                       </span>
@@ -260,6 +294,7 @@ export default function HomePage() {
               eyebrow={systemCopy.home.executionLoop.eyebrow}
               title={systemCopy.home.executionLoop.title}
               description={systemCopy.home.executionLoop.description}
+              compact
             />
 
             <div className="mt-10 grid gap-4">
@@ -270,7 +305,7 @@ export default function HomePage() {
                     <span className="hud-line" />
                     <span className="label-caps text-[rgb(var(--primary))]">0{index + 1}</span>
                   </div>
-                  <h3 className="mt-5 text-2xl font-bold tracking-[-0.05em] text-[rgb(var(--ink))]">
+                  <h3 className="mt-4 text-[1.35rem] font-bold tracking-[-0.045em] text-[rgb(var(--ink))] md:text-[1.55rem]">
                     {step.title}
                   </h3>
                   <p className="mt-3 text-sm leading-7 text-[rgb(var(--ink-soft))]">{step.body}</p>
@@ -284,6 +319,7 @@ export default function HomePage() {
               eyebrow={systemCopy.home.whyItMatters.eyebrow}
               title={systemCopy.home.whyItMatters.title}
               description={systemCopy.home.whyItMatters.description}
+              compact
             />
 
             <div className="mt-10 grid gap-4">
@@ -318,6 +354,7 @@ export default function HomePage() {
               eyebrow={systemCopy.home.domainAdaptation.eyebrow}
               title={systemCopy.home.domainAdaptation.title}
               description={systemCopy.home.domainAdaptation.description}
+              compact
             />
           </Reveal>
 
@@ -326,7 +363,7 @@ export default function HomePage() {
               <Reveal key={item.label} delay={0.04 * index}>
                 <div className="pack-card p-6">
                   <p className="sticker-badge">{item.label}</p>
-                  <h3 className="mt-5 text-2xl font-bold leading-[1.02] tracking-[-0.05em] text-[rgb(var(--ink))]">
+                  <h3 className="mt-4 text-[1.35rem] font-bold leading-[1.04] tracking-[-0.045em] text-[rgb(var(--ink))] md:text-[1.55rem]">
                     {item.title}
                   </h3>
                   <p className="mt-4 text-sm leading-7 text-[rgb(var(--ink-soft))]">{item.body}</p>
@@ -345,10 +382,11 @@ export default function HomePage() {
                 eyebrow={systemCopy.home.deploymentVectors.eyebrow}
                 title={systemCopy.home.deploymentVectors.title}
                 description={systemCopy.home.deploymentVectors.description}
+                compact
               />
             </Reveal>
             <Reveal delay={0.08}>
-              <Link href={buildLocalizedPath(locale, "/projects")} className="button-secondary">
+              <Link href={buildLocalizedPath(locale, "/projects")} className="home-panel-action">
                 {sharedCtas.viewProjects}
               </Link>
             </Reveal>
