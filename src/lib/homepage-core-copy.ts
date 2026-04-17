@@ -115,7 +115,7 @@ const content: Record<Locale, HomepageCoreCopy> = {
       eyebrow: "DECISION-AND-EXECUTION INFRASTRUCTURE",
       title: "Adaptive core for complex service systems.",
       support:
-        "Bento AIII is building a modular AI operating core that structures demand, evaluates supply, routes by constraints, executes workflows, and turns outcomes into reusable operational memory.",
+        "Bento AIII builds an adaptive operating core for service platforms that need better demand structure, stronger routing, and execution continuity.",
       contrast: [
         "Most AI products generate answers.",
         "This system generates operational memory."
@@ -125,58 +125,52 @@ const content: Record<Locale, HomepageCoreCopy> = {
       secondaryLabel: "DISCUSS DEPLOYMENT",
       secondaryHref: "/contact",
       previewLabel: "SYSTEM ENTRY",
-      previewTitle: "Preview of the operating surface.",
+      previewTitle: "A quieter view of the operating core.",
       previewSummary:
-        "One bounded system for intake, routing, workflow control, and outcome retention across high-friction service environments.",
+        "Structured intake, constrained routing, live workflow control, and retained outcomes inside one bounded system.",
       previewSignals: [
-        { label: "INPUT", value: "structured cases" },
-        { label: "ROUTING", value: "constraint-aware paths" },
-        { label: "EXECUTION", value: "state + ownership" },
-        { label: "MEMORY", value: "reusable outcomes" }
+        { label: "INPUT", value: "case intake" },
+        { label: "ROUTING", value: "valid paths" },
+        { label: "EXECUTION", value: "owned workflows" },
+        { label: "MEMORY", value: "retained outcomes" }
       ]
     },
     problemField: {
       eyebrow: "PROBLEM FIELD",
       title: "Complex service networks fail after selection.",
       lead:
-        "The problem is rarely information alone. Failure happens when demand enters incomplete, supply is overstated, routing ignores constraints, and execution breaks after handoff.",
+        "These systems rarely fail on discovery alone. They fail when demand enters incomplete, routing over-trusts supply, execution fragments after handoff, and outcomes never return as memory.",
       signals: [
-        "fragmented intake",
-        "unreliable matching",
-        "broken workflow continuity",
-        "unclear ownership",
-        "missing outcome memory"
+        "demand enters incomplete",
+        "routing rests on weak or overstated supply",
+        "execution breaks after handoff",
+        "outcomes disappear instead of becoming memory"
       ]
     },
     coreStatement: {
       eyebrow: "SYSTEM DEFINITION",
-      title: "Not a chatbot. Not a recommendation layer. Not another dashboard.",
+      title: "A platform-level operating core for execution continuity.",
       lead:
-        "This is a platform-level operating core for environments where demand is messy, supply is uneven, workflows break, and outcomes disappear instead of becoming reusable intelligence.",
+        "It structures demand into executable cases, routes through constraints, stays with the workflow after selection, and turns outcomes into reusable operational intelligence.",
       support: [
-        "structures demand into executable cases",
-        "routes through constraints, not surface matching",
-        "continues into execution, traceability, and learning"
+        "more than matching or recommendation",
+        "built for execution, traceability, and learning",
+        "deployable across domain packs without replacing the core"
       ]
     },
     architecture: {
       eyebrow: "FULL SYSTEM CORE",
       title: "Interactive architecture map",
       description:
-        "Select a module to inspect how the operating core structures demand, routes decisions, and keeps execution inside the system.",
+        "Select a module to inspect how the operating core structures demand, holds the valid path, and keeps execution inside one system.",
       coreLabel: "SYSTEM_CORE",
       coreHeadline: "Decision, execution, memory.",
       coreText:
-        "A modular operating layer that converts fragmented inputs into executable cases, keeps workflows inside the system, and retains outcomes as reusable operational intelligence.",
-      coreChips: [
-        "execution continuity",
-        "traceability",
-        "adaptive routing",
-        "outcome learning"
-      ],
+        "A modular operating layer for fragmented demand, constraint-aware routing, workflow continuity, and reusable operational memory.",
+      coreChips: ["execution continuity", "adaptive routing", "outcome learning"],
       primaryActionLabel: "TRACE EXECUTION",
       primaryActionHref: "#execution-loop",
-      secondaryActionLabel: "VIEW DOMAIN PACKS",
+      secondaryActionLabel: "VIEW DOMAIN MATRIX",
       secondaryActionHref: "#domain-adaptation",
       activeModuleLabel: "ACTIVE MODULE",
       currentRoleLabel: "CURRENT ROLE",
@@ -187,37 +181,35 @@ const content: Record<Locale, HomepageCoreCopy> = {
           displayTitle: "Input Structuring",
           descriptor: "Input layer",
           status: "LIVE INTAKE",
-          headline: "Normalize fragmented demand before routing begins.",
-          focus: "Transforms vague or incomplete requests into structured operational cases.",
-          flow: "Raw demand -> field normalization -> executable case",
+          headline: "Structure incomplete demand before routing begins.",
+          focus: "Converts partial or ambiguous requests into executable case objects.",
+          flow: "Demand intake -> field structure -> case object",
           tone: "secondary"
         },
         CONSTRAINT_ROUTING: {
           displayTitle: "Constraint Routing",
           descriptor: "Policy routing",
           status: "RULES ACTIVE",
-          headline: "Apply constraints before the system commits a path.",
-          focus:
-            "Protects decisions by filtering route options through policy, risk, and operational limits.",
-          flow: "Constraint layer -> route gating -> viable path set",
+          headline: "Apply the valid path before the system commits.",
+          focus: "Reduces route options through policy, risk, and operating limits.",
+          flow: "Constraint checks -> route gate -> valid path",
           tone: "primary"
         },
         DUAL_SIDE_EVALUATION: {
           displayTitle: "Dual-Side Evaluation",
           descriptor: "Matching intelligence",
           status: "FIT SCORING",
-          headline: "Score both sides of the exchange as one decision.",
-          focus: "Brings demand quality and supply quality into the same evaluation loop.",
-          flow: "Demand fit + supply fit -> trust-weighted decision",
+          headline: "Evaluate demand and supply as one execution decision.",
+          focus: "Assesses readiness on both sides before work advances.",
+          flow: "Demand viability + supply viability -> execution fit",
           tone: "secondary"
         },
         WORKFLOW_EXECUTION: {
           displayTitle: "Workflow Execution",
           descriptor: "Execution layer",
           status: "FLOW IN MOTION",
-          headline: "Keep work moving after selection, not just at selection.",
-          focus:
-            "Maintains ownership, state progression, escalation, and proof through execution.",
+          headline: "Keep ownership and state inside the workflow.",
+          focus: "Maintains tasks, accountability, proof, and escalation through execution.",
           flow: "Assignment -> owner state -> evidence -> escalation",
           tone: "primary"
         },
@@ -225,19 +217,17 @@ const content: Record<Locale, HomepageCoreCopy> = {
           displayTitle: "Outcome Memory",
           descriptor: "Learning loop",
           status: "MEMORY WARM",
-          headline: "Turn outcomes into reusable operational memory.",
-          focus:
-            "Captures what actually happened so future routing and evaluation improve with use.",
-          flow: "Outcome capture -> learning weights -> next decision",
+          headline: "Retain outcomes as reusable operating memory.",
+          focus: "Captures what happened so the next decision improves.",
+          flow: "Outcome capture -> memory weight -> next decision",
           tone: "primary"
         },
         DOMAIN_ADAPTATION: {
           displayTitle: "Domain Adaptation",
           descriptor: "Domain layer",
           status: "PACK READY",
-          headline: "Deploy one core across different service environments.",
-          focus:
-            "Allows workflows, schemas, and policies to adapt without replacing the underlying core.",
+          headline: "Adapt one core across different service environments.",
+          focus: "Changes schemas, rules, and workflows without replacing the operating logic.",
           flow: "Domain pack -> schema overlay -> workflow variant",
           tone: "tertiary"
         }
@@ -247,25 +237,25 @@ const content: Record<Locale, HomepageCoreCopy> = {
       eyebrow: "EXECUTION LOOP",
       title: "From intake to reusable system memory.",
       lead:
-        "The operating loop is designed to move beyond recommendation and into controlled execution.",
+        "The loop moves beyond recommendation and into controlled execution.",
       steps: [
-        { label: "INTAKE", value: "Raw demand enters the system." },
-        { label: "STRUCTURING", value: "Signals become executable case objects." },
+        { label: "INTAKE", value: "Demand enters the system." },
+        { label: "STRUCTURING", value: "Signals become case objects." },
         {
           label: "CONSTRAINT REVIEW",
-          value: "Rules and risk gates determine the valid path."
+          value: "Rules determine the valid path."
         },
         {
           label: "DUAL-SIDE EVALUATION",
-          value: "Demand and supply are both assessed for execution viability."
+          value: "Demand and supply are checked for execution viability."
         },
         {
           label: "WORKFLOW EXECUTION",
-          value: "Tasks, ownership, and state remain inside the system."
+          value: "Tasks, ownership, and state stay inside the system."
         },
         {
           label: "OUTCOME CAPTURE",
-          value: "Results become reusable memory for future decisions."
+          value: "Results return as memory for the next decision."
         }
       ],
       closing: [
@@ -278,27 +268,27 @@ const content: Record<Locale, HomepageCoreCopy> = {
       eyebrow: "WHY THIS MATTERS",
       title: "Most platforms stop too early.",
       lead:
-        "Most systems optimize for discovery, recommendation, or visibility. This core is built for what happens after that: execution continuity, accountability, traceability, and learning.",
+        "Most systems improve discovery. This core is built for what follows: execution continuity, accountability, and learning.",
       leftLabel: "MOST PLATFORMS",
       rightLabel: "THIS SYSTEM",
       leftItems: [
         "optimize for selection",
         "stop at matching",
-        "record output",
-        "lose operational context"
+        "capture output",
+        "lose context"
       ],
       rightItems: [
         "optimizes for execution continuity",
         "continues into workflow control",
-        "records outcomes",
-        "builds operational memory"
+        "captures outcomes",
+        "compounds operating memory"
       ]
     },
     domainAdaptation: {
       eyebrow: "DOMAIN ADAPTATION",
       title: "One core. Multiple deployment environments.",
       lead:
-        "The same operating logic can be adapted across high-friction service systems by changing schemas, rules, workflows, and evidence structures without replacing the core.",
+        "The same core can move across high-friction service systems by changing schemas, rules, workflows, and evidence structures.",
       items: [
         "immigration workflow platforms",
         "condo / HOA systems",
@@ -309,7 +299,7 @@ const content: Record<Locale, HomepageCoreCopy> = {
       ],
       closing: [
         "The interface may change.",
-        "The domain pack may change.",
+        "The rules may change.",
         "The operating core remains consistent."
       ]
     },
@@ -317,19 +307,19 @@ const content: Record<Locale, HomepageCoreCopy> = {
       eyebrow: "COMPANY POSITION",
       title: "Bento AIII builds infrastructure, not just interface.",
       lead:
-        "The company is focused on reusable operating logic for platforms that need to structure demand, evaluate supply, control workflows, and learn from real outcomes.",
+        "Bento AIII is focused on reusable operating logic for platforms that need to structure demand, control workflows, and learn from outcomes.",
       support: [
-        { label: "SYSTEM", value: "system-level AI architecture" },
+        { label: "SYSTEM", value: "system-level AI core" },
         { label: "LOGIC", value: "modular operating logic" },
         { label: "EXECUTION", value: "execution-aware design" },
-        { label: "DEPLOYMENT", value: "deployable domain core" }
+        { label: "DEPLOYMENT", value: "deployable domain packs" }
       ]
     },
     closing: {
       eyebrow: "NEXT ACTION",
       title: "Build the operating layer, not another surface layer.",
       lead:
-        "If a platform only improves discovery, it repeats the same execution failures at a higher volume. Bento AIII is building the core layer that makes service systems more structured, more traceable, and more intelligent with every case they run.",
+        "If a platform improves discovery without improving execution, it only scales the same failures. Bento AIII is building the operating layer that makes service systems more structured, more traceable, and more intelligent over time.",
       primaryLabel: "REQUEST ARCHITECTURE REVIEW",
       primaryHref: "/contact",
       secondaryLabel: "EXPLORE DEPLOYMENT DIRECTIONS",

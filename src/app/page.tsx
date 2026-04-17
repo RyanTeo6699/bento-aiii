@@ -40,10 +40,10 @@ function SectionIntro({
       <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[rgb(var(--ink-muted))]">
         {eyebrow}
       </p>
-      <h2 className="max-w-[15ch] text-[clamp(2.05rem,4.2vw,3.8rem)] font-semibold leading-[0.95] tracking-[-0.065em] text-[rgb(var(--ink))]">
+      <h2 className="max-w-[15ch] text-[clamp(1.9rem,3.95vw,3.4rem)] font-semibold leading-[0.96] tracking-[-0.062em] text-[rgb(var(--ink))]">
         {title}
       </h2>
-      <p className="max-w-[42rem] text-[1rem] leading-8 text-[rgb(var(--ink-soft))]">{lead}</p>
+      <p className="max-w-[38rem] text-[0.98rem] leading-8 text-[rgb(var(--ink-soft))]">{lead}</p>
     </div>
   );
 }
@@ -109,22 +109,25 @@ export default function HomePage() {
         <div className="shell">
           <div className="relative">
             <div className="pointer-events-none absolute -top-16 left-[8%] h-44 w-44 rounded-full bg-[radial-gradient(circle,_rgba(255,255,255,0.95),rgba(255,255,255,0))] blur-3xl" />
-            <div className="grid gap-12 xl:grid-cols-[minmax(0,1.04fr)_minmax(24rem,0.96fr)] xl:items-center">
+            <div className="grid gap-14 xl:grid-cols-[minmax(0,1fr)_minmax(22rem,0.92fr)] xl:items-center">
               <Reveal className="max-w-[43rem]" y={20}>
                 <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[rgb(var(--ink-muted))]">
                   {homepageCopy.hero.eyebrow}
                 </p>
-                <h1 className="mt-5 max-w-[11ch] text-[clamp(2.85rem,5.5vw,5.05rem)] font-semibold leading-[0.93] tracking-[-0.072em] text-[rgb(var(--ink))]">
+                <h1 className="mt-5 max-w-[11.5ch] text-[clamp(2.65rem,5vw,4.55rem)] font-semibold leading-[0.94] tracking-[-0.07em] text-[rgb(var(--ink))]">
                   {homepageCopy.hero.title}
                 </h1>
-                <p className="mt-6 max-w-[39rem] text-[1.03rem] leading-8 text-[rgb(var(--ink-soft))] md:text-[1.08rem]">
+                <p className="mt-6 max-w-[34rem] text-[1rem] leading-8 text-[rgb(var(--ink-soft))]">
                   {homepageCopy.hero.support}
                 </p>
 
-                <div className="mt-7 max-w-[31rem] border-l border-[rgb(var(--outline-strong))] pl-4 text-[0.98rem] font-medium leading-7 tracking-[-0.02em] text-[rgb(var(--ink))]">
-                  {homepageCopy.hero.contrast.map((line) => (
-                    <p key={line}>{line}</p>
-                  ))}
+                <div className="mt-7 max-w-[26rem] border-l border-[rgb(var(--outline))] pl-4">
+                  <p className="text-[0.86rem] leading-6 text-[rgb(var(--ink-muted))]">
+                    {homepageCopy.hero.contrast[0]}
+                  </p>
+                  <p className="mt-1 text-[0.96rem] font-medium leading-7 tracking-[-0.02em] text-[rgb(var(--ink))]">
+                    {homepageCopy.hero.contrast[1]}
+                  </p>
                 </div>
 
                 <div className="mt-8 flex flex-wrap gap-3">
@@ -144,12 +147,12 @@ export default function HomePage() {
               </Reveal>
 
               <Reveal
-                className="relative min-h-[29rem] overflow-hidden rounded-[2rem] border border-[rgb(var(--outline)/0.82)] bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(244,240,233,0.92))] p-4 shadow-[0_28px_72px_rgba(15,23,42,0.08)] md:min-h-[31rem] md:p-6"
+                className="relative min-h-[26.5rem] overflow-hidden rounded-[2rem] border border-[rgb(var(--outline)/0.82)] bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(244,240,233,0.92))] p-4 shadow-[0_24px_62px_rgba(15,23,42,0.07)] md:min-h-[28rem] md:p-5"
                 delay={0.08}
                 y={20}
               >
-                <div className="pointer-events-none absolute inset-0 opacity-70" style={previewGridStyle} />
-                <div className="pointer-events-none absolute inset-x-[20%] top-[12%] h-28 rounded-full bg-[radial-gradient(circle,_rgba(255,255,255,0.95),rgba(255,255,255,0))] blur-3xl" />
+                <div className="pointer-events-none absolute inset-0 opacity-55" style={previewGridStyle} />
+                <div className="pointer-events-none absolute inset-x-[20%] top-[12%] h-24 rounded-full bg-[radial-gradient(circle,_rgba(255,255,255,0.95),rgba(255,255,255,0))] blur-3xl" />
 
                 <svg
                   className="pointer-events-none absolute inset-0 h-full w-full"
@@ -183,17 +186,17 @@ export default function HomePage() {
                   />
                 </svg>
 
-                <div className="pointer-events-none absolute left-1/2 top-1/2 h-[12.5rem] w-[12.5rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[rgba(165,171,180,0.26)]" />
-                <div className="pointer-events-none absolute left-1/2 top-1/2 h-[18rem] w-[18rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[rgba(165,171,180,0.18)]" />
+                <div className="pointer-events-none absolute left-1/2 top-1/2 h-[11.5rem] w-[11.5rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[rgba(165,171,180,0.24)]" />
+                <div className="pointer-events-none absolute left-1/2 top-1/2 h-[16rem] w-[16rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[rgba(165,171,180,0.16)]" />
 
-                <div className="absolute left-1/2 top-1/2 z-10 w-[min(21rem,calc(100%-2.5rem))] -translate-x-1/2 -translate-y-1/2 rounded-[1.75rem] border border-[rgb(var(--outline)/0.9)] bg-[rgba(255,255,255,0.88)] p-6 shadow-[0_26px_60px_rgba(15,23,42,0.1)] backdrop-blur">
+                <div className="absolute left-1/2 top-1/2 z-10 w-[min(18.5rem,calc(100%-2.75rem))] -translate-x-1/2 -translate-y-1/2 rounded-[1.75rem] border border-[rgb(var(--outline)/0.82)] bg-[rgba(255,255,255,0.9)] p-5 shadow-[0_20px_48px_rgba(15,23,42,0.08)] backdrop-blur">
                   <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[rgb(var(--ink-muted))]">
                     {homepageCopy.hero.previewLabel}
                   </p>
-                  <h2 className="mt-4 max-w-[13ch] text-[1.45rem] font-semibold leading-[1.05] tracking-[-0.05em] text-[rgb(var(--ink))]">
+                  <h2 className="mt-4 max-w-[13ch] text-[1.28rem] font-semibold leading-[1.08] tracking-[-0.045em] text-[rgb(var(--ink))]">
                     {homepageCopy.hero.previewTitle}
                   </h2>
-                  <p className="mt-4 text-[0.9rem] leading-7 text-[rgb(var(--ink-soft))]">
+                  <p className="mt-3 text-[0.84rem] leading-6 text-[rgb(var(--ink-soft))]">
                     {homepageCopy.hero.previewSummary}
                   </p>
                 </div>
@@ -201,12 +204,12 @@ export default function HomePage() {
                 {homepageCopy.hero.previewSignals.map((signal, index) => (
                   <div
                     key={signal.label}
-                    className={`absolute z-[1] w-[8.75rem] rounded-[1.2rem] border border-[rgb(var(--outline)/0.78)] bg-[rgba(255,255,255,0.82)] p-4 shadow-[0_18px_36px_rgba(15,23,42,0.07)] backdrop-blur ${previewNodePositions[index] ?? ""}`}
+                    className={`absolute z-[1] w-[7.6rem] rounded-[1.05rem] border border-[rgb(var(--outline)/0.7)] bg-[rgba(255,255,255,0.74)] p-3.5 shadow-[0_14px_28px_rgba(15,23,42,0.05)] backdrop-blur ${previewNodePositions[index] ?? ""}`}
                   >
-                    <p className="text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-[rgb(var(--ink-muted))]">
+                    <p className="text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-[rgb(var(--ink-muted))]">
                       {signal.label}
                     </p>
-                    <p className="mt-3 text-[0.82rem] font-medium leading-6 tracking-[-0.02em] text-[rgb(var(--ink))]">
+                    <p className="mt-2.5 text-[0.76rem] font-medium leading-5 tracking-[-0.02em] text-[rgb(var(--ink-soft))]">
                       {signal.value}
                     </p>
                   </div>
@@ -232,16 +235,23 @@ export default function HomePage() {
                   {homepageCopy.problemField.lead}
                 </p>
 
-                <ul className="mt-8 grid gap-4">
-                  {homepageCopy.problemField.signals.map((item) => (
-                    <li
-                      key={item}
-                      className="border-t border-[rgb(var(--outline)/0.72)] pt-4 text-[0.92rem] font-medium tracking-[-0.02em] text-[rgb(var(--ink))]"
-                    >
-                      {item}
-                    </li>
+                <div className="mt-8">
+                  {homepageCopy.problemField.signals.map((item, index) => (
+                    <div key={item} className={index === 0 ? "relative" : "relative border-t border-[rgb(var(--outline)/0.72)] pt-4"}>
+                      {index < homepageCopy.problemField.signals.length - 1 ? (
+                        <span className="pointer-events-none absolute left-[0.82rem] top-[2.1rem] h-[calc(100%-0.35rem)] w-px bg-[linear-gradient(180deg,rgba(109,120,141,0.22),rgba(109,120,141,0.06))]" />
+                      ) : null}
+                      <div className="flex items-start gap-4">
+                        <span className="inline-flex min-w-[2.2rem] items-center justify-center rounded-full border border-[rgb(var(--outline)/0.76)] bg-[rgba(255,255,255,0.84)] px-2.5 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-[rgb(var(--ink-muted))]">
+                          0{index + 1}
+                        </span>
+                        <p className="max-w-[25rem] pt-0.5 text-[0.92rem] font-medium leading-7 tracking-[-0.02em] text-[rgb(var(--ink))]">
+                          {item}
+                        </p>
+                      </div>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </Reveal>
 
               <Reveal
@@ -259,7 +269,7 @@ export default function HomePage() {
                   {homepageCopy.coreStatement.lead}
                 </p>
 
-                <ul className="mt-8 grid gap-4">
+                <ul className="mt-8 grid gap-3">
                   {homepageCopy.coreStatement.support.map((item) => (
                     <li
                       key={item}
@@ -326,23 +336,22 @@ export default function HomePage() {
             delay={0.08}
             y={18}
           >
-            <div className="pointer-events-none absolute left-10 right-10 top-[4.1rem] hidden h-px bg-[linear-gradient(90deg,rgba(31,36,48,0.2),rgba(109,120,141,0.16),rgba(31,36,48,0.08))] xl:block" />
+            <div className="pointer-events-none absolute left-12 right-12 top-[3.2rem] hidden h-px bg-[linear-gradient(90deg,rgba(31,36,48,0.18),rgba(109,120,141,0.16),rgba(31,36,48,0.08))] xl:block" />
 
-            <div className="relative grid gap-3 xl:grid-cols-6">
+            <div className="relative grid gap-6 md:grid-cols-2 xl:grid-cols-6 xl:gap-0">
               {homepageCopy.executionLoop.steps.map((step, index) => (
                 <div
                   key={step.label}
-                  className="rounded-[1.35rem] border border-[rgb(var(--outline)/0.74)] bg-[rgba(255,255,255,0.82)] p-5 shadow-[0_14px_32px_rgba(15,23,42,0.05)]"
+                  className="relative pl-7 xl:px-4 xl:pb-2 xl:pt-10 xl:text-center"
                 >
-                  <div className="flex items-center gap-3">
-                    <span className="inline-flex min-w-[2.2rem] items-center justify-center rounded-full border border-[rgb(var(--outline)/0.78)] bg-[rgb(var(--surface-lowest))] px-2.5 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-[rgb(var(--ink-muted))]">
-                      0{index + 1}
-                    </span>
-                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[rgb(var(--ink-muted))]">
-                      {step.label}
-                    </p>
-                  </div>
-                  <p className="mt-5 text-[0.92rem] leading-7 text-[rgb(var(--ink-soft))]">
+                  <span className="absolute left-0 top-1.5 h-3.5 w-3.5 rounded-full border border-[rgba(31,36,48,0.22)] bg-[rgb(var(--surface-lowest))] shadow-[0_0_0_5px_rgba(255,255,255,0.94)] xl:left-1/2 xl:top-[1.55rem] xl:-translate-x-1/2" />
+                  <span className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-[rgb(var(--ink-muted))]">
+                    0{index + 1}
+                  </span>
+                  <p className="mt-3 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[rgb(var(--ink-muted))]">
+                    {step.label}
+                  </p>
+                  <p className="mt-3 max-w-[18rem] text-[0.9rem] leading-7 text-[rgb(var(--ink-soft))] xl:mx-auto">
                     {step.value}
                   </p>
                 </div>
@@ -378,7 +387,7 @@ export default function HomePage() {
                   {homepageCopy.whyItMatters.leftItems.map((item) => (
                     <li
                       key={item}
-                      className="border-t border-[rgb(var(--outline)/0.72)] pt-4 text-[0.94rem] leading-7 text-[rgb(var(--ink-soft))]"
+                      className="border-t border-[rgb(var(--outline)/0.72)] pt-4 text-[0.98rem] font-medium leading-7 tracking-[-0.02em] text-[rgb(var(--ink-soft))]"
                     >
                       {item}
                     </li>
@@ -398,7 +407,7 @@ export default function HomePage() {
                   {homepageCopy.whyItMatters.rightItems.map((item) => (
                     <li
                       key={item}
-                      className="relative border-t border-[rgb(var(--outline)/0.72)] pt-4 pl-4 text-[0.94rem] leading-7 text-[rgb(var(--ink))]"
+                      className="relative border-t border-[rgb(var(--outline)/0.72)] pt-4 pl-4 text-[1rem] font-medium leading-7 tracking-[-0.02em] text-[rgb(var(--ink))]"
                     >
                       <span className="absolute left-0 top-[1.45rem] h-1.5 w-1.5 rounded-full bg-[rgb(var(--primary))]" />
                       {item}
@@ -421,23 +430,27 @@ export default function HomePage() {
             />
           </Reveal>
 
-          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {homepageCopy.domainAdaptation.items.map((item, index) => (
-              <Reveal key={item} delay={0.04 * index} y={16}>
-                <div className="rounded-[1.55rem] border border-[rgb(var(--outline)/0.78)] bg-[rgba(255,255,255,0.78)] p-6 shadow-[0_18px_42px_rgba(15,23,42,0.05)]">
-                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[rgb(var(--ink-muted))]">
+          <Reveal
+            className="mt-10 overflow-hidden rounded-[2rem] border border-[rgb(var(--outline)/0.78)] bg-[linear-gradient(180deg,rgba(255,255,255,0.88),rgba(247,244,239,0.82))] shadow-[0_20px_52px_rgba(15,23,42,0.05)]"
+            delay={0.04}
+            y={16}
+          >
+            <div className="grid gap-px bg-[rgb(var(--outline)/0.72)] md:grid-cols-2 xl:grid-cols-3">
+              {homepageCopy.domainAdaptation.items.map((item, index) => (
+                <div key={item} className="bg-[rgba(255,255,255,0.78)] px-5 py-5">
+                  <p className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-[rgb(var(--ink-muted))]">
                     0{index + 1}
                   </p>
-                  <p className="mt-5 text-[1rem] font-medium leading-7 tracking-[-0.02em] text-[rgb(var(--ink))]">
+                  <p className="mt-4 max-w-[17ch] text-[0.94rem] font-medium leading-7 tracking-[-0.02em] text-[rgb(var(--ink))]">
                     {item}
                   </p>
                 </div>
-              </Reveal>
-            ))}
-          </div>
+              ))}
+            </div>
+          </Reveal>
 
           <Reveal
-            className="mt-8 grid gap-1 text-[0.98rem] font-medium leading-7 tracking-[-0.02em] text-[rgb(var(--ink))] md:grid-cols-3 md:text-center"
+            className="mt-7 grid gap-1 text-[0.94rem] font-medium leading-7 tracking-[-0.02em] text-[rgb(var(--ink))] md:grid-cols-3 md:text-center"
             delay={0.1}
             y={12}
           >
@@ -451,17 +464,17 @@ export default function HomePage() {
       <section className="site-section-tight" id="company-position">
         <div className="shell">
           <Reveal
-            className="overflow-hidden rounded-[2rem] border border-[rgb(var(--outline)/0.82)] bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(244,240,233,0.86))] p-6 shadow-[0_24px_64px_rgba(15,23,42,0.06)] md:p-8 lg:grid lg:grid-cols-[minmax(0,1.02fr)_minmax(0,0.98fr)] lg:gap-10"
+            className="overflow-hidden rounded-[2rem] border border-[rgb(var(--outline)/0.8)] bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(245,241,236,0.84))] p-6 shadow-[0_20px_52px_rgba(15,23,42,0.05)] md:p-8 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,0.96fr)] lg:gap-10"
             y={18}
           >
             <div className="max-w-[34rem]">
               <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[rgb(var(--ink-muted))]">
                 {homepageCopy.companyPosition.eyebrow}
               </p>
-              <h2 className="mt-4 max-w-[17ch] text-[clamp(1.8rem,3vw,2.65rem)] font-semibold leading-[1.02] tracking-[-0.055em] text-[rgb(var(--ink))]">
+              <h2 className="mt-4 max-w-[18ch] text-[clamp(1.65rem,2.7vw,2.35rem)] font-semibold leading-[1.04] tracking-[-0.05em] text-[rgb(var(--ink))]">
                 {homepageCopy.companyPosition.title}
               </h2>
-              <p className="mt-5 text-[0.98rem] leading-8 text-[rgb(var(--ink-soft))]">
+              <p className="mt-5 max-w-[31rem] text-[0.96rem] leading-8 text-[rgb(var(--ink-soft))]">
                 {homepageCopy.companyPosition.lead}
               </p>
             </div>
@@ -470,12 +483,12 @@ export default function HomePage() {
               {homepageCopy.companyPosition.support.map((item) => (
                 <div
                   key={item.label}
-                  className="rounded-[1.35rem] border border-[rgb(var(--outline)/0.72)] bg-[rgba(255,255,255,0.72)] p-5"
+                  className="rounded-[1.2rem] border border-[rgb(var(--outline)/0.66)] bg-[rgba(255,255,255,0.68)] p-[1.125rem]"
                 >
                   <p className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[rgb(var(--ink-muted))]">
                     {item.label}
                   </p>
-                  <p className="mt-4 text-[0.94rem] font-medium leading-7 tracking-[-0.02em] text-[rgb(var(--ink))]">
+                  <p className="mt-3 text-[0.92rem] font-medium leading-7 tracking-[-0.02em] text-[rgb(var(--ink))]">
                     {item.value}
                   </p>
                 </div>
@@ -488,7 +501,7 @@ export default function HomePage() {
       <section className="site-section" id="next-action">
         <div className="shell">
           <Reveal
-            className="overflow-hidden rounded-[2rem] border border-[rgb(var(--outline)/0.82)] bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(246,241,235,0.9))] px-6 py-10 text-center shadow-[0_26px_70px_rgba(15,23,42,0.07)] md:px-10 md:py-12"
+            className="mx-auto max-w-[52rem] overflow-hidden rounded-[2rem] border border-[rgb(var(--outline)/0.82)] bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(246,241,235,0.9))] px-6 py-9 text-center shadow-[0_24px_62px_rgba(15,23,42,0.07)] md:px-10 md:py-10"
             y={18}
           >
             <SectionIntro
@@ -498,7 +511,7 @@ export default function HomePage() {
               align="center"
             />
 
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <div className="mt-7 flex flex-wrap justify-center gap-3">
               <Link
                 href={architectureReviewHref}
                 className="inline-flex min-h-[3rem] items-center justify-center rounded-full bg-[rgb(var(--primary))] px-5 text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-[rgb(var(--surface-lowest))] shadow-[0_20px_44px_rgba(15,23,42,0.12)] transition hover:-translate-y-0.5 hover:bg-[rgb(21,25,35)]"

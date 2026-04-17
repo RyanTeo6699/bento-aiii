@@ -178,20 +178,20 @@ function OrbitNode({
       onClick={onSelect}
       aria-pressed={active}
       className={cn(
-        "w-full rounded-[1.35rem] border bg-[rgba(255,255,255,0.86)] text-left shadow-[0_16px_34px_rgba(15,23,42,0.08)] backdrop-blur transition",
-        compact ? "p-4" : "p-4 xl:p-[1.125rem]",
+        "w-full rounded-[1.15rem] border bg-[rgba(255,255,255,0.78)] text-left shadow-[0_10px_22px_rgba(15,23,42,0.05)] backdrop-blur transition",
+        compact ? "p-3.5" : "p-3.5 xl:p-4",
         active
-          ? cn(tone.activeBorder, "opacity-100 shadow-[0_22px_48px_rgba(15,23,42,0.11)]")
-          : "border-[rgb(var(--outline)/0.82)] opacity-70 hover:opacity-100 hover:shadow-[0_18px_38px_rgba(15,23,42,0.1)]"
+          ? cn(tone.activeBorder, "opacity-100 shadow-[0_18px_36px_rgba(15,23,42,0.1)]")
+          : "border-[rgb(var(--outline)/0.72)] opacity-55 hover:opacity-90 hover:shadow-[0_14px_28px_rgba(15,23,42,0.07)]"
       )}
       animate={{
-        y: active ? [0, -2, 0] : [0, -1, 0],
-        scale: active ? 1.01 : 0.985,
-        opacity: active ? 1 : 0.72
+        y: active ? [0, -1.5, 0] : [0, -0.5, 0],
+        scale: active ? 1.01 : 0.975,
+        opacity: active ? 1 : 0.58
       }}
-      whileHover={{ y: active ? -2 : -1.5, scale: active ? 1.01 : 0.99, opacity: 1 }}
+      whileHover={{ y: active ? -1.5 : -1, scale: active ? 1.01 : 0.985, opacity: 0.94 }}
       transition={{
-        duration: active ? 6.4 : 7.2,
+        duration: active ? 6.8 : 8.2,
         repeat: Infinity,
         ease: "easeInOut",
         delay: index * 0.16
@@ -199,30 +199,15 @@ function OrbitNode({
     >
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
-          <p className={cn("text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-[rgb(var(--ink-muted))]", active && tone.activeLabel)}>
-            {module.descriptor}
+          <p className={cn("text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-[rgb(var(--ink-muted))]", active && tone.activeLabel)}>
+            {module.title}
           </p>
-          <p className="mt-2 text-[0.94rem] font-semibold leading-6 tracking-[-0.03em] text-[rgb(var(--ink))]">
+          <p className="mt-2 text-[0.86rem] font-semibold leading-5 tracking-[-0.03em] text-[rgb(var(--ink))]">
             {module.displayTitle}
           </p>
         </div>
         <span className={cn("mt-1 inline-flex h-2.5 w-2.5 rounded-full", active ? tone.dot : "bg-[rgba(148,163,184,0.8)]")} />
       </div>
-
-      <div className="mt-4 flex flex-wrap gap-2">
-        <span
-          className={cn(
-            "inline-flex items-center justify-center rounded-full border px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.14em]",
-            active ? tone.badge : "border-[rgb(var(--outline)/0.78)] bg-[rgb(var(--surface-lowest))] text-[rgb(var(--ink-soft))]"
-          )}
-        >
-          {module.bullets[0]}
-        </span>
-      </div>
-
-      <p className="mt-4 text-[0.72rem] font-medium uppercase tracking-[0.14em] text-[rgb(var(--ink-muted))]">
-        {module.status}
-      </p>
     </motion.button>
   );
 }
@@ -248,19 +233,19 @@ export function HeroScene({ modules, core, labels }: HeroSceneProps) {
 
   const ActiveModuleSurface = (
     <>
-      <div className="grid gap-4">
+      <div className="grid gap-3.5">
         <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[rgb(var(--ink-muted))]">
           {core.label}
         </p>
-        <h3 className="max-w-[13ch] text-[1.5rem] font-semibold leading-[1.02] tracking-[-0.055em] text-[rgb(var(--ink))] xl:text-[1.62rem]">
+        <h3 className="max-w-[14ch] text-[1.34rem] font-semibold leading-[1.05] tracking-[-0.05em] text-[rgb(var(--ink))] xl:text-[1.44rem]">
           {core.headline}
         </h3>
-        <p className="max-w-[34ch] text-[0.92rem] leading-7 text-[rgb(var(--ink-soft))]">
+        <p className="max-w-[31ch] text-[0.88rem] leading-6 text-[rgb(var(--ink-soft))]">
           {core.summary}
         </p>
 
         <div className="flex flex-wrap gap-2.5">
-          {core.chips.map((chip) => (
+          {core.chips.slice(0, 3).map((chip) => (
             <span
               key={chip}
               className={cn(
@@ -289,7 +274,7 @@ export function HeroScene({ modules, core, labels }: HeroSceneProps) {
         ) : null}
       </div>
 
-      <div className="my-6 h-px bg-[linear-gradient(90deg,rgba(31,36,48,0.18),rgba(109,120,141,0.12),transparent)]" />
+      <div className="my-5 h-px bg-[linear-gradient(90deg,rgba(31,36,48,0.18),rgba(109,120,141,0.12),transparent)]" />
 
       <AnimatePresence mode="wait" initial={false}>
         <motion.div
@@ -298,7 +283,7 @@ export function HeroScene({ modules, core, labels }: HeroSceneProps) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.22, ease: "easeOut" }}
-          className="grid gap-4"
+          className="rounded-[1.4rem] border border-[rgb(var(--outline)/0.78)] bg-[rgba(255,255,255,0.72)] p-4 shadow-[0_18px_36px_rgba(15,23,42,0.07)]"
         >
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
@@ -320,40 +305,40 @@ export function HeroScene({ modules, core, labels }: HeroSceneProps) {
               </div>
             </div>
 
-            <div className="inline-flex items-center gap-2 rounded-full border border-[rgb(var(--outline)/0.8)] bg-[rgba(255,255,255,0.84)] px-3 py-1.5 text-[0.66rem] font-semibold uppercase tracking-[0.14em] text-[rgb(var(--ink-soft))]">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[rgb(var(--outline)/0.78)] bg-[rgba(255,255,255,0.86)] px-3 py-1.5 text-[0.64rem] font-semibold uppercase tracking-[0.14em] text-[rgb(var(--ink-soft))]">
               <span className={cn("inline-flex h-2.5 w-2.5 rounded-full", activeTone.dot)} />
               <span>{activeModule.status}</span>
             </div>
           </div>
 
-          <div className="space-y-2">
-            <p className={cn("text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-[rgb(var(--ink-muted))]", activeTone.activeLabel)}>
+          <div className="mt-4 space-y-2">
+            <p className={cn("text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-[rgb(var(--ink-muted))]", activeTone.activeLabel)}>
               {activeModule.descriptor}
             </p>
-            <h4 className="max-w-[16ch] text-[1.18rem] font-semibold leading-[1.08] tracking-[-0.045em] text-[rgb(var(--ink))] xl:text-[1.28rem]">
+            <h4 className="max-w-[16ch] text-[1.08rem] font-semibold leading-[1.08] tracking-[-0.042em] text-[rgb(var(--ink))] xl:text-[1.18rem]">
               {activeModule.headline}
             </h4>
           </div>
 
-          <p className="text-[0.9rem] leading-7 text-[rgb(var(--ink-soft))]">{activeModule.summary}</p>
+          <p className="mt-4 text-[0.86rem] leading-6 text-[rgb(var(--ink-soft))]">{activeModule.summary}</p>
 
-          <div className="grid gap-3 md:grid-cols-2">
+          <div className="mt-4 grid gap-3 md:grid-cols-2">
             <div className="rounded-[1.15rem] border border-[rgb(var(--outline)/0.76)] bg-[rgba(255,255,255,0.76)] p-4">
               <p className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-[rgb(var(--ink-muted))]">
                 {labels.currentRole}
               </p>
-              <p className="mt-3 text-[0.84rem] leading-6 text-[rgb(var(--ink-soft))]">{activeModule.focus}</p>
+              <p className="mt-3 text-[0.8rem] leading-6 text-[rgb(var(--ink-soft))]">{activeModule.focus}</p>
             </div>
             <div className="rounded-[1.15rem] border border-[rgb(var(--outline)/0.76)] bg-[rgba(255,255,255,0.76)] p-4">
               <p className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-[rgb(var(--ink-muted))]">
                 {labels.executionPath}
               </p>
-              <p className={cn("mt-3 text-[0.84rem] leading-6", activeTone.activeLabel)}>{activeModule.flow}</p>
+              <p className={cn("mt-3 text-[0.8rem] leading-6", activeTone.activeLabel)}>{activeModule.flow}</p>
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-2.5">
-            {activeModule.bullets.map((item) => (
+          <div className="mt-4 flex flex-wrap gap-2.5">
+            {activeModule.bullets.slice(0, 2).map((item) => (
               <span
                 key={item}
                 className={cn(
@@ -368,7 +353,7 @@ export function HeroScene({ modules, core, labels }: HeroSceneProps) {
         </motion.div>
       </AnimatePresence>
 
-      <div className="mt-6 border-t border-[rgb(var(--outline)/0.72)] pt-5">
+      <div className="mt-5 border-t border-[rgb(var(--outline)/0.72)] pt-4">
         <p className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-[rgb(var(--ink-muted))]">
           {labels.systemContext}
         </p>
@@ -379,11 +364,11 @@ export function HeroScene({ modules, core, labels }: HeroSceneProps) {
 
   return (
     <div className="relative overflow-hidden rounded-[2.15rem] border border-[rgb(var(--outline)/0.82)] bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(244,240,233,0.9))] p-4 shadow-[0_30px_72px_rgba(15,23,42,0.08)] md:p-6">
-      <div className="pointer-events-none absolute inset-0 opacity-70" style={overlayGridStyle} />
+      <div className="pointer-events-none absolute inset-0 opacity-58" style={overlayGridStyle} />
       <div className="pointer-events-none absolute inset-x-[22%] top-[5%] h-24 rounded-full bg-[radial-gradient(circle,_rgba(255,255,255,0.96),rgba(255,255,255,0))] blur-3xl" />
 
       <div className="relative space-y-4 lg:hidden">
-        <div className="rounded-[1.75rem] border border-[rgb(var(--outline)/0.82)] bg-[rgba(255,255,255,0.9)] p-5 shadow-[0_22px_52px_rgba(15,23,42,0.1)]">
+        <div className="rounded-[1.75rem] border border-[rgb(var(--outline)/0.82)] bg-[rgba(255,255,255,0.9)] p-5 shadow-[0_20px_48px_rgba(15,23,42,0.08)]">
           {ActiveModuleSurface}
         </div>
 
@@ -407,9 +392,9 @@ export function HeroScene({ modules, core, labels }: HeroSceneProps) {
             <path
               key={`${module.id}-base`}
               d={module.path}
-              stroke="rgba(181, 188, 197, 0.62)"
-              strokeWidth="1.2"
-              strokeDasharray="8 14"
+              stroke="rgba(181, 188, 197, 0.42)"
+              strokeWidth="1.05"
+              strokeDasharray="8 16"
             />
           ))}
 
@@ -417,13 +402,13 @@ export function HeroScene({ modules, core, labels }: HeroSceneProps) {
             key={`${activeModule.id}-active-path`}
             d={activeModule.path}
             stroke={activeTone.pathStroke}
-            strokeWidth="2"
+            strokeWidth="2.35"
             strokeLinecap="round"
             strokeDasharray="10 12"
-            animate={{ opacity: [0.35, 0.72, 0.35], strokeDashoffset: [0, -16] }}
+            animate={{ opacity: [0.42, 0.92, 0.42], strokeDashoffset: [0, -14] }}
             transition={{
-              opacity: { duration: 3.2, repeat: Infinity, ease: "easeInOut" },
-              strokeDashoffset: { duration: 2.8, repeat: Infinity, ease: "linear" }
+              opacity: { duration: 2.9, repeat: Infinity, ease: "easeInOut" },
+              strokeDashoffset: { duration: 2.4, repeat: Infinity, ease: "linear" }
             }}
           />
 
@@ -436,7 +421,7 @@ export function HeroScene({ modules, core, labels }: HeroSceneProps) {
                 key={`${module.id}-dot`}
                 cx={module.dotX}
                 cy={module.dotY}
-                r={isActive ? 5 : 3.75}
+                r={isActive ? 5.5 : 3.3}
                 fill={isActive ? tone.pathStroke : "rgba(167, 174, 184, 0.85)"}
               />
             );
@@ -450,15 +435,15 @@ export function HeroScene({ modules, core, labels }: HeroSceneProps) {
             fill="none"
             stroke={activeTone.pathStroke}
             strokeOpacity="0.4"
-            animate={{ r: [5, 9, 5], opacity: [0.2, 0.46, 0.2] }}
-            transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+            animate={{ r: [5, 9.5, 5], opacity: [0.24, 0.54, 0.24] }}
+            transition={{ duration: 2.9, repeat: Infinity, ease: "easeInOut" }}
           />
 
           <circle cx="500" cy="380" r="6" fill="rgba(71, 85, 105, 0.86)" />
         </svg>
 
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[18.75rem] w-[18.75rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[rgba(165,171,180,0.28)]" />
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[28rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[rgba(165,171,180,0.2)]" />
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[18rem] w-[18rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[rgba(165,171,180,0.24)]" />
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[27rem] w-[27rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[rgba(165,171,180,0.16)]" />
 
         <motion.div
           className="pointer-events-none absolute left-1/2 top-1/2 h-[11.5rem] w-[11.5rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,_rgba(255,255,255,0.96),rgba(244,240,233,0.65)_48%,rgba(255,255,255,0)_76%)]"
@@ -466,8 +451,8 @@ export function HeroScene({ modules, core, labels }: HeroSceneProps) {
           transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut" }}
         />
 
-        <div className="absolute left-1/2 top-1/2 z-20 w-[24.5rem] -translate-x-1/2 -translate-y-1/2 xl:w-[26rem]">
-          <div className="rounded-[1.85rem] border border-[rgb(var(--outline)/0.84)] bg-[rgba(255,255,255,0.9)] px-6 py-6 shadow-[0_30px_72px_rgba(15,23,42,0.11)] backdrop-blur">
+        <div className="absolute left-1/2 top-1/2 z-20 w-[22.75rem] -translate-x-1/2 -translate-y-1/2 xl:w-[23.75rem]">
+          <div className="rounded-[1.85rem] border border-[rgb(var(--outline)/0.84)] bg-[rgba(255,255,255,0.9)] px-5 py-5 shadow-[0_26px_64px_rgba(15,23,42,0.1)] backdrop-blur xl:px-6 xl:py-6">
             {ActiveModuleSurface}
           </div>
         </div>
@@ -475,7 +460,7 @@ export function HeroScene({ modules, core, labels }: HeroSceneProps) {
         {architectureNodes.map((module, index) => (
           <motion.div
             key={module.id}
-            className={cn("absolute w-[9.4rem] xl:w-[10.35rem]", module.tilt)}
+            className={cn("absolute w-[8.3rem] xl:w-[8.85rem]", module.tilt)}
             style={{
               top: module.top,
               left: module.left,
