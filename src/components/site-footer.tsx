@@ -31,11 +31,11 @@ export function SiteFooter({
   emailValue
 }: SiteFooterProps) {
   return (
-    <footer className="pb-10 pt-8">
+    <footer className="site-footer">
       <div className="shell">
-        <div className="boxed-section px-6 py-8 md:px-8 md:py-9">
-          <div className="grid gap-8 xl:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)_minmax(0,0.9fr)]">
-            <div className="min-w-0 space-y-5">
+        <div className="site-footer-shell">
+          <div className="grid gap-12 xl:grid-cols-[minmax(0,1.35fr)_minmax(0,0.7fr)_minmax(0,0.85fr)]">
+            <div className="min-w-0 space-y-6">
               <div className="flex items-center gap-4">
                 <span className="brand-mark">
                   <span className="brand-grid">
@@ -46,19 +46,15 @@ export function SiteFooter({
                   </span>
                 </span>
                 <div className="min-w-0">
-                  <p className="font-[var(--font-headline)] text-3xl font-bold uppercase tracking-[-0.06em] text-[rgb(var(--ink))]">
+                  <p className="font-[var(--font-headline)] text-[2rem] font-semibold tracking-[-0.06em] text-[rgb(var(--ink))]">
                     Bento AIII
                   </p>
-                  <p className="label-caps mt-1 text-[rgb(var(--primary))]">{copy.tagline}</p>
+                  <p className="footer-eyebrow mt-1">{copy.tagline}</p>
                 </div>
               </div>
 
               <div className="max-w-2xl space-y-4">
-                <div className="hero-marquee">
-                  <span className="section-kicker">SYSTEM_CORE</span>
-                  <span className="sticker-badge">OUTCOME_MEMORY</span>
-                </div>
-                <h2 className="max-w-3xl text-4xl font-bold leading-[1] tracking-[-0.06em] text-[rgb(var(--ink))]">
+                <h2 className="max-w-3xl text-[2.3rem] font-semibold leading-[1.02] tracking-[-0.06em] text-[rgb(var(--ink))] md:text-[2.8rem]">
                   {copy.title}
                 </h2>
                 <p className="max-w-2xl text-base leading-8 text-[rgb(var(--ink-soft))]">
@@ -67,6 +63,9 @@ export function SiteFooter({
                 <p className="max-w-2xl text-sm leading-7 text-[rgb(var(--ink-muted))]">
                   {copy.policy}
                 </p>
+              </div>
+
+              <div className="flex flex-wrap gap-3">
                 <Link
                   href={buildLocalizedPath(locale, "/contact")}
                   className="button-primary inline-flex w-full max-w-full justify-center text-center sm:w-auto"
@@ -76,14 +75,14 @@ export function SiteFooter({
               </div>
             </div>
 
-            <div className="terminal-panel p-6">
-              <h3 className="label-caps mb-5 text-[rgb(var(--secondary))]">{copy.navTitle}</h3>
-              <div className="space-y-3">
+            <div className="space-y-5">
+              <p className="footer-heading">{copy.navTitle}</p>
+              <div className="footer-link-list">
                 {navItems.map((item) => (
                   <Link
                     key={item.href}
                     href={buildLocalizedPath(locale, item.href)}
-                    className="block w-fit rounded-full border border-transparent px-2 py-1 text-sm font-semibold text-[rgb(var(--ink-soft))] transition hover:border-[rgb(var(--secondary))] hover:text-[rgb(var(--ink))]"
+                    className="footer-link"
                   >
                     {item.label}
                   </Link>
@@ -91,13 +90,10 @@ export function SiteFooter({
               </div>
             </div>
 
-            <div className="terminal-panel p-6">
-              <h3 className="label-caps mb-5 text-[rgb(var(--primary))]">{copy.contactTitle}</h3>
-              <div className="space-y-4 break-words text-sm leading-7 text-[rgb(var(--ink-soft))]">
-                <a
-                  href={emailHref}
-                  className="block break-all text-base font-semibold text-[rgb(var(--ink))] hover:text-[rgb(var(--primary))]"
-                >
+            <div className="space-y-5">
+              <p className="footer-heading">{copy.contactTitle}</p>
+              <div className="space-y-3 break-words text-sm leading-7 text-[rgb(var(--ink-soft))]">
+                <a href={emailHref} className="footer-contact-link break-all">
                   {emailValue}
                 </a>
                 <p>{copy.location}</p>
@@ -106,10 +102,9 @@ export function SiteFooter({
             </div>
           </div>
 
-          <div className="terminal-strip">
-            <div className="terminal-line">{copy.closingKicker}</div>
-            <div className="terminal-line">{copy.closingLine}</div>
-            <div className="terminal-line">PUBLIC_SITE=architecture_direction / build-safe</div>
+          <div className="footer-bottom">
+            <p>{copy.closingKicker}</p>
+            <p>{copy.closingLine}</p>
           </div>
         </div>
       </div>

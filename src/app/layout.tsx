@@ -55,36 +55,38 @@ export default function RootLayout({
 
   return (
     <html lang={getHtmlLang(locale)}>
-      <body className={`${headlineFont.variable} ${bodyFont.variable}`}>
-        <SiteHeader
-          locale={locale}
-          navItems={dictionary.nav}
-          copy={{
-            ...dictionary.header,
-            cta: sharedCtas.startConversation,
-            brandTagline: systemCopy.header.brandTagline,
-            systemState: systemCopy.header.systemState,
-            systemMode: systemCopy.header.systemMode,
-            buildRef: systemCopy.header.buildRef
-          }}
-        />
-        <main>{children}</main>
-        <SiteFooter
-          locale={locale}
-          navItems={dictionary.nav}
-          copy={{
-            ...dictionary.footer,
-            cta: sharedCtas.startConversation,
-            tagline: systemCopy.footer.tagline,
-            title: systemCopy.footer.title,
-            policy: systemCopy.footer.policy,
-            closingKicker: systemCopy.footer.closingKicker,
-            closingLine: systemCopy.footer.closingLine
-          }}
-          companyDescription={systemCopy.footer.description}
-          emailHref={emailChannel?.href ?? "mailto:ryanteo0628@gmail.com"}
-          emailValue={emailChannel?.value ?? "ryanteo0628@gmail.com"}
-        />
+      <body className={`${headlineFont.variable} ${bodyFont.variable} site-body`}>
+        <div className="site-root">
+          <SiteHeader
+            locale={locale}
+            navItems={dictionary.nav}
+            copy={{
+              ...dictionary.header,
+              cta: sharedCtas.startConversation,
+              brandTagline: systemCopy.header.brandTagline,
+              systemState: systemCopy.header.systemState,
+              systemMode: systemCopy.header.systemMode,
+              buildRef: systemCopy.header.buildRef
+            }}
+          />
+          <main className="site-main">{children}</main>
+          <SiteFooter
+            locale={locale}
+            navItems={dictionary.nav}
+            copy={{
+              ...dictionary.footer,
+              cta: sharedCtas.startConversation,
+              tagline: systemCopy.footer.tagline,
+              title: systemCopy.footer.title,
+              policy: systemCopy.footer.policy,
+              closingKicker: systemCopy.footer.closingKicker,
+              closingLine: systemCopy.footer.closingLine
+            }}
+            companyDescription={systemCopy.footer.description}
+            emailHref={emailChannel?.href ?? "mailto:ryanteo0628@gmail.com"}
+            emailValue={emailChannel?.value ?? "ryanteo0628@gmail.com"}
+          />
+        </div>
       </body>
     </html>
   );

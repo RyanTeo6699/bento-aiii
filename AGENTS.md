@@ -1,432 +1,355 @@
 # AGENTS.md
 
-## Project Identity
+## Mission
 
-This repository is the official website for **Bento AIII**.
+Refactor the Bento AIII website into a premium, Apple-inspired company website.
 
-Bento AIII is not being presented as a generic AI studio, a chatbot company, or a collection of disconnected demos.
-
-The website must now present Bento AIII as a company building:
-
-- AI core systems
-- modular decision-and-execution infrastructure
-- workflow intelligence layers
-- adaptive platform operating systems
-- domain-deployable system cores for complex service environments
-
-This is a **company website first**, a **system architecture narrative second**, and a **project showcase third**.
-
----
-
-## Strategic Positioning
-
-The website must communicate that Bento AIII is building a core operating layer for environments where:
-
-- demand is fragmented or vague
-- supply is inconsistent or overstated
-- matching is unreliable
-- workflows often break after handoff
-- responsibility is hard to track
-- outcomes are not captured as reusable intelligence
-
-The company should be positioned as building a system that combines:
-
-- structured intake
-- constraint-aware routing
-- dual-side evaluation
-- workflow execution
-- trust and behavior signals
-- outcome-based learning
-
-The homepage should clearly communicate that Bento AIII is building a platform core that can support multiple industries through modular domain adaptation.
-
----
-
-## Non-Negotiable Messaging Rules
-
-### The system IS
-- a system core
-- an execution engine
-- a workflow intelligence layer
-- a platform operating system
-- a decision-and-execution infrastructure
-- a modular adaptive core for service platforms
-
-### The system IS NOT
-Do not describe Bento AIII or its core system as:
-- a chatbot
-- a generic AI assistant
-- a recommendation engine
-- a smart search product
-- a normal SaaS dashboard
-- a generic marketplace UI
-- a soft “AI copilot for everything”
-
-### Core narrative
-Preferred narrative:
-- Most AI products generate answers. This system generates operational memory.
-- Most platforms stop at matching. This system continues into execution, traceability, and learning.
-- The system turns selection into execution, execution into operational memory, and operational memory into better future decisions.
-
-Do not dilute this narrative with startup clichés.
-
----
-
-## Company Voice
-
-The voice must feel:
-
-- serious
+The site must feel:
+- calm
 - precise
-- architectural
-- tactical
-- modular
-- system-oriented
-- controlled
 - premium
+- restrained
+- spacious
+- modern
+- highly readable
+- structurally confident
 
-Avoid:
-- fluffy startup language
-- generic “future of AI” copy
-- exaggerated visionary language
-- consumer app tone
-- playful or meme-driven copy
-- vague motivational lines
-
-The company should sound like it is describing infrastructure, not hype.
-
----
-
-## Information Architecture
-
-The website should maintain these primary pages:
-
-- Home
-- About
-- Projects
-- Team
-- Contact
-
-### Home
-Purpose:
-- define Bento AIII’s new system-level direction
-- present the AI core system as the company’s primary operating thesis
-- explain why the system matters
-- show modular system architecture
-- communicate possible domain deployments
-- direct visitors toward architecture review or business inquiry
-
-### About
-Purpose:
-- explain who Bento AIII is
-- explain what the company focuses on
-- explain how the company works
-- explain why its approach is infrastructure-first and system-oriented
-
-### Projects
-Purpose:
-- show actual project directions and deployments
-- keep existing project structure credible
-- support the narrative that Bento AIII builds real systems, not just interface concepts
-
-### Team
-Purpose:
-- show real team structure and operational roles
-- keep credibility high
-- avoid roleplay, gimmicks, or invented prestige
-
-### Contact
-Purpose:
-- provide a real inquiry path
-- support serious project or deployment discussions
-- reinforce company credibility
-
----
-
-## Homepage Content Direction
-
-The Home page is now the most important page in the repo.
-
-It must position Bento AIII around a platform-level AI core system.
-
-The homepage must clearly contain these conceptual layers:
-
-1. HERO / SYSTEM ENTRY
-2. CORE STATEMENT
-3. PROBLEM FIELD
-4. SYSTEM MODULE MAP
-5. EXECUTION LOOP
-6. WHY IT MATTERS
-7. DOMAIN ADAPTATION
-8. CLOSING / CTA
-
-These do not need to appear as literal boring section titles, but the meaning must be present.
-
-### Required homepage messages
-
-#### Hero message
-This is an adaptive decision-and-execution operating system for complex service networks.
-
-#### Secondary message
-It structures demand, evaluates supply, routes complexity, runs workflows, and learns from real outcomes.
-
-#### Main differentiation
-Most AI products generate answers.  
-This system generates operational memory.
-
-Most platforms stop at matching.  
-This system continues into execution, traceability, and learning.
-
----
-
-## System Module Model
-
-The homepage and system visuals should revolve around these six conceptual modules:
-
-1. INPUT_STRUCTURING
-2. CONSTRAINT_ROUTING
-3. DUAL_SIDE_EVALUATION
-4. WORKFLOW_EXECUTION
-5. OUTCOME_MEMORY
-6. DOMAIN_ADAPTATION
-
-These must feel like actual operating modules, not marketing feature cards.
-
----
-
-## Domain Adaptation Guidance
-
-The homepage may reference example deployment directions such as:
-
-- immigration workflow platforms
-- condo / HOA management systems
-- legal service coordination platforms
-- healthcare workflow systems
-- multi-party operational marketplaces
-- high-friction service delivery environments
-
-Important:
-These are not separate homepage products.
-They are examples of domain deployment possibilities for the same system core.
-
----
-
-## Design Direction
-
-The visual system must be redesigned around:
-
-### Style definition
-**Dark / Futuristic / Tactical / System-Interface / Architecture-Console**
-
-The website must NOT look like:
-- a traditional SaaS landing page
-- a soft gradient startup page
-- a consumer-friendly onboarding website
-- a playful product marketing page
-
-The website SHOULD look like:
-- a live operating interface
-- a strategic blueprint dashboard
-- a system control panel
-- an intelligence map
-- a modular architecture console
-- a mission control interface
-- a live telemetry environment
-
-### Mood
-The site should feel:
+The site must NOT feel:
 - tactical
-- intelligent
-- cold
-- live
-- systemized
-- modular
-- high-control
-- high-signal
+- terminal-like
+- simulated operating system UI
+- architecture console
+- dashboard-like
+- over-framed
+- visually theatrical
+- crypto/AI hype styled
 
-### Visual characteristics
+The target is the same mother design language as the RyanTeo website:
+Apple-inspired web design language, adapted for a company site.
+
+This does NOT mean cloning the RyanTeo site.
+This means aligning Bento AIII to the same visual philosophy and quality bar.
+
+---
+
+## Direction Lock
+
+Permanent visual target:
+
+- Apple-inspired web presentation
+- premium company website
+- typography-led hierarchy
+- generous whitespace
+- restrained surfaces
+- neutral-first palette
+- subtle depth
+- refined interaction
+- web-native patterns
+- high readability
+- calmer, lighter composition
+
+Never drift toward:
+- tactical UI
+- system-interface theater
+- shell bars
+- telemetry visuals
+- terminal UI metaphors
+- command-center framing
+- dashboard composition
+- gimmicky futurism
+- glow-heavy AI aesthetic
+
+---
+
+## Core Principles
+
+### 1. Company website first
+This is a company website, not a simulated system console.
+
+The site should communicate:
+- credibility
+- clarity
+- product maturity
+- technical confidence
+- design discipline
+
+Avoid presenting the company as a fictional control surface or command dashboard.
+
+---
+
+### 2. Web-native, not fake OS
+The site should be Apple-inspired on the web.
+It must not imitate:
+- fake system shells
+- fake terminal interfaces
+- fake iOS chrome
+- fake app frames
+- command-center theatrics
+
+Correct reference:
+- Apple.com
+- premium product/company presentation pages
+- calm, editorial, product-led web design
+
+Wrong reference:
+- console UI
+- dashboard UI
+- terminal-themed branding
+- sci-fi system shell aesthetics
+
+---
+
+### 3. Typography leads
+Typography is a primary design tool.
+
 Use:
-- black / near-black background
-- low-brightness dark surfaces
-- neon green as primary signal color
-- cyan / electric blue as secondary signal color
-- thin borders
-- grid overlays
-- telemetry lines
-- signal connectors
-- architecture-map style layout
-- modular panels
-- terminal / command-center feeling
+- strong headline hierarchy
+- disciplined subheads
+- readable body copy
+- controlled line lengths
+- clean paragraph rhythm
+- clear alignment
 
 Avoid:
-- oversized rounded blob shapes
-- pastel gradients
-- soft SaaS cards
-- generic AI marketing visuals
-- friendly consumer startup design
-- cartoon illustrations
-- toy packaging style
-- comic sticker style
-- playful board-game or RPG interface language
+- decorative “system” typography cues
+- noisy all-caps labeling everywhere
+- overly dense module labeling
+- weak hierarchy hidden under styling
 
-### Typography
-Typography should feel like:
-- design system meets terminal UI
-- architectural and technical
-- strong uppercase labels
-- condensed or geometric display font for headings
-- clean technical sans-serif for body text
+---
 
-Suggested direction:
-- headline font: Space Grotesk or similar
-- body font: Manrope / Inter / similar
-- labels: system metadata style
-
-### Motion
-Motion should feel like system activity, not app delight.
-
+### 4. Spacing creates the premium feel
 Use:
-- subtle pulse effects
-- hover glow
-- telemetry flicker
-- signal path highlighting
-- panel expansion
-- low-key transitions
+- generous section spacing
+- consistent layout containers
+- calm internal padding
+- clean vertical rhythm
+- intentional negative space
 
 Avoid:
-- bouncy motion
-- playful easing
-- cartoon-like interactions
+- visually cramped modules
+- excessive compartmentalization
+- every section looking like a framed control box
+- too many chips, bars, strips, and decorative wrappers
 
 ---
 
-## Layout Rules
+### 5. Surfaces must be restrained
+Use:
+- subtle tonal separation
+- light surface hierarchy
+- minimal elegant borders where useful
+- soft shadows only where helpful
+- calm depth
 
-The homepage should adopt a multi-panel interface structure.
-
-Preferred layout logic:
-
-1. Top system bar
-2. Left-side navigation rail
-3. Main central architecture canvas
-4. Right-side telemetry panel
-5. Bottom terminal-style footer
-
-This should still work as a responsive website, not as an unusable mock dashboard.
-
-### Responsive principle
-- Desktop may fully express the multi-panel architecture
-- Tablet should preserve structure but reduce density
-- Mobile should collapse panels logically while preserving the tactical system tone
-
-Do not simply shrink everything. Recompose intelligently.
+Avoid:
+- shell bars
+- terminal strips
+- tactical cards
+- thick or dominant framing
+- theatrical panel borders
+- console-inspired component wrappers
+- heavy dark overlays as identity
 
 ---
 
-## Content Presentation Rules
+### 6. Color must be controlled
+Use:
+- neutral-first color palette
+- restrained accent color
+- color in service of hierarchy and emphasis
 
-Copy should be integrated visually as system language.
-
-Preferred text styles:
-- uppercase short labels
-- concise tactical headlines
-- architectural subtext
-- command-like phrases
-- system-state terminology
-
-Good examples:
-- SYSTEM_CORE
-- INPUT_LAYER
-- ROUTING_ENGINE
-- EXECUTION_TRACE
-- OUTCOME_MEMORY
-- DOMAIN_PACKS
-- TRUST_SIGNAL_MAP
-
-But do not overdo this to the point of unreadability.  
-The site still needs to function as a real company website.
+Avoid:
+- excessive dark futurism
+- neon/glow behavior
+- loud gradients
+- over-stylized “AI company” palettes
+- color used to compensate for poor structure
 
 ---
 
-## Existing Project / Team / Contact Constraints
+### 7. Motion is quiet
+Use:
+- subtle hover feedback
+- restrained transitions
+- smooth but calm state changes
 
-### Projects
-Do not destroy the existing Projects structure unless explicitly required.
-The homepage is the main target of this redesign.
-Projects may need visual alignment, but the core objective is not to rebuild every project detail page from scratch unless necessary.
-
-### Team
-Do not turn the Team page into a themed fantasy interface.
-Keep team presentation credible and restrained.
-
-### Contact
-Do not make Contact playful or abstract.
-Keep it usable, clear, and serious.
+Avoid:
+- flashy reveal effects
+- cinematic over-animation
+- floating gimmicks
+- movement that makes the site feel like a control center
 
 ---
 
-## Engineering Priorities
+## Navigation Rules
 
-When modifying this repo, always follow this order:
+The header must feel:
+- stable
+- premium
+- light
+- company-appropriate
+- easy to scan
 
-### Priority 1 — Build integrity
-The project must build successfully at all times.
+Use:
+- clear information hierarchy
+- restrained hover behavior
+- subtle sticky behavior if needed
+- spacing and typography to define navigation quality
 
-Before visual ambition, ensure:
-- `npm run build` passes
-- no broken imports
-- no broken routes
-- no invalid Tailwind classes
-- no hydration issues
-- no layout logic that breaks responsiveness
-
-### Priority 2 — Layout stability
-- strong container rules
-- clear panel hierarchy
-- consistent spacing
-- responsive behavior that does not collapse under real widths
-
-### Priority 3 — Message hierarchy
-- homepage must communicate the system clearly
-- architecture must not overwhelm clarity
-
-### Priority 4 — Visual polish
-Only after structure and messaging are stable:
-- signal glows
-- telemetry motion
-- grid overlays
-- node connectors
-- visual system refinement
+Avoid:
+- shell bars
+- command strips
+- telemetry chips
+- tactical labels
+- boxed nav theatrics
 
 ---
 
-## Trustworthiness Rules
+## Footer Rules
 
-Do not invent:
-- fake deployments
-- fake customer logos
-- fake metrics
-- fake technical claims
-- fake press mentions
-- fake partner names
-- fake enterprise usage
+The footer must feel:
+- clean
+- quiet
+- premium
+- intentional
 
-Example verticals are acceptable as domain adaptation examples, but they must not be presented as confirmed clients unless explicitly supported by real data in the repository.
+Avoid:
+- terminal strip treatment
+- dashboard ending
+- console framing
+- visually noisy status language
+
+Footer should end the site with confidence, not theatrics.
 
 ---
 
-## Final Instruction to All Agents
+## Section Rules
 
-Do not optimize for “more style.”  
-Optimize for:
+Each section must have a clear role.
 
-- stronger system framing
-- clearer operational hierarchy
-- better structural precision
-- more credible infrastructure positioning
-- stable responsive execution
-- premium tactical coherence
+Examples:
+- Hero should feel like a company introduction
+- Company overview should feel editorial and credible
+- Projects should feel like selected work or product capabilities
+- Team should feel clear and premium
+- Contact should feel direct and structured
 
-The website should feel like:
-**a live blueprint of an adaptive decision-and-execution system**
-—not a brochure, not a toy, and not a generic AI landing page.
+Avoid making every section look like the same dark tactical module.
+
+Different sections can share one system without becoming clones.
+
+---
+
+## Bento-Specific Content Framing
+
+Bento AIII should be presented as:
+- technically credible
+- design-aware
+- product-oriented
+- systems-minded
+- premium
+- serious
+- forward-looking
+
+But it must not be presented through fake console theatrics.
+
+The brand should feel:
+- thoughtful
+- advanced
+- disciplined
+- clear
+
+Not:
+- performatively futuristic
+- UI-costumed
+- visually overacted
+
+---
+
+## Repo-Specific Refactor Lock
+
+The following patterns are considered legacy direction and should generally be removed or heavily redesigned:
+
+- system-shell-bar
+- system-shell-chip
+- terminal-panel
+- terminal-strip
+- system-rail
+- boxed-section when used as dominant repeated visual framing
+- overly tactical chips and labels
+- grid / scanline / telemetry background treatments
+- command-surface styling
+- dark console identity as default page shell
+
+These patterns conflict with the target direction.
+
+Do not preserve them unless there is a strong functional reason, and even then they must be visually transformed into calmer, premium, web-native patterns.
+
+---
+
+## Technical Rules
+
+- Preserve the Next.js architecture
+- Keep code modular and maintainable
+- Refactor existing files directly where reasonable
+- Avoid unnecessary rewrites
+- Avoid unnecessary dependency additions
+- Preserve accessibility
+- Preserve responsive quality
+- Keep the final implementation buildable
+- Prefer clarity over cleverness
+
+---
+
+## Styling Rules
+
+When editing global styles:
+- reduce tactical styling
+- reduce dark-shell dominance
+- reduce framing noise
+- improve spacing rhythm
+- strengthen typography hierarchy
+- simplify background treatment
+- create calmer and lighter surfaces
+- make the site feel premium instead of theatrical
+
+When editing shared components:
+- remove system-console metaphors
+- remove shell/chip/strip theatrics
+- let layout, spacing, and type do more of the work
+- keep interactions complete but restrained
+
+---
+
+## Output Rules
+
+For any meaningful refactor, always provide:
+
+1. Brief audit
+2. Updated file tree
+3. Full contents of all modified files
+4. Verification steps
+
+Do not provide pseudo-code.
+Do not provide vague design advice without implementation.
+Do not omit modified file contents.
+
+---
+
+## Sprint Discipline
+
+Each sprint must have one main objective.
+
+Do not widen scope.
+Do not mix unrelated redesign ideas into a focused sprint.
+Do not quietly reintroduce tactical/system-interface patterns.
+
+Current migration order:
+1. Design-system reset
+2. Header/footer/shared shell cleanup
+3. Homepage hero and major section refactor
+4. Rework project/team/contact presentation
+5. Final polish and consistency pass
+
+Follow that order unless explicitly instructed otherwise.

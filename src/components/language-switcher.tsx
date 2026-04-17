@@ -46,22 +46,17 @@ export function LanguageSwitcher({
   return (
     <div
       className={cn(
-        "inline-flex max-w-full shrink-0 items-center gap-2.5 whitespace-nowrap",
+        "language-switcher max-w-full shrink-0 whitespace-nowrap",
         stacked && "w-full flex-col items-start gap-3 whitespace-normal",
         className
       )}
     >
-      <span
-        className={cn(
-          "label-caps shrink-0 whitespace-nowrap leading-none text-[0.62rem]",
-          stacked && "pl-0.5 text-[0.66rem]"
-        )}
-      >
+      <span className={cn("language-switcher-label shrink-0 whitespace-nowrap leading-none", stacked && "pl-0.5")}>
         {label}
       </span>
       <div
         className={cn(
-          "grid h-12 w-[13.4rem] max-w-full shrink-0 grid-cols-3 items-center gap-1 rounded-full border border-[rgb(var(--outline-strong))] bg-[rgb(var(--surface-container-low))] p-1",
+          "language-switcher-shell h-12 w-[13.4rem] max-w-full shrink-0 items-center",
           stacked && "w-full max-w-[15rem]"
         )}
       >
@@ -74,11 +69,9 @@ export function LanguageSwitcher({
               type="button"
               onClick={() => handleLocaleChange(option.value)}
               className={cn(
-                "inline-flex h-9 min-w-0 items-center justify-center whitespace-nowrap rounded-full px-2 font-[var(--font-label)] text-[0.75rem] font-extrabold leading-none tracking-[0.08em] transition",
-                active
-                  ? "border border-[rgb(var(--primary))] bg-[rgb(var(--primary-veil))] text-[rgb(var(--primary))] shadow-[0_0_18px_rgba(111,255,176,0.12)]"
-                  : "text-[rgb(var(--ink-muted))] hover:border hover:border-[rgb(var(--secondary))] hover:bg-[rgb(var(--surface-container))] hover:text-[rgb(var(--ink))]",
-                !active && index === 1 && "hover:text-[rgb(var(--secondary))]"
+                "language-switcher-button h-9 min-w-0 whitespace-nowrap",
+                active && "language-switcher-button-active",
+                !active && index === 1 && "hover:text-[rgb(var(--ink))]"
               )}
               aria-pressed={active}
             >
