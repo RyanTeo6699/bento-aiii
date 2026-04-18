@@ -48,13 +48,13 @@ export default function ContactPage() {
 
             <div className="grid gap-4">
               <Reveal delay={0.04}>
-                <div className="inline-flex items-center gap-3 rounded-full border border-[rgb(var(--outline)/0.78)] bg-[rgba(18,23,33,0.82)] px-3 py-3 shadow-[0_18px_34px_rgba(0,0,0,0.22)]">
+                <div className="contact-icon-dock">
                   {contactChannels.map((channel) => (
                     <a
                       key={channel.icon}
                       href={channel.href}
                       aria-label={channel.ariaLabel}
-                      className="grid h-14 w-14 place-items-center rounded-full border border-[rgb(var(--outline)/0.72)] bg-[rgba(23,29,40,0.94)] transition hover:-translate-y-0.5 hover:border-[rgb(var(--outline-strong))] hover:bg-[rgba(30,37,50,0.98)] hover:shadow-[0_16px_28px_rgba(0,0,0,0.24)]"
+                      className="contact-icon-button h-14 w-14"
                       target={channel.external ? "_blank" : undefined}
                       rel={channel.external ? "noreferrer" : undefined}
                     >

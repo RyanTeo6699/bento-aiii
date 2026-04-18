@@ -10,6 +10,7 @@ import { getCurrentLocale } from "@/lib/get-locale";
 import { getDictionary } from "@/lib/i18n";
 import { getHtmlLang, getSiteMetadataBase } from "@/lib/metadata";
 import { getSystemSiteCopy } from "@/lib/system-site-copy";
+import { defaultThemeMode, themeColorSchemes, themeModes, themeStorageKey } from "@/lib/theme";
 
 import "./globals.css";
 import "./dark-theme.css";
@@ -27,6 +28,25 @@ const bodyFont = Manrope({
   variable: "--font-body",
   display: "swap"
 });
+
+const themeBootstrapScript = `
+(() => {
+  const storageKey = ${JSON.stringify(themeStorageKey)};
+  const validThemes = ${JSON.stringify(themeModes)};
+  const fallbackTheme = ${JSON.stringify(defaultThemeMode)};
+  const colorSchemes = ${JSON.stringify(themeColorSchemes)};
+
+  try {
+    const storedTheme = window.localStorage.getItem(storageKey);
+    const theme = validThemes.includes(storedTheme) ? storedTheme : fallbackTheme;
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = colorSchemes[theme];
+  } catch {
+    document.documentElement.dataset.theme = fallbackTheme;
+    document.documentElement.style.colorScheme = colorSchemes[fallbackTheme];
+  }
+})();
+`;
 
 export function generateMetadata(): Metadata {
   const locale = getCurrentLocale();
@@ -54,7 +74,10 @@ export default function RootLayout({
   const contactChannels = getPublicContactChannels(locale);
 
   return (
-    <html lang={getHtmlLang(locale)}>
+    <html lang={getHtmlLang(locale)} data-theme={defaultThemeMode} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeBootstrapScript }} />
+      </head>
       <body className={`${headlineFont.variable} ${bodyFont.variable} site-body`}>
         <div className="site-root">
           <SiteHeader

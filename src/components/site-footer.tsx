@@ -98,7 +98,7 @@ export function SiteFooter({
                     key={channel.icon}
                     href={channel.href}
                     aria-label={channel.ariaLabel}
-                    className="grid h-12 w-12 place-items-center rounded-full border border-[rgb(var(--outline)/0.76)] bg-[rgba(20,25,36,0.84)] transition hover:-translate-y-0.5 hover:border-[rgb(var(--outline-strong))] hover:bg-[rgba(28,34,46,0.96)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.24)]"
+                    className="contact-icon-button h-12 w-12"
                     target={channel.external ? "_blank" : undefined}
                     rel={channel.external ? "noreferrer" : undefined}
                   >

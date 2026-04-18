@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { LanguageSwitcher } from "@/components/language-switcher";
+import { ThemeSwitcher } from "@/components/theme-switcher";
 import { type Locale, type NavItem } from "@/lib/i18n";
 import { buildLocalizedPath, getLogicalPathname } from "@/lib/locale-routing";
 import { cn } from "@/lib/utils";
@@ -73,6 +74,7 @@ export function SiteHeader({ locale, navItems, copy }: SiteHeaderProps) {
             </nav>
 
             <div className="hidden items-center gap-3 xl:flex">
+              <ThemeSwitcher />
               <LanguageSwitcher locale={locale} label={copy.languageLabel} />
               <Link href={buildLocalizedPath(locale, "/contact")} className="button-primary whitespace-nowrap">
                 {copy.cta}
@@ -123,12 +125,15 @@ export function SiteHeader({ locale, navItems, copy }: SiteHeaderProps) {
                   </div>
 
                   <div className="site-mobile-utility">
-                    <LanguageSwitcher
-                      locale={locale}
-                      label={copy.languageLabel}
-                      stacked
-                      onChangeComplete={() => setOpen(false)}
-                    />
+                    <div className="grid gap-4">
+                      <ThemeSwitcher />
+                      <LanguageSwitcher
+                        locale={locale}
+                        label={copy.languageLabel}
+                        stacked
+                        onChangeComplete={() => setOpen(false)}
+                      />
+                    </div>
                   </div>
 
                   <Link href={buildLocalizedPath(locale, "/contact")} className="button-primary w-full justify-center">

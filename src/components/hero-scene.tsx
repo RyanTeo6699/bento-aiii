@@ -99,9 +99,73 @@ const orbitLayout = [
 
 const overlayGridStyle: CSSProperties = {
   backgroundImage:
-    "linear-gradient(rgba(92, 105, 126, 0.24) 1px, transparent 1px), linear-gradient(90deg, rgba(92, 105, 126, 0.24) 1px, transparent 1px)",
+    "linear-gradient(rgb(var(--theme-system-grid) / 0.24) 1px, transparent 1px), linear-gradient(90deg, rgb(var(--theme-system-grid) / 0.24) 1px, transparent 1px)",
   backgroundSize: "24px 24px",
   maskImage: "linear-gradient(180deg, rgba(255,255,255,0.82), transparent 92%)"
+};
+
+const shellStyle: CSSProperties = {
+  backgroundImage:
+    "linear-gradient(180deg, rgb(var(--theme-system-shell-start) / 0.95), rgb(var(--theme-system-shell-end) / 0.92))",
+  boxShadow: "var(--theme-system-shell-shadow)"
+};
+
+const activeSurfaceStyle: CSSProperties = {
+  backgroundImage:
+    "linear-gradient(180deg, rgb(var(--theme-system-surface-start) / 0.92), rgb(var(--theme-system-surface-end) / 0.86))",
+  boxShadow: "var(--theme-system-surface-shadow)"
+};
+
+const nodeInactiveStyle: CSSProperties = {
+  backgroundColor: "rgb(var(--theme-system-node-surface) / 0.5)"
+};
+
+const nodeActiveStyle: CSSProperties = {
+  backgroundColor: "rgb(var(--theme-system-node-active-surface) / 0.86)",
+  boxShadow: "var(--theme-system-node-shadow)"
+};
+
+const orbitGlowStyle: CSSProperties = {
+  backgroundImage: "radial-gradient(circle, rgb(var(--theme-system-glow) / 0.16), rgba(0,0,0,0))"
+};
+
+const orbitPulseStyle: CSSProperties = {
+  backgroundImage:
+    "radial-gradient(circle, rgb(var(--theme-system-glow) / 0.18), rgb(var(--theme-system-glow) / 0.05) 46%, rgba(255,255,255,0) 76%)"
+};
+
+const nodeRailStyle: CSSProperties = {
+  backgroundImage:
+    "linear-gradient(180deg, transparent, rgb(var(--theme-connector-muted) / 0.12), transparent)"
+};
+
+const nodeRailActiveStyle: CSSProperties = {
+  backgroundImage:
+    "linear-gradient(180deg, transparent, rgb(var(--theme-connector-active) / 0.32), transparent)"
+};
+
+const nodeDotRingStyle: CSSProperties = {
+  boxShadow: "0 0 0 4px rgb(var(--background) / 0.84)"
+};
+
+const surfaceGlowInnerStyle: CSSProperties = {
+  backgroundImage:
+    "radial-gradient(circle at top, rgb(var(--theme-system-glow) / 0.12), rgba(255,255,255,0) 58%)"
+};
+
+const surfaceTopLineStyle: CSSProperties = {
+  backgroundImage:
+    "linear-gradient(90deg, transparent, rgb(var(--theme-connector-active) / 0.16), transparent)"
+};
+
+const surfaceBottomLineStyle: CSSProperties = {
+  backgroundImage:
+    "linear-gradient(90deg, transparent, rgb(var(--theme-connector-muted) / 0.1), transparent)"
+};
+
+const surfaceLeftLineStyle: CSSProperties = {
+  backgroundImage:
+    "linear-gradient(180deg, transparent, rgb(var(--theme-connector-active) / 0.18), transparent)"
 };
 
 const toneClasses: Record<
@@ -112,43 +176,36 @@ const toneClasses: Record<
     nodeActiveBorder: string;
     nodeActiveText: string;
     pathStroke: string;
-    surfaceShadow: string;
   }
 > = {
   primary: {
-    chip: "border-slate-600/70 bg-slate-900/60 text-slate-200",
-    dot: "bg-slate-200",
-    nodeActiveBorder: "border-slate-500/90",
-    nodeActiveText: "text-slate-200",
-    pathStroke: "rgba(201, 211, 226, 0.78)",
-    surfaceShadow:
-      "0 18px 34px rgba(0, 0, 0, 0.26), inset 0 1px 0 rgba(255,255,255,0.04), 0 0 0 1px rgba(148, 163, 184, 0.08)"
+    chip: "border-[rgb(var(--tone-primary-border)/0.72)] bg-[rgb(var(--tone-primary-surface)/0.82)] text-[rgb(var(--tone-primary-ink))]",
+    dot: "bg-[rgb(var(--tone-primary-dot))]",
+    nodeActiveBorder: "border-[rgb(var(--tone-primary-border)/0.9)]",
+    nodeActiveText: "text-[rgb(var(--tone-primary-ink))]",
+    pathStroke: "rgb(var(--tone-primary-path))"
   },
   secondary: {
-    chip: "border-[#51637a] bg-[#131c28] text-[#d3dce9]",
-    dot: "bg-[#d6dfec]",
-    nodeActiveBorder: "border-[#70829a]",
-    nodeActiveText: "text-[#d3dce9]",
-    pathStroke: "rgba(145, 166, 193, 0.82)",
-    surfaceShadow:
-      "0 18px 34px rgba(0, 0, 0, 0.26), inset 0 1px 0 rgba(255,255,255,0.04), 0 0 0 1px rgba(169, 184, 204, 0.08)"
+    chip: "border-[rgb(var(--tone-secondary-border)/0.72)] bg-[rgb(var(--tone-secondary-surface)/0.82)] text-[rgb(var(--tone-secondary-ink))]",
+    dot: "bg-[rgb(var(--tone-secondary-dot))]",
+    nodeActiveBorder: "border-[rgb(var(--tone-secondary-border)/0.9)]",
+    nodeActiveText: "text-[rgb(var(--tone-secondary-ink))]",
+    pathStroke: "rgb(var(--tone-secondary-path))"
   },
   tertiary: {
-    chip: "border-[#645747] bg-[#1a1612] text-[#d8c1a4]",
-    dot: "bg-[#d5bd9e]",
-    nodeActiveBorder: "border-[#8f7c64]",
-    nodeActiveText: "text-[#dcc7ad]",
-    pathStroke: "rgba(181, 155, 123, 0.8)",
-    surfaceShadow:
-      "0 18px 34px rgba(0, 0, 0, 0.26), inset 0 1px 0 rgba(255,255,255,0.04), 0 0 0 1px rgba(205, 191, 170, 0.08)"
+    chip: "border-[rgb(var(--tone-tertiary-border)/0.72)] bg-[rgb(var(--tone-tertiary-surface)/0.82)] text-[rgb(var(--tone-tertiary-ink))]",
+    dot: "bg-[rgb(var(--tone-tertiary-dot))]",
+    nodeActiveBorder: "border-[rgb(var(--tone-tertiary-border)/0.9)]",
+    nodeActiveText: "text-[rgb(var(--tone-tertiary-ink))]",
+    pathStroke: "rgb(var(--tone-tertiary-path))"
   }
 };
 
 const actionClassName =
-  "inline-flex min-h-9 items-center justify-center rounded-full border border-[rgb(var(--primary)/0.88)] bg-[rgb(var(--primary))] px-3.5 text-[0.64rem] font-semibold uppercase tracking-[0.16em] text-[rgb(14,18,26)] transition hover:-translate-y-0.5 hover:bg-[rgb(243,246,251)] hover:shadow-[0_12px_22px_rgba(0,0,0,0.22)]";
+  "button-primary inline-flex min-h-9 !px-3.5 !text-[0.64rem] !font-semibold uppercase tracking-[0.16em]";
 
 const secondaryActionClassName =
-  "inline-flex min-h-9 items-center justify-center rounded-full border border-[rgb(var(--outline)/0.72)] bg-[rgba(21,26,37,0.86)] px-3.5 text-[0.64rem] font-semibold uppercase tracking-[0.16em] text-[rgb(var(--ink-soft))] transition hover:-translate-y-0.5 hover:border-[rgb(var(--outline-strong))] hover:bg-[rgba(27,33,45,0.94)] hover:text-[rgb(var(--ink))] hover:shadow-[0_12px_22px_rgba(0,0,0,0.22)]";
+  "button-secondary inline-flex min-h-9 !px-3.5 !text-[0.64rem] !font-semibold uppercase tracking-[0.16em]";
 
 function buildArchitectureNode(module: ArchitectureModule, index: number): ArchitectureNode {
   return {
@@ -178,14 +235,11 @@ function OrbitNode({
       onClick={onSelect}
       aria-pressed={active}
       className={cn(
-        "group relative w-full overflow-hidden rounded-[1.2rem] border bg-[rgba(18,23,33,0.5)] text-left backdrop-blur transition",
+        "group relative w-full overflow-hidden rounded-[1.2rem] border text-left backdrop-blur transition",
         compact ? "px-3 py-2.5" : "px-3 py-2.5 xl:px-3.5 xl:py-3",
         active
-          ? cn(
-              tone.nodeActiveBorder,
-              "opacity-100 bg-[rgba(26,32,44,0.86)] shadow-[0_12px_22px_rgba(0,0,0,0.22)]"
-            )
-          : "border-[rgb(var(--outline)/0.46)] opacity-[0.3] shadow-none hover:opacity-[0.7] hover:bg-[rgba(24,30,42,0.72)]"
+          ? cn(tone.nodeActiveBorder, "opacity-100")
+          : "border-[rgb(var(--outline)/0.46)] opacity-[0.3] shadow-none hover:opacity-[0.7]"
       )}
       animate={{
         y: active ? [0, -1.25, 0] : [0, -0.2, 0],
@@ -199,13 +253,11 @@ function OrbitNode({
         ease: "easeInOut",
         delay: index * 0.18
       }}
+      style={active ? nodeActiveStyle : nodeInactiveStyle}
     >
       <span
-        className={cn(
-          "pointer-events-none absolute inset-y-2.5 left-3 w-px rounded-full bg-[linear-gradient(180deg,transparent,rgba(109,120,141,0.12),transparent)]",
-          active &&
-            "bg-[linear-gradient(180deg,transparent,rgba(145,166,193,0.32),transparent)]"
-        )}
+        className="pointer-events-none absolute inset-y-2.5 left-3 w-px rounded-full"
+        style={active ? nodeRailActiveStyle : nodeRailStyle}
       />
 
       <div className="relative pl-3">
@@ -224,10 +276,11 @@ function OrbitNode({
             </p>
           </div>
           <span
-              className={cn(
-              "mt-1 inline-flex h-2.5 w-2.5 rounded-full shadow-[0_0_0_4px_rgba(9,12,18,0.84)]",
-              active ? tone.dot : "bg-[rgba(148,163,184,0.76)]"
+            className={cn(
+              "mt-1 inline-flex h-2.5 w-2.5 rounded-full",
+              active ? tone.dot : "bg-[rgb(var(--theme-signal-muted)/0.76)]"
             )}
+            style={nodeDotRingStyle}
           />
         </div>
       </div>
@@ -263,13 +316,13 @@ export function HeroScene({ modules, core, labels }: HeroSceneProps) {
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: -10, scale: 0.992 }}
         transition={{ duration: 0.24, ease: "easeOut" }}
-        className="relative overflow-hidden rounded-[2.5rem] border border-[rgb(var(--outline)/0.46)] bg-[linear-gradient(180deg,rgba(22,28,39,0.92),rgba(13,17,26,0.86))] px-5 py-5 backdrop-blur-[12px] xl:px-6 xl:py-6"
-        style={{ boxShadow: activeTone.surfaceShadow }}
+        className="relative overflow-hidden rounded-[2.5rem] border border-[rgb(var(--outline)/0.46)] px-5 py-5 backdrop-blur-[12px] xl:px-6 xl:py-6"
+        style={activeSurfaceStyle}
       >
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(126,141,168,0.12),rgba(255,255,255,0)_58%)]" />
-        <div className="pointer-events-none absolute inset-x-7 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(132,145,166,0.16),transparent)]" />
-        <div className="pointer-events-none absolute inset-x-7 bottom-0 h-px bg-[linear-gradient(90deg,transparent,rgba(132,145,166,0.1),transparent)]" />
-        <div className="pointer-events-none absolute inset-y-7 left-5 w-px rounded-full bg-[linear-gradient(180deg,transparent,rgba(145,166,193,0.18),transparent)]" />
+        <div className="pointer-events-none absolute inset-0" style={surfaceGlowInnerStyle} />
+        <div className="pointer-events-none absolute inset-x-7 top-0 h-px" style={surfaceTopLineStyle} />
+        <div className="pointer-events-none absolute inset-x-7 bottom-0 h-px" style={surfaceBottomLineStyle} />
+        <div className="pointer-events-none absolute inset-y-7 left-5 w-px rounded-full" style={surfaceLeftLineStyle} />
 
         <div className="relative flex items-start justify-between gap-4 pl-4">
           <div className="space-y-3">
@@ -286,7 +339,7 @@ export function HeroScene({ modules, core, labels }: HeroSceneProps) {
             </p>
           </div>
 
-          <div className="inline-flex items-center gap-2 rounded-full border border-[rgb(var(--outline)/0.54)] bg-[rgba(23,29,39,0.76)] px-3 py-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-[rgb(var(--ink-soft))]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[rgb(var(--outline)/0.54)] bg-[rgb(var(--theme-system-node-surface)/0.76)] px-3 py-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-[rgb(var(--ink-soft))]">
             <motion.span
               className={cn("inline-flex h-2 w-2 rounded-full", activeTone.dot)}
               animate={{ scale: [1, 1.12, 1], opacity: [0.8, 1, 0.8] }}
@@ -333,14 +386,15 @@ export function HeroScene({ modules, core, labels }: HeroSceneProps) {
   );
 
   return (
-    <div className="relative overflow-hidden rounded-[2.2rem] border border-[rgb(var(--outline)/0.82)] bg-[linear-gradient(180deg,rgba(18,23,33,0.95),rgba(11,15,23,0.92))] p-4 shadow-[0_30px_72px_rgba(0,0,0,0.32)] md:p-6">
+    <div
+      className="relative overflow-hidden rounded-[2.2rem] border border-[rgb(var(--outline)/0.82)] p-4 md:p-6"
+      style={shellStyle}
+    >
       <div className="pointer-events-none absolute inset-0 opacity-[0.52]" style={overlayGridStyle} />
-      <div className="pointer-events-none absolute inset-x-[22%] top-[5%] h-24 rounded-full bg-[radial-gradient(circle,_rgba(124,139,165,0.16),rgba(124,139,165,0))] blur-3xl" />
+      <div className="pointer-events-none absolute inset-x-[22%] top-[5%] h-24 rounded-full blur-3xl" style={orbitGlowStyle} />
 
       <div className="relative space-y-4 lg:hidden">
-        <div className="px-1">
-          {ActiveModuleSurface}
-        </div>
+        <div className="px-1">{ActiveModuleSurface}</div>
 
         <div className="grid gap-3 md:grid-cols-2">
           {architectureNodes.map((module, index) => (
@@ -362,7 +416,7 @@ export function HeroScene({ modules, core, labels }: HeroSceneProps) {
             <path
               key={`${module.id}-base`}
               d={module.path}
-              stroke="rgba(107, 119, 138, 0.16)"
+              stroke="rgb(var(--theme-connector-muted) / 0.16)"
               strokeWidth="0.8"
               strokeDasharray="5 22"
               strokeLinecap="round"
@@ -401,7 +455,7 @@ export function HeroScene({ modules, core, labels }: HeroSceneProps) {
                 cx={module.dotX}
                 cy={module.dotY}
                 r={isActive ? 5.9 : 2.8}
-                fill={isActive ? tone.pathStroke : "rgba(107, 119, 138, 0.74)"}
+                fill={isActive ? tone.pathStroke : "rgb(var(--theme-signal-muted) / 0.74)"}
               />
             );
           })}
@@ -418,15 +472,25 @@ export function HeroScene({ modules, core, labels }: HeroSceneProps) {
             transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
           />
 
-          <circle cx="500" cy="380" r="6" fill="rgba(214, 221, 232, 0.82)" />
+          <circle cx="500" cy="380" r="6" fill="rgb(var(--theme-system-core) / 0.82)" />
         </svg>
 
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[27.8rem] w-[27.8rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,_rgba(120,136,164,0.18),rgba(16,21,31,0.16)_44%,rgba(16,21,31,0)_78%)]" />
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[18.25rem] w-[18.25rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[rgba(102,114,134,0.16)]" />
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[rgba(102,114,134,0.08)]" />
+        <div
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[27.8rem] w-[27.8rem] -translate-x-1/2 -translate-y-1/2 rounded-full"
+          style={orbitGlowStyle}
+        />
+        <div
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[18.25rem] w-[18.25rem] -translate-x-1/2 -translate-y-1/2 rounded-full border"
+          style={{ borderColor: "rgb(var(--theme-system-ring) / 0.16)" }}
+        />
+        <div
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full border"
+          style={{ borderColor: "rgb(var(--theme-system-ring) / 0.08)" }}
+        />
 
         <motion.div
-          className="pointer-events-none absolute left-1/2 top-1/2 h-[12rem] w-[12rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,_rgba(126,141,168,0.18),rgba(126,141,168,0.05)_46%,rgba(255,255,255,0)_76%)]"
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[12rem] w-[12rem] -translate-x-1/2 -translate-y-1/2 rounded-full"
+          style={orbitPulseStyle}
           animate={{ scale: [0.985, 1.018, 0.985], opacity: [0.72, 1, 0.72] }}
           transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
         />
