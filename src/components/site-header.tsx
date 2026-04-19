@@ -50,11 +50,11 @@ export function SiteHeader({ locale, navItems, copy }: SiteHeaderProps) {
               </span>
               <div className="site-brand-lockup">
                 <span className="site-brand-name">Bento AIII</span>
-                <span className="site-brand-tagline hidden min-[1400px]:block">{copy.brandTagline}</span>
+                <span className="site-brand-tagline hidden min-[1520px]:block">{copy.brandTagline}</span>
               </div>
             </Link>
 
-            <nav className="site-nav hidden xl:flex" aria-label="Primary">
+            <nav className="site-nav hidden min-[1400px]:flex" aria-label="Primary">
               {navItems.map((item) => {
                 const active =
                   item.href === "/"
@@ -73,7 +73,7 @@ export function SiteHeader({ locale, navItems, copy }: SiteHeaderProps) {
               })}
             </nav>
 
-            <div className="site-header-utility hidden xl:flex">
+            <div className="site-header-utility hidden min-[1400px]:flex">
               <ThemeSwitcher className="site-header-theme-switcher" />
               <LanguageSwitcher
                 locale={locale}
@@ -91,7 +91,7 @@ export function SiteHeader({ locale, navItems, copy }: SiteHeaderProps) {
             <button
               type="button"
               onClick={() => setOpen((value) => !value)}
-              className="site-header-toggle xl:hidden"
+              className="site-header-toggle min-[1400px]:hidden"
               aria-expanded={open}
               aria-label={copy.mobileToggleLabel}
             >
@@ -109,7 +109,7 @@ export function SiteHeader({ locale, navItems, copy }: SiteHeaderProps) {
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="site-mobile-panel xl:hidden"
+                className="site-mobile-panel min-[1400px]:hidden"
               >
                 <div className="site-mobile-panel-inner">
                   <div className="grid gap-4">
