@@ -110,9 +110,9 @@ const sharedPresentation = {
   heroEyebrow: "Projects",
   heroTitle: "Four project surfaces under one Bento AIII operating layer.",
   heroDescription:
-    "These projects apply the same broader capability in different environments: structured decisions, workflow progression, and retained operational memory.",
+    "Each project applies the same Bento AIII logic in a different workflow environment: structured decisions, workflow progression, and retained operational memory.",
   sharedLogicEyebrow: "Operating layer",
-  sharedLogicTitle: "One system logic, applied across four domains.",
+  sharedLogicTitle: "One operating logic across four projects.",
   sharedLogicDescription:
     "The domain changes, but the underlying job stays consistent: turn fragmented input into a workflow that can move, hold state, and improve over time.",
   sharedLogic: [
@@ -132,15 +132,15 @@ const sharedPresentation = {
   portfolioEyebrow: "Project layer",
   portfolioTitle: "Four company projects, not four separate product brands.",
   portfolioDescription:
-    "Each project shows the same Bento AIII operating logic under a different workflow environment. The point is not product variety for its own sake. The point is how the system adapts.",
+    "These are four deployments of the same Bento AIII logic across different workflow environments. The point is not product variety for its own sake. The point is how the system adapts.",
   stageLabel: "Stage",
   viewProject: "View Project",
   problemEyebrow: "Problem",
   whatItDoesEyebrow: "What It Does",
-  coreWorkflowEyebrow: "Core Workflow",
+  coreWorkflowEyebrow: "Workflow",
   coreFeaturesEyebrow: "Core Features",
   differentiationEyebrow: "Differentiation",
-  bentoAngleEyebrow: "Bento AIII Angle",
+  bentoAngleEyebrow: "Why It Matters",
   currentStatusEyebrow: "Current Status",
   visualDemoEyebrow: "Visual / Demo",
   availableMaterialsLabel: "Available materials",
@@ -148,7 +148,7 @@ const sharedPresentation = {
   projectLinkLabel: "Project link",
   closingEyebrow: "Next",
   closingDescription:
-    "These project pages are evidence of the same broader capability: structure the decision, carry the workflow forward, and retain useful state.",
+    "Across all four projects, the pattern stays the same: structure the decision, carry the workflow forward, and retain useful state.",
   indexFinalEyebrow: "Contact",
   indexFinalTitle: "Need this kind of operating logic inside a real workflow?",
   indexFinalDescription:
