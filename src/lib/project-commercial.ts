@@ -108,13 +108,13 @@ function pick<T>(value: Localized<T>, locale: Locale): T {
 
 const sharedPresentation = {
   heroEyebrow: "Projects",
-  heroTitle: "Project surfaces built on one operating logic.",
+  heroTitle: "Four project surfaces under one Bento AIII operating layer.",
   heroDescription:
-    "Bento AIII’s projects reflect different application surfaces built on the same broader logic: structured decisions, workflow progression, and compounding operational memory.",
-  sharedLogicEyebrow: "Shared operating logic",
-  sharedLogicTitle: "Four application surfaces. One broader capability.",
+    "These projects apply the same broader capability in different environments: structured decisions, workflow progression, and retained operational memory.",
+  sharedLogicEyebrow: "Operating layer",
+  sharedLogicTitle: "One system logic, applied across four domains.",
   sharedLogicDescription:
-    "Each project addresses a different workflow environment, but all four show the same deeper system pattern: decision framing, execution progression, and retained operational memory.",
+    "The domain changes, but the underlying job stays consistent: turn fragmented input into a workflow that can move, hold state, and improve over time.",
   sharedLogic: [
     {
       title: "Decision",
@@ -129,10 +129,10 @@ const sharedPresentation = {
       body: "The result persists as usable state instead of disappearing as a one-time interaction."
     }
   ],
-  portfolioEyebrow: "Project portfolio",
-  portfolioTitle: "Four product implementations under one company frame.",
+  portfolioEyebrow: "Project layer",
+  portfolioTitle: "Four company projects, not four separate product brands.",
   portfolioDescription:
-    "These are not separate startup identities. They are four product surfaces that show how Bento AIII turns fragmented input into structured progression across different domains.",
+    "Each project shows the same Bento AIII operating logic under a different workflow environment. The point is not product variety for its own sake. The point is how the system adapts.",
   stageLabel: "Stage",
   viewProject: "View Project",
   problemEyebrow: "Problem",
@@ -148,9 +148,9 @@ const sharedPresentation = {
   projectLinkLabel: "Project link",
   closingEyebrow: "Next",
   closingDescription:
-    "Bento AIII treats these projects as evidence of a broader operating capability: structure the decision, carry the workflow forward, and retain useful state.",
+    "These project pages are evidence of the same broader capability: structure the decision, carry the workflow forward, and retain useful state.",
   indexFinalEyebrow: "Contact",
-  indexFinalTitle: "Need a project layer built on the same kind of operating logic?",
+  indexFinalTitle: "Need this kind of operating logic inside a real workflow?",
   indexFinalDescription:
     "Bento AIII can scope the workflow, interface, and memory model together instead of treating them as separate workstreams."
 } as const;
@@ -292,7 +292,7 @@ const projectDefinitions: LocalizedProjectDefinition[] = [
     heroLead: localize(
       "Daigou Helper is built for resale operators who have outgrown spreadsheets, chat-based order handling, and manual warehouse coordination, but still need a workflow that matches how daigou businesses actually run."
     ),
-    category: localize("Cross-border operations platform"),
+    category: localize("Cross-border operations system"),
     problem: localize(
       "Daigou operations usually run on fragmented tools: chat for customer requests, spreadsheets for stock and orders, memory for SKU details, and ad hoc coordination for suppliers and shipping. This leads to stock mismatch, duplicated records, overselling, slow fulfillment, and weak team control. The problem matters more now because cross-border resale is becoming more operationally complex, not less. Catalogs are larger, customer expectations are faster, and margin pressure is tighter. Once volume grows, manual workflows stop being inconvenient and start becoming destructive."
     ),
@@ -412,7 +412,7 @@ const projectDefinitions: LocalizedProjectDefinition[] = [
     heroLead: localize(
       "Shiok is designed for people who eat out often and want better control over what they order, what it costs, and what those decisions add up to over time."
     ),
-    category: localize("Dining copilot"),
+    category: localize("Dining decision system"),
     problem: localize(
       "Dining is a repeated high-friction decision space shaped by menu overload, rising costs, dietary constraints, and weak review loops. Most people rely on memory, impulse, receipts, or generic tracking apps that fail once real-world dining becomes messy."
     ),

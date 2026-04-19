@@ -4,6 +4,7 @@ export const PUBLIC_CONTACT_EMAIL = "ryanteo0628@gmail.com";
 export const PUBLIC_CONTACT_EMAIL_HREF = `mailto:${PUBLIC_CONTACT_EMAIL}`;
 export const PUBLIC_CONTACT_LINKEDIN_HREF = "https://www.linkedin.com/in/ryanteo101/";
 
+// Keep the previous address only for inbound normalization. It should never be rendered in public UI.
 const LEGACY_CONTACT_EMAIL = "hello@bentoaiii.com";
 const PUBLIC_CONTACT_PATTERN =
   /hello@bentoaiii\.com|ryanteo0628@gmail\.com|https?:\/\/(www\.)?linkedin\.com\/in\/ryanteo101\/?|linkedin\.com\/in\/ryanteo101\/?/i;

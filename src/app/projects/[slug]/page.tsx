@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 
 import { FinalCta } from "@/components/final-cta";
 import { Reveal } from "@/components/motion/reveal";
-import { SectionHeading } from "@/components/section-heading";
 import { StatusBadge } from "@/components/status-badge";
 import { getSharedCtas } from "@/lib/cta";
 import { getCurrentLocale } from "@/lib/get-locale";
@@ -100,21 +99,27 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
               </div>
 
               <div className="surface p-6">
-                <p className="neo-microcopy">{projectCopy.stageLabel}</p>
-                <p className="mt-3 text-sm leading-7 text-[rgb(var(--ink))]">
+                <p className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-[rgb(var(--ink-muted))]">
+                  {projectCopy.stageLabel}
+                </p>
+                <p className="mt-2.5 text-sm leading-7 text-[rgb(var(--ink))]">
                   {project.currentStatus.stage}
                 </p>
 
                 <div className="mt-6 border-t border-[rgb(var(--outline)/0.72)] pt-5">
-                  <p className="neo-microcopy">{projectCopy.publicDemoLabel}</p>
-                  <p className="mt-3 text-sm leading-7 text-[rgb(var(--ink-soft))]">
+                  <p className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-[rgb(var(--ink-muted))]">
+                    {projectCopy.publicDemoLabel}
+                  </p>
+                  <p className="mt-2.5 text-sm leading-7 text-[rgb(var(--ink-soft))]">
                     {project.visual.publicDemo}
                   </p>
                 </div>
 
                 {project.visual.projectLink ? (
                   <div className="mt-6 border-t border-[rgb(var(--outline)/0.72)] pt-5">
-                    <p className="neo-microcopy">{projectCopy.projectLinkLabel}</p>
+                    <p className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-[rgb(var(--ink-muted))]">
+                      {projectCopy.projectLinkLabel}
+                    </p>
                     <a
                       href={project.visual.projectLink.href}
                       className="mt-3 inline-flex text-sm font-medium leading-7 text-[rgb(var(--ink))] underline decoration-[rgb(var(--outline))] underline-offset-4"
@@ -134,12 +139,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
       <section className="site-section-tight">
         <div className="shell">
           <Reveal>
-            <SectionHeading
-              eyebrow={projectCopy.problemEyebrow}
-              title="Where the current workflow breaks."
-              description={project.problem}
-              compact
-            />
+            <ProjectSectionIntro title={projectCopy.problemEyebrow} description={project.problem} />
           </Reveal>
         </div>
       </section>
@@ -147,12 +147,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
       <section className="site-section-tight">
         <div className="shell">
           <Reveal>
-            <SectionHeading
-              eyebrow={projectCopy.whatItDoesEyebrow}
-              title="What the product is designed to carry forward."
-              description={project.whatItDoes}
-              compact
-            />
+            <ProjectSectionIntro title={projectCopy.whatItDoesEyebrow} description={project.whatItDoes} />
           </Reveal>
         </div>
       </section>
@@ -160,23 +155,18 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
       <section className="site-section-tight">
         <div className="shell">
           <Reveal>
-            <SectionHeading
-              eyebrow={projectCopy.coreWorkflowEyebrow}
-              title="A structured progression from entry to usable state."
-              description="Each project moves from fragmented input toward an updated workflow state that can be reviewed and continued."
-              compact
-            />
+            <ProjectSectionIntro title={projectCopy.coreWorkflowEyebrow} />
           </Reveal>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-8 grid gap-x-8 gap-y-6 md:grid-cols-2 xl:grid-cols-3">
             {project.coreWorkflow.map((step, index) => (
               <Reveal key={step} delay={0.05 * index}>
-                <div className="surface p-6">
-                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[rgb(var(--ink-muted))]">
+                <article className="border-t border-[rgb(var(--outline)/0.72)] pt-4">
+                  <p className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-[rgb(var(--ink-muted))]">
                     Step 0{index + 1}
                   </p>
-                  <p className="mt-4 text-[0.98rem] leading-7 text-[rgb(var(--ink))]">{step}</p>
-                </div>
+                  <p className="mt-3 text-[0.96rem] leading-7 text-[rgb(var(--ink))]">{step}</p>
+                </article>
               </Reveal>
             ))}
           </div>
@@ -186,25 +176,20 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
       <section className="site-section-tight">
         <div className="shell">
           <Reveal>
-            <SectionHeading
-              eyebrow={projectCopy.coreFeaturesEyebrow}
-              title="Core features in the current product shape."
-              description="The feature layer stays focused on workflow clarity, retained state, and usable follow-through."
-              compact
-            />
+            <ProjectSectionIntro title={projectCopy.coreFeaturesEyebrow} />
           </Reveal>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-8 grid gap-x-10 gap-y-6 md:grid-cols-2">
             {project.coreFeatures.map((feature, index) => (
               <Reveal key={feature.title} delay={0.05 * index}>
-                <div className="surface h-full p-6">
-                  <h3 className="text-[1.08rem] font-semibold leading-[1.05] tracking-[-0.04em] text-[rgb(var(--ink))]">
+                <article className="border-t border-[rgb(var(--outline)/0.72)] pt-4">
+                  <h3 className="text-[1rem] font-semibold leading-[1.08] tracking-[-0.04em] text-[rgb(var(--ink))]">
                     {feature.title}
                   </h3>
-                  <p className="mt-4 text-sm leading-7 text-[rgb(var(--ink-soft))]">
+                  <p className="mt-3 text-sm leading-7 text-[rgb(var(--ink-soft))]">
                     {feature.body}
                   </p>
-                </div>
+                </article>
               </Reveal>
             ))}
           </div>
@@ -212,32 +197,69 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
       </section>
 
       <section className="site-section-tight">
-        <div className="shell grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
-          <Reveal className="surface p-8">
-            <span className="section-kicker sticker-rotate-1">{projectCopy.differentiationEyebrow}</span>
-            <h2 className="mt-5 text-[2rem] font-semibold leading-[0.98] tracking-[-0.06em] text-[rgb(var(--ink))]">
-              What this product is not trying to be.
-            </h2>
-
-            <div className="mt-6 space-y-3">
-              {project.differentiation.not.map((item) => (
-                <div
-                  key={item}
-                  className="border-t border-[rgb(var(--outline)/0.72)] pt-3 text-sm leading-7 text-[rgb(var(--ink-soft))] first:border-t-0 first:pt-0"
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
+        <div className="shell">
+          <Reveal>
+            <ProjectSectionIntro title={projectCopy.differentiationEyebrow} />
           </Reveal>
 
-          <Reveal delay={0.06} className="surface p-8">
-            <span className="section-kicker sticker-rotate-3">{projectCopy.differentiationEyebrow}</span>
-            <h2 className="mt-5 text-[2rem] font-semibold leading-[0.98] tracking-[-0.06em] text-[rgb(var(--ink))]">
-              Where the value actually comes from.
-            </h2>
-            <p className="mt-6 text-base leading-8 text-[rgb(var(--ink-soft))]">
-              {project.differentiation.value}
+          <div className="mt-8 grid gap-10 lg:grid-cols-[0.88fr_1.12fr]">
+            <Reveal>
+              <div className="border-t border-[rgb(var(--outline)/0.72)] pt-4">
+                <p className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-[rgb(var(--ink-muted))]">
+                  Not trying to be
+                </p>
+                <div className="mt-4 space-y-3">
+                  {project.differentiation.not.map((item) => (
+                    <div
+                      key={item}
+                      className="border-t border-[rgb(var(--outline)/0.66)] pt-3 text-sm leading-7 text-[rgb(var(--ink-soft))] first:border-t-0 first:pt-0"
+                    >
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.06}>
+              <div className="border-t border-[rgb(var(--outline)/0.72)] pt-4">
+                <p className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-[rgb(var(--ink-muted))]">
+                  Value
+                </p>
+                <p className="mt-4 max-w-[42rem] text-[0.98rem] leading-8 text-[rgb(var(--ink-soft))]">
+                  {project.differentiation.value}
+                </p>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      <section className="site-section-tight">
+        <div className="shell">
+          <Reveal>
+            <ProjectSectionIntro
+              title={projectCopy.bentoAngleEyebrow}
+              description={project.bentoAngle.summary}
+            />
+          </Reveal>
+
+          <div className="mt-8 grid gap-x-8 gap-y-6 md:grid-cols-3">
+            {project.bentoAngle.layers.map((layer, index) => (
+              <Reveal key={layer.title} delay={0.05 * index}>
+                <div className="border-t border-[rgb(var(--outline)/0.72)] pt-4">
+                  <p className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-[rgb(var(--ink-muted))]">
+                    {layer.title}
+                  </p>
+                  <p className="mt-3 text-sm leading-7 text-[rgb(var(--ink-soft))]">{layer.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={0.16}>
+            <p className="mt-8 max-w-3xl text-base leading-8 text-[rgb(var(--ink-soft))]">
+              {project.bentoAngle.conclusion}
             </p>
           </Reveal>
         </div>
@@ -246,106 +268,73 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
       <section className="site-section-tight">
         <div className="shell">
           <Reveal>
-            <SectionHeading
-              eyebrow={projectCopy.bentoAngleEyebrow}
-              title="The product surface sits on a broader operating model."
-              description={project.bentoAngle.summary}
-              compact
+            <ProjectSectionIntro
+              title={projectCopy.currentStatusEyebrow}
+              description={`${projectCopy.stageLabel}: ${project.currentStatus.stage}`}
             />
           </Reveal>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {project.bentoAngle.layers.map((layer, index) => (
-              <Reveal key={layer.title} delay={0.05 * index}>
-                <div className="surface h-full p-6">
-                  <p className="neo-microcopy">{layer.title}</p>
-                  <p className="mt-4 text-sm leading-7 text-[rgb(var(--ink-soft))]">{layer.body}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-
-          <Reveal delay={0.16} className="mt-6 surface p-7">
-            <p className="text-base leading-8 text-[rgb(var(--ink-soft))]">{project.bentoAngle.conclusion}</p>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="site-section-tight">
-        <div className="shell">
-          <Reveal>
-            <SectionHeading
-              eyebrow={projectCopy.currentStatusEyebrow}
-              title="What is already in place and what comes next."
-              description={project.currentStatus.stage}
-              compact
-            />
-          </Reveal>
-
-          <Reveal delay={0.08} className="mt-10 surface p-8">
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="project-chip bg-[rgb(var(--surface-container-high))] text-[rgb(var(--ink-soft))]">
-                {projectCopy.stageLabel}
-              </span>
-              <p className="text-sm leading-7 text-[rgb(var(--ink))]">{project.currentStatus.stage}</p>
-            </div>
-
-            <div className="mt-8 grid gap-8 border-t border-[rgb(var(--outline)/0.72)] pt-8 md:grid-cols-2">
-              <StatusList
-                label={project.currentStatus.alreadyLabel}
-                items={project.currentStatus.already}
-              />
+          <div className="mt-8 grid gap-10 border-t border-[rgb(var(--outline)/0.72)] pt-6 md:grid-cols-2">
+            <Reveal delay={0.04}>
+              <StatusList label={project.currentStatus.alreadyLabel} items={project.currentStatus.already} />
+            </Reveal>
+            <Reveal delay={0.08}>
               <StatusList label={project.currentStatus.nextLabel} items={project.currentStatus.next} />
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
         </div>
       </section>
 
       <section className="site-section">
         <div className="shell">
           <Reveal>
-            <SectionHeading
-              eyebrow={projectCopy.visualDemoEyebrow}
-              title="What is currently available for review."
-              description="Public demo availability stays explicit. Where material is not public, the page only shows the current reviewable assets."
-              compact
-            />
+            <ProjectSectionIntro title={projectCopy.visualDemoEyebrow} />
           </Reveal>
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-            <Reveal className="surface p-8">
-              <p className="neo-microcopy">{projectCopy.availableMaterialsLabel}</p>
-              <div className="mt-6 space-y-3">
-                {project.visual.availableMaterials.map((item) => (
-                  <div
-                    key={item}
-                    className="border-t border-[rgb(var(--outline)/0.72)] pt-3 text-sm leading-7 text-[rgb(var(--ink-soft))] first:border-t-0 first:pt-0"
-                  >
-                    {item}
-                  </div>
-                ))}
+          <div className="mt-8 grid gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+            <Reveal>
+              <div className="border-t border-[rgb(var(--outline)/0.72)] pt-4">
+                <p className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-[rgb(var(--ink-muted))]">
+                  {projectCopy.availableMaterialsLabel}
+                </p>
+                <div className="mt-4 space-y-3">
+                  {project.visual.availableMaterials.map((item) => (
+                    <div
+                      key={item}
+                      className="border-t border-[rgb(var(--outline)/0.66)] pt-3 text-sm leading-7 text-[rgb(var(--ink-soft))] first:border-t-0 first:pt-0"
+                    >
+                      {item}
+                    </div>
+                  ))}
+                </div>
               </div>
             </Reveal>
 
-            <Reveal delay={0.08} className="surface p-8">
-              <p className="neo-microcopy">{projectCopy.publicDemoLabel}</p>
-              <p className="mt-4 text-sm leading-7 text-[rgb(var(--ink-soft))]">
-                {project.visual.publicDemo}
-              </p>
+            <Reveal delay={0.08}>
+              <div className="border-t border-[rgb(var(--outline)/0.72)] pt-4">
+                <p className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-[rgb(var(--ink-muted))]">
+                  {projectCopy.publicDemoLabel}
+                </p>
+                <p className="mt-4 text-sm leading-7 text-[rgb(var(--ink-soft))]">
+                  {project.visual.publicDemo}
+                </p>
 
-              {project.visual.projectLink ? (
-                <div className="mt-8 border-t border-[rgb(var(--outline)/0.72)] pt-6">
-                  <p className="neo-microcopy">{projectCopy.projectLinkLabel}</p>
-                  <a
-                    href={project.visual.projectLink.href}
-                    className="mt-3 inline-flex text-sm font-medium leading-7 text-[rgb(var(--ink))] underline decoration-[rgb(var(--outline))] underline-offset-4"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {project.visual.projectLink.label}
-                  </a>
-                </div>
-              ) : null}
+                {project.visual.projectLink ? (
+                  <div className="mt-8 border-t border-[rgb(var(--outline)/0.66)] pt-4">
+                    <p className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-[rgb(var(--ink-muted))]">
+                      {projectCopy.projectLinkLabel}
+                    </p>
+                    <a
+                      href={project.visual.projectLink.href}
+                      className="mt-3 inline-flex text-sm font-medium leading-7 text-[rgb(var(--ink))] underline decoration-[rgb(var(--outline))] underline-offset-4"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {project.visual.projectLink.label}
+                    </a>
+                  </div>
+                ) : null}
+              </div>
             </Reveal>
           </div>
         </div>
@@ -365,15 +354,37 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
   );
 }
 
+function ProjectSectionIntro({
+  title,
+  description
+}: {
+  title: string;
+  description?: string;
+}) {
+  return (
+    <div className="max-w-4xl space-y-4">
+      <h2 className="text-[1.9rem] font-semibold leading-[0.98] tracking-[-0.055em] text-[rgb(var(--ink))] md:text-[2.45rem]">
+        {title}
+      </h2>
+      {description ? (
+        <p className="max-w-3xl text-[0.98rem] leading-8 text-[rgb(var(--ink-soft))]">{description}</p>
+      ) : null}
+      <span className="block h-px max-w-xl bg-[rgb(var(--outline)/0.72)]" />
+    </div>
+  );
+}
+
 function StatusList({ label, items }: { label: string; items: string[] }) {
   return (
     <div>
-      <p className="neo-microcopy">{label}</p>
-      <div className="mt-5 space-y-3">
+      <p className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-[rgb(var(--ink-muted))]">
+        {label}
+      </p>
+      <div className="mt-4 space-y-3">
         {items.map((item) => (
           <div
             key={item}
-            className="border-t border-[rgb(var(--outline)/0.72)] pt-3 text-sm leading-7 text-[rgb(var(--ink-soft))] first:border-t-0 first:pt-0"
+            className="border-t border-[rgb(var(--outline)/0.66)] pt-3 text-sm leading-7 text-[rgb(var(--ink-soft))] first:border-t-0 first:pt-0"
           >
             {item}
           </div>
